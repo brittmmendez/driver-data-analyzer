@@ -1,0 +1,123 @@
+.product-catalog{
+  // min-height: 577px;
+  // margin-top: 100px;
+  .section{
+  padding-left: 0px;
+  padding-right: 0px;
+  }
+
+  .product-catalog-title{
+    padding-left: 1.25rem;
+  }
+  .product-catalog-item {
+    margin-bottom: 20px;
+    .box{
+      box-shadow: none;
+      max-width: 275px;
+      padding-bottom: 0px;
+      padding-top: 0px;
+    }
+
+    a{
+      h4{
+        border-bottom: 3px solid transparent;
+      }
+    }
+
+    a:hover{
+      h4{
+        border-bottom: 3px solid $dark-teal;
+      }
+    }
+
+    .product-options{
+      border-bottom: 1px solid rgba(219, 219, 219, 0.5);
+      margin-bottom: 10px;
+      padding-top: 15px;
+      padding-bottom: 5px;
+      color: $dark-teal;
+      font-family: $mukta-font;
+    }
+
+    .product-details{
+      margin-top: 0px;
+      margin-bottom: 0px;
+    }
+
+    .star-rating{
+      padding-left: 0px;
+      padding-right: 0px;
+      text-align: right;
+      width: 52%;
+      font-size: 15px;
+      color: $dark-teal;
+    }
+
+    .star-ratings .star-container .widget-svg .star {
+      fill: none;
+      stroke-dasharray: 1000;
+      stroke: $dark-teal;
+      stroke-width: 4px;
+      stroke-linejoin: round;
+    }
+
+    .pricing{
+      // padding-left: 0px;
+      padding-right: 0px;
+    }
+  }
+}
+
+
+@include mobile {
+  .product-catalog{
+    text-align: left;
+    padding-left: 50px;
+    .section{
+      padding-right: 7px;;
+      padding-left: 5px;
+    }
+
+    .product-catalog-title{
+      padding-left: 0px;
+      
+    }
+
+    .columns.is-centered {
+      justify-content: left;
+    }
+    
+    .product-catalog-item {
+      font-size: 14px;
+      margin: 10px auto;
+      
+      .box{
+        max-width: 150px;
+        padding-right: 0px;
+        padding-left: 0px;
+      }
+      
+      .product-image{
+        min-width:149px;
+        height:150px;
+      }
+
+      .star-rating{
+        padding-top: 0px;
+        padding-left: 0.75rem;
+        padding-right: 0px;
+        text-align: left;
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media (max-width: 375px) {
+  .product-catalog{
+    text-align: left;
+
+    padding-left: 20px;
+    padding-right: 0px;
+  }
+}

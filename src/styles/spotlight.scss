@@ -1,0 +1,112 @@
+.landing-page {
+    .spotlight {
+        text-align: center;
+        min-height: 375px;
+        // margin-bottom:40px;
+
+        .section{
+            padding-top: 30px;
+        }
+        
+        .content {
+            margin: 0% auto;
+            max-width: 1300px;
+        }
+
+        .column{
+            padding-left: 4%;
+            padding-right: 4%;
+        }
+
+        .spotlight-msg {
+            // margin-top: 20%;
+
+            h1 {
+                margin: 20px 0px;
+                margin-bottom: 25px;
+            }
+
+            p{
+                margin-bottom: 40px;
+            }
+        }
+
+        .spotlight-img {
+            max-width: 100%;
+            // position: absolute;
+            // right: 0;
+            // // height: 295px;
+            // // height: 46%;
+            // top: 107px;
+        }
+
+        .join-button{
+            margin-top: 8px;
+            height: 56px;
+            width: 284.36px;
+        }
+    }
+}
+@media (max-width: 1150px) {
+    .landing-page{
+        .spotlight {
+            .column.is-6 {
+                width: 41.66667%;
+            }
+        }
+    }
+}
+
+@media (max-width: 1050px) {
+    .landing-page{
+        .spotlight {
+            margin-bottom: 0px;
+            .section{
+                padding: 0rem 1rem 1rem
+            }
+
+            .reverse-column-order {
+            display: flex;
+            flex-direction: column-reverse;
+            }
+
+            // .spotlight-img {
+            //     right: 0;
+            //     height: 295px;
+            //     top: 80px;
+            // }
+            
+            .content {
+                margin: 0%
+            }
+
+            .column.is-6 {
+                width: 100%
+            }
+
+            .spotlight-msg{
+                // margin-top: 280px;
+                // margin-top: 115%;
+                // text-align: center;
+        
+                .button{
+                    margin-bottom: 32px;
+                }
+            }
+        }
+    }
+}
+
+@include mobile{
+    .landing-page{
+        .spotlight {
+            .section{
+                .join-button{
+                    width: 100%;
+                    // width: 284.36px;
+                }
+
+            }
+        }
+    }
+}

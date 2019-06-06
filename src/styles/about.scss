@@ -1,0 +1,74 @@
+.about-page {
+    padding-top: 42px;
+    padding-bottom: 90px;
+    
+    .about-title{
+        font-size: 23px;
+    }
+    
+    .section-title{
+        padding-bottom: 12px;
+        font-size: 18px;
+        line-height: 22px;
+    }
+
+    .brand-spotlight{
+        margin-bottom: 20px;
+    }
+    
+    .brand-team{
+        padding-right: 350px;
+        margin-bottom: 60px;
+
+        .columns{
+            margin-top: 20px;
+        }
+    }
+
+    .parent-company{
+    }
+}
+
+
+@include touch {
+    .about-page {
+        .brand-spotlight{
+            padding: 0px 25px;
+            margin-bottom: 40px;
+        }
+        
+        .brand-team{
+            padding: 0px 25px;
+            margin-bottom: 40px;
+            
+            .columns{
+                margin-top: 20px;
+                text-align: center;
+            }
+        }
+        
+        .parent-company{
+            padding: 0px 25px;
+        }
+        
+    }    
+}
+
+@media (max-width: 600px) {
+    .parent-company{
+        .column{
+            width: 50%;
+        }
+                            
+    }
+
+}
+
+@media (max-width: 420px) {
+
+    .brand-team{
+        .columns{
+            justify-content: center;
+        }
+    }
+}

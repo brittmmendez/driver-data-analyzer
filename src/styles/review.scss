@@ -1,0 +1,294 @@
+.product-review{
+    .review-body{
+        padding: 35px 0 30px 0;
+        // color: $text;
+        // font-family: $family-primary;
+        // font-size: $body-size;
+
+        .review-date {
+            // opacity: 0.7;
+        }
+
+        .review-title {
+            // font-size: $title-size;
+            padding: 5px 0 0px 0;
+        }
+
+    }
+
+    .star-rating-filter{
+        cursor:pointer;
+        color: $dark-teal;
+    }
+
+    .ratings-and-reviews{
+        .star-ratings{  
+            .star-container{
+                .widget-svg{
+                    .star{
+                    fill: none;
+                    stroke-dasharray: 1000;
+                    stroke: $dark-teal;
+                    stroke-width: 4px;
+                    stroke-linejoin: round;
+                    }
+                } 
+            }
+        }
+        .star-count-grouping{
+            // float: right;
+        }
+
+        .star-count-grouping:hover{
+            border-bottom: 2px solid $neon-blue;
+        }
+
+        .star-count-grouping:active{
+            background-color: transparent;	
+            border-image: linear-gradient(to left, $pastel-purple 0%, $dark-purple 52.54%, $neon-blue 100%) 0 0 100% 0/0 0 3px 0;
+          }
+    }
+
+    .columns.is-mobile > .column.is-7 {
+        display:flex;
+        flex-direction:column;
+        justify-content:space-around;
+
+        svg{
+            cursor: pointer;
+            max-height: 13px
+        }
+    }
+
+    .filter{
+        position: relative;
+        margin-bottom: 90px;
+        margin-right: 0px;
+        // font-size: 16px;
+
+        .css-77ckp7:hover{
+            border-color: $dark-teal;
+        }
+
+        .css-z5z6cw {
+            background-color: $dark-teal;
+        }
+        .css-1wy0on6 {
+            background-color: $dark-teal;
+        }
+        
+        .css-2o5izw {
+            border-radius: 1px;
+            border-image: linear-gradient(to left, $pastel-purple 0%, $dark-purple 52.54%, $neon-blue 100%);
+            border-image-slice: 1;
+            border-width: 4px;
+            background-color: transparent;
+            box-shadow: none;
+            
+        }
+
+        .css-10nd86i{
+            text-align: left;
+            width: 195px;
+            position: absolute;
+            right: -10px;
+            top: 95px;
+            
+            .css-1oubc3t{
+                border-color: $dark-teal;
+                
+            }
+            
+            .css-vj8t7z{
+                border-color: $dark-teal;
+                border-radius: 1px 0 0 1px;
+                
+            }
+            
+            .css-1uq0kb5{
+                background-color: $dark-teal;
+                border-color: $dark-teal;
+                color: white;
+            }
+          
+
+            .css-1ep9fjw{
+                background-color: $dark-teal;
+                border-color: $dark-teal;
+                color: white;
+            }
+
+            .css-d8oujb{
+                background-color: $dark-teal;
+                border-color: $dark-teal;
+                width: 0px;
+            }
+
+            .css-xp4uvy{
+                color: $dark-teal;
+            }
+        }
+    }
+
+    .total-reviews{
+        font-size: 16px;
+        height: 48px;
+        border-bottom: 2px solid $natural-gray;
+        margin-bottom: 10px;
+        
+        
+        .pagination {
+            justify-content: center;
+            list-style: none;
+            margin-left: 0;
+            margin-top: 0;
+
+            .disabled{
+                pointer-events: none;
+                cursor: pointer;
+                a{
+                    color: #DDDEDF
+                }
+            }
+
+            .page-link {
+                min-width:  25px;
+                height: 22.5px;	
+                border-style: solid;
+                border-top: none;
+                border-right: none;
+                border-left: none;
+                border-color: transparent;
+	            border-radius: 1px;
+                border-width: 4px;
+            }
+
+            .page-link:hover{
+                border-bottom: 2px solid $dark-teal;
+            }
+
+            .page-link:active{
+                border-radius: 1px;
+                border-width: .5px;
+                // -moz-border-image: -moz-linear-gradient(to right, #002C73 0%, #3F9EDF 100%) 0 0 100% 0/0 0 2px 0;
+                // -webkit-border-image: -webkit-linear-gradient(to right, #002C73 0%, #3F9EDF 100%) 0 0 100% 0/0 0 2px 0;
+                // border-image: linear-gradient(to right, #002C73 0%, #3F9EDF 100%) 0 0 100% 0/0 0 2px 0;
+                // -webkit-border-image-slice: .5;                
+                border-image-slice: .5;
+                border-image: linear-gradient(to left, $pastel-purple 0%, $dark-purple 52.54%, $neon-blue 100%) 0 0 100% 0/0 0 2px 0;
+            }
+
+            a{
+                color: $dark-teal;
+            }
+            .active{
+                // border-bottom: 5px solid navy;
+                // border-width: 5px;
+                border-style: solid;
+                border-top: none;
+                border-right: none;
+                border-left: none;
+	            border-radius: 1px;
+                border-width: .5px;
+
+                // -moz-border-image: -moz-linear-gradient(to right, #002C73 0%, #3F9EDF 100%) 0 0 100% 0/0 0 2px 0;
+                // -webkit-border-image: -webkit-linear-gradient(to right, #002C73 0%, #3F9EDF 100%) 0 0 100% 0/0 0 2px 0;
+                // border-image: linear-gradient(to right, #002C73 0%, #3F9EDF 100%) 0 0 100% 0/0 0 2px 0;
+                // -webkit-border-image-slice: .5;                
+                border-image-slice: .5;
+                border-image: linear-gradient(to left, $pastel-purple 0%, $dark-purple 52.54%, $neon-blue 100%) 0 0 100% 0/0 0 2px 0;
+               
+                a{
+                    color: $dark-teal;
+                }
+            }
+
+            .item-class-prev{
+                border: none;
+                margin-right:10px;
+            }
+
+            .item-class-next{
+                border: none;
+                margin-left:10px;
+            }
+        }
+
+        .reviews-per-page{
+            a{
+                color: $dark-teal;
+                border-style: solid;
+                border-top: none;
+                border-right: none;
+                border-left: none;
+                border-color: transparent;
+	            border-radius: 1px;
+                border-width: 4px;
+            }
+
+            a:hover{
+                border-bottom: 2px solid $dark-teal;
+            }
+            
+            .active{
+                border-bottom: 5px solid navy;
+                border-radius: 1px;
+                border-image: linear-gradient(to left, $pastel-purple 0%, $dark-purple 52.54%, $neon-blue 100%) 0 0 100% 0/0 0 2px 0;
+                border-image-slice: .5;
+                border-width: 2px;
+                border-image: linear-gradient(to left, $pastel-purple 0%, $dark-purple 52.54%, $neon-blue 100%) 0 0 100% 0/0 0 2px 0;
+            }
+            .active{
+                border-bottom: 5px solid navy;
+                border-radius: 1px;
+                border-image: linear-gradient(to left, $pastel-purple 0%, $dark-purple 52.54%, $neon-blue 100%) 0 0 100% 0/0 0 2px 0;
+                border-image-slice: .5;
+                border-width: 2px;
+                border-image: linear-gradient(to left, $pastel-purple 0%, $dark-purple 52.54%, $neon-blue 100%) 0 0 100% 0/0 0 2px 0;
+            }
+        }
+    }
+
+    .is-hidden-mobile{
+        .total-reviews{
+            border-top: 2px solid #D2E4F0;
+            border-bottom: none
+        }
+    }
+}
+
+.has-border-bottom:not(:last-child){
+    border-bottom: 1px solid $natural-gray;
+}
+
+@include mobile {
+    .product-review{
+        .total-reviews{
+            font-size: 14px
+        };
+
+        .load-more-reviews{
+            margin-top: 50px;
+            padding-top: 15px;
+            cursor:pointer;
+            height: 56px;	
+            width: 165px;
+            margin-bottom: 30px;
+        }
+
+        .filter{
+            margin-bottom: 50px;
+            .css-10nd86i {
+                text-align: left;
+                width: 100%;
+                position: absolute;
+                right: 0px;
+                top: 0px;
+            }
+        }
+    }
+
+    .has-border-bottom{
+        border-bottom: 1px solid $natural-gray;
+    }
+}

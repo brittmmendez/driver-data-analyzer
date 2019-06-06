@@ -1,0 +1,235 @@
+/* Import a Google Font */
+@import url('https://fonts.googleapis.com/css?family=Overpass:400,900&font-display=swap');
+@import url('https://fonts.googleapis.com/css?family=Mukta:400,800&font-display=swap');
+
+
+// ***** TYPE STYLES *****
+$overpass-font: 'Overpass', sans-serif;
+$mukta-font: 'Mukta', sans-serif;
+
+
+// Primary Colors
+$pastel-purple: #A95AA3;
+$neon-blue: #4FC5F2;
+$dark-purple: #614495;
+$dark-teal: #225C73;
+$natural-light-gray: #E6ECF1;
+$natural-gray: #C5CAD3;
+$natural-dark-gray: #40465F;
+$gradient: linear-gradient(315deg, $pastel-purple 0%, $dark-purple 52.54%, $neon-blue 100%);
+
+
+// Tertiary Color
+$bright-red: #DF2742;
+
+body {
+    color: $natural-dark-gray;
+    font-family:$mukta-font;
+}
+
+strong{
+    color: $natural-dark-gray;
+}
+
+.content{
+    strong{
+        color: $natural-dark-gray;
+    }
+
+    h1 {
+        font-family: $overpass-font;
+        font-size: 38px;
+        font-weight: bold;
+        color: $natural-dark-gray;
+    };
+
+    h2 {
+        font-family: $overpass-font;
+        font-size: 30px;
+        font-weight: bold;
+        color: $natural-dark-gray;
+    }
+
+    h3 {
+        font-family: $overpass-font;
+        font-size: 20px;
+        font-weight: bold;
+        color: $natural-dark-gray;
+    }
+
+    h4 {
+        font-family: $mukta-font;
+        font-size: 17px;
+        font-weight: bold;
+        color: $natural-dark-gray;
+    }
+
+    p {
+        font-family: $mukta-font;
+        font-size: 17px;
+        font-weight: normal;
+        color: $natural-dark-gray;
+    }
+
+    // .btn-text{
+    //     font-family: $mukta-font;
+    //     font-size: 17px;
+    //     font-weight: normal;
+    //     color: $dark-purple;
+    // }
+
+
+    // .small-btn-text{
+    //     font-family: $mukta-font;
+    //     font-size: 14px;
+    //     font-weight: normal;
+    //     color: $dark-purple;
+    // }
+
+    .footer-header{
+        font-family: $overpass-font;
+        font-size: 14px;
+        font-weight: bold;
+        color: $natural-dark-gray;
+    }
+
+    .footer-text{
+        font-family: $overpass-font;
+        font-size: 14px;
+        font-weight: bold;
+        color: $dark-teal;
+    }
+
+    .sub-header{
+        font-family: $mukta-font;
+        font-size: 14px;
+        font-weight: normal;
+        color: $natural-dark-gray;
+    }
+
+    .sub-header-bold{
+        font-family: $mukta-font;
+        font-size: 14px;
+        font-weight: bold;
+        color: $natural-dark-gray;
+    }
+
+    .sub-text{
+        font-family: $mukta-font;
+        font-size: 14px;
+        font-weight: normal;
+        color: $natural-dark-gray;
+    }
+
+    // .sub-text-bold{
+    //     font-family: $mukta-font;
+    //     font-size: 14px;
+    //     font-weight: bold;
+    //     color: $dark-teal;
+    // }
+
+    .error{
+        font-family: $mukta-font;
+        font-size: 14px;
+        color: $bright-red;
+    }
+
+    .primary-btn{
+        cursor: pointer;
+        height: 56px;
+        background-color: $dark-teal;	
+        box-shadow: 0 2px 4px 0 rgba(0,0,0,0.5);
+        color: white;
+        font-family: $overpass-font;
+        font-size: 18px;
+        line-height: 20px;	
+        text-align: center;
+        border: none;
+        border-radius: 1px;
+        text-transform: uppercase;
+        font-weight: bold;
+        max-width: 450px; 
+    }
+
+    .primary-btn:hover{
+        color: white;
+        background-color: $pastel-purple;
+    }
+
+    .primary-btn:active {
+        background-color: $dark-purple;
+    }
+
+    .submitting.primary-btn {
+        background-color: $dark-purple;
+    }
+
+    .secondary-btn{
+        cursor: pointer;
+        background-color: white;	
+        box-shadow: 0 2px 4px 0 rgba(0,0,0,0.25);
+        color: $dark-teal;
+        font-family: $overpass-font;
+        font-size: 18px;
+        line-height: 20px;	
+        text-align: center;
+        border: 2px solid $dark-teal;
+        border-radius: 1px;
+        text-transform: uppercase;
+        font-weight: bold; 
+        max-width: 450px;
+    }
+    
+    .secondary-btn:hover{
+        color: $pastel-purple;
+        border: 2px solid $pastel-purple;
+    }
+    
+    .secondary-btn:active {
+        color:  $dark-purple;
+        border: 2px solid $dark-purple;
+    }
+    
+    .submitting.secondary-btn {
+        border: 2px solid $dark-purple;
+    }
+    
+    .disabled-btn{
+        background-color: $natural-light-gray;
+        color: $natural-gray;	
+        border: none;
+        font-family: $overpass-font;
+        font-size: 18px;
+        line-height: 20px;	
+        text-align: center;
+        border-radius: 1px;
+        opacity: 1;
+        text-transform: uppercase;
+        font-weight: bold; 
+    }
+}
+
+
+@include mobile{
+    .content{
+        h1 {
+            font-size: 30px;
+        };
+    
+        h2 {
+            font-size: 30px;
+        }
+    
+        h3 {
+            font-size: 20px;
+        }
+    
+        h4 {
+            font-size: 17px;
+        }
+    
+        p {
+            font-size: 17px;
+        }
+    }
+}

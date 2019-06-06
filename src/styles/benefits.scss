@@ -1,0 +1,52 @@
+.landing-page {
+    .benefits {
+        .content {
+            margin: 5px auto;
+            margin-bottom: 30px;
+            max-width: 1250px;
+        }
+        
+        .benefits-msg{
+            max-width: 600px; 
+            margin: 0px auto;
+            margin-bottom: 20px;
+        }
+    
+        img {
+            height: 201px;	
+            width: 201px;
+        }
+    }
+
+    @include mobile {
+        .benefits {
+            padding: 3rem 3rem 1rem;
+            padding-top: 0px;
+
+            .title{
+                margin-top: 45px;
+                margin-bottom: 25px;
+            }
+        
+            .content {
+                text-align: center;
+            }
+
+            .columns {                
+                .column{
+                    margin: 0px;
+                    padding: 9px 0px;
+                }
+            }
+            
+            img {
+                height: 201px;	
+                width: 201px;
+            }
+
+            .benefits-msg{
+                margin-bottom: 25px;
+            }
+        }
+    }
+}

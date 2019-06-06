@@ -1,0 +1,21 @@
+.error-modal{
+    .modal-background {
+        background: linear-gradient(270deg, $neon-blue 0%, $dark-purple 49.45%, $pastel-purple 100%);
+        opacity: 0.5;
+    }
+
+    .modal-card-body{
+        padding: 30px 55px;
+        border: 4px solid $bright-red;
+    }
+
+    h2{
+        margin-bottom: 25px;
+    }
+
+    button{
+        margin-top: 30px;
+        height: 56px;	
+        width: 284.36px;
+    }
+}

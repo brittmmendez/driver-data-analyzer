@@ -1,0 +1,5 @@
+
+User-Agent: *
+Allow: /
+
+Sitemap: https://myuplift.co/sitemap.xml

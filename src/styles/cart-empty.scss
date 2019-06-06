@@ -1,0 +1,37 @@
+.empty-cart {
+    // min-height: 430px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 75vh;
+
+    .content{
+        margin-top: 60px;
+
+        h1{
+            margin-bottom: 25px;
+        }
+
+        .shop-btn {
+            margin-top: 43px;
+            height: 56px;
+            width: 284.36px;
+         }
+
+    }
+}
+
+@include mobile{
+    .empty-cart {
+        height: 100%;
+        .content{
+            margin-top: 0px;
+            margin-bottom: 80px;
+
+            .shop-btn{
+                width: 100%;
+                margin-top: 20px;
+            }
+        }
+    }
+}

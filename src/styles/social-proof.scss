@@ -1,0 +1,184 @@
+.landing-page {
+    .social-proof {
+        padding-top: 30px;
+        padding-right: 100px;
+        padding-left: 100px;
+        margin-bottom: 0px;
+        min-height: 400px;
+        background-position: center; /* Center the image */
+        background-repeat: no-repeat; /* Do not repeat the image */
+        background-size: cover; /* Resize the background image to cover the entire container */
+        
+    .slick-slide img {
+        display: inline;
+        }
+
+        .group-message {
+            margin-top: 60px;
+        }
+
+         .slick-prev, .slick-next {
+            height: 35px;
+            width: 35px;
+            border: 1px solid white;
+            border-radius: 1px;
+            background-color: transparent;
+            padding-bottom: 8px;
+            padding-left: 3px;
+        }
+
+        .slick-prev:hover,.slick-next:hover{
+            border: 3px solid white;
+        }
+
+        .slick-next:before {
+            content: url('../static/images/Carrot-Right.svg');
+        }
+
+        .slick-prev:before {
+            content: url('../static/images/Carrot-Left.svg');
+        }
+
+        .slick-dots {
+            bottom: -35px;
+        }
+
+        .slick-dots li button::before {
+            font-size: 10px;
+            color: $dark-purple;
+            opacity: 1;
+            width: 12px;
+            height: 12px;
+            margin-top: 5px;
+        }
+        
+        .slick-dots li.slick-active button:before {
+            color: $pastel-purple;
+            opacity: 1;
+        }
+
+        .content {
+            margin: 5px auto;
+            max-width: 1150px;
+
+            ul{
+                margin :0px auto;
+            }
+        }
+
+        .title{
+            margin-bottom: 45px;
+            margin-top: 10px;
+        }
+
+        
+        .columns {
+            margin: 0px 35px;
+            background-color: transparent;
+            padding-left: 60px;
+            padding-right: 60px;
+            
+            .column{
+                min-height: 172px;
+                border: 4px solid $pastel-purple;
+            }
+        }
+
+        .social-img {
+            margin: 30px 25px;
+        }
+        
+        .social-msg {
+            margin: auto;
+            padding: 5%
+        }
+        
+        .social-quote{
+            margin: 0px;
+            margin-bottom: 10px;
+        }
+        
+        .social-name{
+            margin-bottom: 10px;
+
+        }
+
+        .social-quote {
+            font-size: 23px;
+            line-height: 28px;
+        }
+    }
+
+    @include mobile {
+        .social-proof {
+            padding: 3rem 1.5rem;
+            padding-bottom: 75px;
+            
+            .title{
+                padding: 0px 30px;
+                margin-bottom: 20px;
+            }
+            .social-quote {
+                font-size: 18px;
+                line-height: 16pt;
+            }
+            
+            .social-img {
+                height: 95px;	
+                margin: 0px auto;
+                margin-top: 20px;
+            }
+            
+            .social-name {
+                font-size: 14px;
+            }
+
+            .social-msg {
+                margin: 0px auto;
+                // padding: 0px 20px;
+            }
+
+            .content {
+                margin: 5px 6%;
+            }
+
+            .columns {
+                margin: 0px;
+                padding: 10px;
+
+                // .column{
+                //     border: none;
+                // }
+            }
+
+            .slick-dots {
+                bottom: -30px;
+                z-index: 0;
+                li {
+                    margin: 0px;
+                }
+            }
+
+            .slick-prev {
+                position: absolute;
+                // top: 213px;
+                top: 113%;
+                left: 1px;
+                z-index: 1;
+                cursor: pointer;
+            }
+            
+            .slick-next {
+                cursor: pointer;
+                position: absolute;
+                top: 113%;
+                // top: 213px;
+                right: 1px;
+                z-index: 1;
+
+            }
+    
+        }
+    }
+
+}

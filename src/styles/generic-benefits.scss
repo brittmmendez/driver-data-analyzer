@@ -1,0 +1,43 @@
+.landing-page {
+    .generic-benefits {
+        background-color: #eeeeee;
+        
+        .content {
+            margin: 5px 12%;
+        }
+        
+        img {
+            height: 217.84px;
+            width: 278.38px; 
+        }
+
+        .columns {
+            margin: 0px -5%;
+        }
+
+        .callout-title{
+           margin-top: -50px;
+        }  
+    }
+
+    @include mobile {
+        .generic-benefits {
+            .content {
+                text-align: center;
+                margin: 5px 30px;
+            }
+
+            .columns {                
+                .column{
+                    margin: 0px;
+                    padding: 9px 0px;
+                }
+            }
+            
+            img {
+                height: 92.77px;
+                width: 278.38px;
+            }
+        }
+    }
+}

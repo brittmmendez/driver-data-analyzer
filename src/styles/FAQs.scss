@@ -1,0 +1,262 @@
+.faq-page {   
+    // margin-top: 95px;
+
+    .faq-title{
+        padding-top: 78px;
+    }
+  
+    .section-title{
+        padding-top: 20px;
+        padding-bottom: 20px;
+        position: relative;
+        div{
+            position: absolute;
+            border: 4px solid $neon-blue;
+            left: -600px;
+            right: 142px;
+            top: 2px;
+            padding: 25px;
+            transform-origin: bottom left;
+            -ms-transform: skew(-30deg, 0deg);
+            -webkit-transform: skew(-30deg, 0deg);
+            transform: skew(-30deg, 0deg);
+        }
+    }
+    
+    .entry-group{
+        margin-bottom: 40px;
+        max-width: 700px;
+
+        ul {
+            list-style:disc;
+        }
+
+        .qa{
+            margin-top: 20px;
+            margin-bottom: 35px;
+        
+            .question {
+                list-style-image: url('../static/images/svg/Question.svg');
+            }
+            .answer {
+                list-style-image: url('../static/images/svg/Answer.svg');
+            }
+        }
+    }
+
+    .back-to-top{
+        height: 56px;
+        width: 284.36px;
+        margin-top: 5px;
+        margin-bottom: 50px;
+        text-decoration: none;
+    }
+
+    a{
+      color: $dark-purple;
+      text-decoration: underline;
+    }
+
+    .support-column{
+      padding-top: 41px;
+    }
+
+    .customer-support-box {
+      margin: 0px;
+      float: right;
+
+      a{
+          text-decoration: none;
+      }
+  }
+}
+
+@include touch {
+  .faq-page {
+    .body{
+      padding: 0px 25px;
+    }    
+
+    
+  }
+}
+
+.RRT__container{
+    background-color: $natural-light-gray;
+    border: 1px solid $dark-teal;
+    margin-top: 51px;
+    margin: 24px auto;
+  
+    .RRT__panel.panel {
+      min-height: 110px;
+    line-height: 17px;
+    margin: 30px 70px;
+  
+    ul{
+      list-style-type: disc;
+    }
+  
+    p{
+      line-height: 20px;
+      margin-bottom: 25px;
+    }
+  
+  
+    @media only screen and (min-width: 821px)
+      {
+        margin: 40px 70px;
+      }
+    }
+      .RRT__panel.panel {
+        margin-top: 0px;
+        margin-left: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+        padding-bottom: 10px;
+        
+        li{
+          margin-left: 10px;
+          line-height: 20px;
+          margin-bottom: 15px;
+        }
+  
+      }
+ 
+  
+    .RRT__tab::after{
+      @media only screen and (max-width: 820px)
+        // @include mobile
+        {
+          border: 1px solid $natural-dark-gray;
+          border-radius: 1px;
+          border-right: 0;
+          border-top: 0;
+          content: " ";
+          display: block;
+          height: 10px;
+          pointer-events: none;
+          position: absolute;
+          right: 30px;
+          top: 40px;
+          -webkit-transform: rotate(-45deg);
+          transform: rotate(225deg);
+          width: 10px;
+        }
+    }
+  
+    div.RRT__tabs.RRT__accordion{
+      .tabs:not(:last-child){
+        margin-bottom: 0;
+      }
+    }
+  
+    .RRT__tab--selected{
+      color: $natural-dark-gray;
+      font-weight: bold;
+    }
+  
+     
+    .RRT__tab--selected::after{
+      -webkit-transform: rotate(-45deg);
+      transform: rotate(-45deg);
+      }
+  }
+  
+  .tabs{
+    width: 100%;
+    height: 100%;
+    min-height: 85px;
+    line-height: 61px;
+    margin: 0;
+    // padding-left: 20px;
+    padding-top: 0px;
+    border-top: 1px solid $dark-teal;
+    border-right: none;
+    position: relative;
+    line-height: 19px;
+    white-space: pre-wrap;
+    overflow-x: visible;
+    overflow-y: visible;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    // padding-right: 60px; 
+    font-size: 16px;
+    align-items: center;
+
+    &:first-child, &.RRT__tab--selected{
+      border-top:none;
+    }
+  
+    &:last-child, .RRT__tab--collapsed{
+        border-bottom:none;
+    }
+  
+    &.is-centered-tablet{
+      @include tablet{
+        justify-content: center
+      }
+    }
+  }
+
+  @include mobile{
+    .tabs{
+      padding-left: 20px;
+      padding-right: 60px; 
+    }
+  }
+  
+    div.RRT__tab.tabs.RRT__tab--selected.RRT__tab--collapsed{
+      background-color: white;
+      border-top: 3px solid $dark-teal;
+      border-right: 3px solid $dark-teal;
+      border-left: 3px solid $dark-teal;
+      border-bottom:none;
+    }
+  
+    .RRT__panel.panel{
+      background-color: white;
+      margin: 0;
+      padding-left: 20px;
+      padding-right: 20px;
+      border-color: $dark-teal;
+      border-style: solid;
+      border-top: none;
+      padding-top: 10px;
+      border-radius: 1px;
+    }
+
+    @include mobile{
+        .faq-page{
+
+          .faq-title {
+            padding-top: 55px;
+        }
+        
+          .sign-up-msg{
+            .section-title{
+              padding-bottom: 0px;
+            }
+          }
+            .section-title{
+                div{
+                    right: 18px;
+                }
+            }
+
+            .support-column{
+              .section{
+                padding-top: 0px;
+                padding-bottom: 0px;
+              }
+            }
+        
+            .customer-support-box {
+              width: 100%;
+              // width: 308px;
+              padding: 20px;
+              float: none;
+              margin: 30px auto 60px;
+              margin-top: 0px;
+            }
+        }
+    }

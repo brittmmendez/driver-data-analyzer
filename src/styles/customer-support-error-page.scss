@@ -1,0 +1,63 @@
+.customer-support-error-page {
+    background-color: $natural-dark-gray;
+
+    h2 {
+        margin-top: 10px;
+        margin-bottom: 30px;
+    }
+
+    .section {
+        padding: 40px 30px;
+    }
+
+    .customer-support-msg{
+        border-radius: 1px;
+        border: 4px solid;
+        border-width: 4px;
+        padding: 20px 30px;
+        // max-width: 846px; 
+        margin: auto; 
+        border-image: linear-gradient(270deg, $neon-blue 0%, $dark-purple 49.45%, $pastel-purple 100%) !important;
+        border-image-slice: 1 !important;
+    }
+
+    .support-description{
+        max-width: 500px;
+        margin: auto;
+        margin-bottom: 20px;
+        margin-top: 20px;
+    }
+
+    .support-img {
+        height: 280px;
+        margin-left: 20px;
+    }
+
+    .button{
+        margin-top: 10px;
+        margin-bottom: 10px;
+        margin-right: 15px;
+        height: 56px;	
+        width: 260px;
+        padding-top: 10px;
+    }
+
+    .support-call{
+        margin-top: 15px;
+        margin-bottom: 10px;
+    }
+}
+
+
+@include mobile {
+    .customer-support-error-page {
+        margin-top: 25px;
+
+        .button{
+            padding-top:20px;
+            display: block;
+            margin: 20px auto;
+            width: 100%;
+        }
+    }
+}

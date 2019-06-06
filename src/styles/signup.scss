@@ -1,0 +1,146 @@
+.signup{
+    // background: linear-gradient(-58deg,transparent 50%,$dark-teal 0);
+    a{
+        color: $dark-purple;
+        text-decoration: underline;
+    }
+
+    a:hover{
+        color: $pastel-purple;
+    }
+
+    a:active{
+        color: $dark-purple;
+    }
+    
+    .component {
+        padding: 2rem 1.5rem;
+        min-height: 210px;	
+        background: linear-gradient(-58deg,transparent 50%,$dark-teal 0);
+    }
+    
+
+    .column{
+        padding-left: 4%;
+        padding-right: 4%;
+    }
+
+    .signup-column{
+        max-width: 550px;
+        margin: auto;
+    }
+
+    .section-title{
+        margin-top: 25px;
+        padding-top: 0px;
+        padding-bottom: 0px;
+    }
+}
+
+.thank-you{
+    .section-title{
+        margin-top: 30px;
+            padding-top: 20px;
+            padding-bottom: 20px;
+    }
+    
+    .thank-you-msg{
+        margin-top: 30px;
+    }
+}
+
+.signup-form {
+    margin-bottom: 25px;
+    margin-top: 10px;
+
+    .error-border{
+        .input{
+            border: 1px solid $bright-red;
+        }
+    }
+
+    .input{
+        height: 56px;	
+        width: 320px;	
+        border: 1px solid $dark-teal;
+        background-color: $natural-light-gray;
+        border-radius: 1px;
+        color: $natural-dark-gray;
+        font-weight: bold;
+        font-family: $mukta-font;
+
+        &::placeholder {
+            font-family: $mukta-font;
+            color: $natural-gray;
+            font-weight: normal;
+        }
+    }
+
+    .input:focus{
+        border: 3px solid $dark-teal;
+    }
+
+    .form-btn{
+        cursor: pointer;
+        margin-top: 0px;
+        margin-left: 5px;
+        height: 56px;	
+        width: 131.7px;	
+        box-shadow: 0 2px 4px 0 rgba(0,0,0,0.5);
+    }
+}
+
+
+@media (max-width: 930px) {
+    .signup{
+        .signup-form {
+            .input{
+                width: 225px;
+            }
+        }
+    }
+}
+
+
+@include mobile{
+    .field.has-addons {
+        display: block;
+        margin-right: 0px;
+    }
+
+    .field.has-addons .control:not(:last-child) {
+        margin-right: 0px;
+    }
+
+    .signup .component {
+        padding: 2rem 1.5rem;
+        min-height: 210px;
+        background: linear-gradient(164deg, $dark-teal 48%, transparent 0);
+
+        .sign-up-msg{
+            max-width: 433px;
+        }
+    }
+
+    .signup-form {
+        .control {
+            text-align: center;
+        }
+        
+        .input{
+            height: 56px;	
+            // width: 282px;
+            width: 100%;
+
+        }
+
+        .form-btn{
+            margin-top: 10px;
+            margin-left: 0px;
+            height: 56px;
+            // width: 284.36px;
+            width: 100%;
+
+        }
+    }
+}

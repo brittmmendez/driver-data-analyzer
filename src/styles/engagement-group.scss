@@ -1,0 +1,145 @@
+.engagement-group{
+    background: $gradient;
+    min-height: 430px;
+    margin-bottom: 0;
+    padding-bottom:0px;
+    position: relative;
+
+    h1{
+        margin-bottom: 0px;
+    }
+
+    .columns{
+        margin-bottom: 0px;
+    }
+    
+    .col0 {
+        border: 4px solid $neon-blue;
+        border-left: none;
+        background-color: $natural-dark-gray;
+        text-align: left;
+        margin-right: 20px;
+        position: absolute;
+        left: 0px;
+        width: 47%;
+        min-height: 230px;
+        padding-top: 35px;
+        top: 130px;
+        
+        .question-answer{
+            float: right;
+            padding-right: 20px;
+        }
+    }
+    
+    .col1 {
+        border: 4px solid $pastel-purple;
+        background-color: $natural-dark-gray;
+        text-align: left;
+        margin-left: 20px;
+        position: absolute;
+        right: 0px;
+        border-right: none;
+        width: 47%;
+        min-height: 230px;
+        padding-top: 35px;
+        top: 130px;
+        
+        .question-answer{
+            padding-left: 20px;
+        }
+    }
+}
+
+@media (max-width: 939px) {
+    .engagement-group{
+        .col1 {
+            // border: 4px solid red;
+            height: 265px
+        }
+        .col0 {
+            // border: 4px solid red;
+            height: 265px
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .engagement-group{
+        .col1 {
+            // border: 4px solid blue;
+            height: 192px
+        }
+        .col0 {
+            // border: 4px solid blue;
+            height: 192px
+        }
+    }
+}
+
+
+@media (max-width: 450px) {
+    .engagement-group{
+        .col1 {
+            // border: 4px solid blue;
+            height: 270px
+        }
+        .col0 {
+            // border: 4px solid blue;
+            height: 270px
+        }
+    }
+}
+
+@include mobile {
+    .engagement-group{
+        min-height: 650px;
+        position: relative;
+        margin-bottom: 0px;
+        padding-top: 35px;
+
+        .engagement-title{
+            margin-top: 20px;
+            margin-bottom: 0px;
+        }
+    
+        .col0 {
+            position: absolute;
+            left: 0px;
+            top: 100px;
+            width: 90%;
+            padding-top: 23px;
+        }
+        
+        .col1 {
+            position: absolute;
+            right: 0px;
+            bottom: 40px;
+            width: 90%;
+            padding-top: 23px;
+            top: auto;
+        }
+    }
+
+    .landing-page{
+        .engagement-group{
+            .engagement-title{
+                margin-top: 0px;
+            }
+        }
+    }
+}
+
+
+@media (max-width: 442px) {
+    .engagement-group{
+        min-height: 720px;
+        padding-top: 40px;
+        .col1 {
+            position: absolute;
+            right: 0px;
+            bottom: 40px;
+            width: 90%;
+        }
+    }
+}
