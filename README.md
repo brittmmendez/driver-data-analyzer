@@ -146,4 +146,4 @@ This app currently uses [Bulma](https://bulma.io/documentation/).  There are no 
 This template is a starting point that has a lot of room for growth as we learn more about BigCommerce and what it can do. Feel free to create a pull request or create an issue if you find a bug or have an idea on how to improve the template.
 
 
-[Alchemy wiki on how to create branded instance of template](https://wiki.developer.alchemy.codes/dtc-template/Creating-a-branded-front-end)# mon-amie-web
+[Alchemy wiki on how to create branded instance of template](https://wiki.developer.alchemy.codes/dtc-template/Creating-a-branded-front-end)
