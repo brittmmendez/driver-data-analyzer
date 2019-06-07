@@ -38,24 +38,24 @@ jobs:
       if: branch = master
       env: 
         - API_TARGET=prod
-
+# regina-web-webbucket-1bd02ak8icken
 deploy:
 - provider: script
-  script: ~/.local/bin/aws s3 sync build s3://prerender-uplift-web-webbucket-1xbphcj3iglwu --region=us-east-1 --delete
+  script: ~/.local/bin/aws s3 sync build s3://mon-amie-web-webbucket-haxy607151if --region=us-east-1 --delete
   skip_cleanup: true
   on:
     branch: develop
 - provider: script
-  script: ~/.local/bin/aws s3 sync build s3://uplift-staging-webbucket-gm3uuitamfvi --region=us-east-1 --delete
+  script: ~/.local/bin/aws s3 sync build s3://mon-amie-web-stage-webbucket-2jpa2l3vc69a --region=us-east-1 --delete
   skip_cleanup: true
   on:
     branch: staging
 - provider: script
-  script: ~/.local/bin/aws s3 sync build s3://uplift-web-prod-webbucket-18hdos6r2m7se --region=us-east-1 --delete
+  script: ~/.local/bin/aws s3 sync build s3:// --region=us-east-1 --delete
   skip_cleanup: true
   on:
     branch: master
 after_deploy:
-- travis-ci-cloudfront-invalidation -a $AWS_ACCESS_KEY_ID_DEV -s $AWS_SECRET_ACCESS_KEY_DEV -c 'E3SR6FJHQNNWTL' -b $TRAVIS_BRANCH -p $TRAVIS_PULL_REQUEST -i '/*' -o 'develop'
-- travis-ci-cloudfront-invalidation -a $AWS_ACCESS_KEY_ID_STAGE -s $AWS_SECRET_ACCESS_KEY_STAGE -c 'E3G7GMSMY3LY7W' -b $TRAVIS_BRANCH -p $TRAVIS_PULL_REQUEST -i '/*' -o 'staging'
-- travis-ci-cloudfront-invalidation -a $AWS_ACCESS_KEY_ID -s $AWS_SECRET_ACCESS_KEY -c 'E1YKY2FO2MSJEP' -b $TRAVIS_BRANCH -p $TRAVIS_PULL_REQUEST -i '/*' -o 'master'
+- travis-ci-cloudfront-invalidation -a $AWS_ACCESS_KEY_ID_DEV -s $AWS_SECRET_ACCESS_KEY_DEV -c 'EKK4BMPBI7M69' -b $TRAVIS_BRANCH -p $TRAVIS_PULL_REQUEST -i '/*' -o 'develop'
+- travis-ci-cloudfront-invalidation -a $AWS_ACCESS_KEY_ID_STAGE -s $AWS_SECRET_ACCESS_KEY_STAGE -c 'E2FM4QEO6YRBVE' -b $TRAVIS_BRANCH -p $TRAVIS_PULL_REQUEST -i '/*' -o 'staging'
+- travis-ci-cloudfront-invalidation -a $AWS_ACCESS_KEY_ID -s $AWS_SECRET_ACCESS_KEY -c '' -b $TRAVIS_BRANCH -p $TRAVIS_PULL_REQUEST -i '/*' -o 'master'
