@@ -51,11 +51,11 @@ deploy:
   on:
     branch: staging
 - provider: script
-  script: ~/.local/bin/aws s3 sync build s3:// --region=us-east-1 --delete
+  script: ~/.local/bin/aws s3 sync build s3://mon-amie-web-prod-webbucket-1w1zbb67azzrw --region=us-east-1 --delete
   skip_cleanup: true
   on:
     branch: master
 after_deploy:
 - travis-ci-cloudfront-invalidation -a $AWS_ACCESS_KEY_ID_DEV -s $AWS_SECRET_ACCESS_KEY_DEV -c 'EKK4BMPBI7M69' -b $TRAVIS_BRANCH -p $TRAVIS_PULL_REQUEST -i '/*' -o 'develop'
 - travis-ci-cloudfront-invalidation -a $AWS_ACCESS_KEY_ID_STAGE -s $AWS_SECRET_ACCESS_KEY_STAGE -c 'E2FM4QEO6YRBVE' -b $TRAVIS_BRANCH -p $TRAVIS_PULL_REQUEST -i '/*' -o 'staging'
-- travis-ci-cloudfront-invalidation -a $AWS_ACCESS_KEY_ID -s $AWS_SECRET_ACCESS_KEY -c '' -b $TRAVIS_BRANCH -p $TRAVIS_PULL_REQUEST -i '/*' -o 'master'
+- travis-ci-cloudfront-invalidation -a $AWS_ACCESS_KEY_ID -s $AWS_SECRET_ACCESS_KEY -c 'E3APW6BS2P1B19' -b $TRAVIS_BRANCH -p $TRAVIS_PULL_REQUEST -i '/*' -o 'master'
