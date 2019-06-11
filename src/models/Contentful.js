@@ -3,10 +3,9 @@ import { types, flow, getParent } from 'mobx-state-tree';
 import { createClient } from 'contentful';
 
 const client = createClient({
-  space: 'sv54axkydx8f',
+  space: 'dx8s2zoelme1',
   environment: 'master',
-  accessToken:
-    '126a609313c3db1a9ee024fa9c62f260874e264ef793f1ab67482ceaf5f4114e',
+  accessToken: 'KCQnkUO_GlTpBvcDKwGpI-QRWwCZXQ7hXji2VUG9Zpw',
   // This will have Contentful resolve image asset urls in the entry call, instead of requiring a seperate API call.
   resolveLinks: true
 });
@@ -20,7 +19,7 @@ const Contentful = types
     errorCantLoad: types.optional(types.string, ''),
     errorCantPlaceOrder: types.optional(types.string, ''),
     errorCantShowConf: types.optional(types.string, ''),
-    emptyCartImg: types.optional(types.string, ''),
+    emptyCartImg: types.optional(types.string, '')
   })
   .actions(self => ({
     getContent() {
@@ -49,30 +48,42 @@ const Contentful = types
 
     getImgs: flow(function* getImgs() {
       const error404 = yield client.getEntry('lmmO7TeFdjaZXZHKrJWKD');
-      const errorCantFindProduct = yield client.getEntry('4Hcb6U1LwXGqvMERyGmwK8');
+      const errorCantFindProduct = yield client.getEntry(
+        '4Hcb6U1LwXGqvMERyGmwK8'
+      );
       const errorCantLoad = yield client.getEntry('6mBh1Yw2CIGx5lbglCVr8V');
-      const errorCantPlaceOrder = yield client.getEntry('4RpzMdcQeeolnoP7TSFxyH');
+      const errorCantPlaceOrder = yield client.getEntry(
+        '4RpzMdcQeeolnoP7TSFxyH'
+      );
       const errorCantShowConf = yield client.getEntry('6w7CDyK5lx5GcZg2sagZo0');
       const emptyCartImg = yield client.getEntry('7Fq13EEpl1GHDswStlKi1u');
 
-      // eslint-disable-next-line 
-      self.error404 = `https:${error404.fields.image.fields.file.url}`
-      // eslint-disable-next-line 
-      self.errorCantFindProduct = `https:${errorCantFindProduct.fields.image.fields.file.url}`
-      // eslint-disable-next-line 
-      self.errorCantLoad = `https:${errorCantLoad.fields.image.fields.file.url}`
-      // eslint-disable-next-line 
-      self.errorCantPlaceOrder = `https:${errorCantPlaceOrder.fields.image.fields.file.url}`
-      // eslint-disable-next-line 
-      self.errorCantShowConf = `https:${errorCantShowConf.fields.image.fields.file.url}`
-      // eslint-disable-next-line 
-      self.emptyCartImg = `https:${emptyCartImg.fields.image.fields.file.url}`
+      // eslint-disable-next-line
+      self.error404 = `https:${error404.fields.image.fields.file.url}`;
+      // eslint-disable-next-line
+      self.errorCantFindProduct = `https:${
+        errorCantFindProduct.fields.image.fields.file.url
+      }`;
+      // eslint-disable-next-line
+      self.errorCantLoad = `https:${
+        errorCantLoad.fields.image.fields.file.url
+      }`;
+      // eslint-disable-next-line
+      self.errorCantPlaceOrder = `https:${
+        errorCantPlaceOrder.fields.image.fields.file.url
+      }`;
+      // eslint-disable-next-line
+      self.errorCantShowConf = `https:${
+        errorCantShowConf.fields.image.fields.file.url
+      }`;
+      // eslint-disable-next-line
+      self.emptyCartImg = `https:${emptyCartImg.fields.image.fields.file.url}`;
     }),
 
     getUpliftLogo: flow(function* getUpliftLogo() {
       const logo = yield client.getEntry('6oSCAj0KP3wnrSs6aYkBv4');
-      // eslint-disable-next-line 
-      self.upliftLogo = `https:${logo.fields.image.fields.file.url}`
+      // eslint-disable-next-line
+      self.upliftLogo = `https:${logo.fields.image.fields.file.url}`;
     }),
 
     getSpotlightEntry: flow(function* getSpotlightEntry() {
@@ -192,15 +203,17 @@ const Contentful = types
 
     getExchangePageContent: flow(function* getExchangePageContent() {
       const returnExchangeGroup = yield client.getEntries({
-        content_type: 'returnExchangeGroup',
+        content_type: 'returnExchangeGroup'
       });
-      getParent(self, 1).setReturnExchangeGroup(returnExchangeGroup.items[0].fields);
+      getParent(self, 1).setReturnExchangeGroup(
+        returnExchangeGroup.items[0].fields
+      );
     }),
 
     getConsetCopy: flow(function* getConsetCopy() {
       const consentCopy = yield client.getEntry('4y35gGLXkwmM3kIaye1fMo');
       getParent(self, 1).setconsentCopy(consentCopy.fields);
-    }),
+    })
   }));
 
 export default Contentful;
