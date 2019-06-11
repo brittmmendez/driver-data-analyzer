@@ -44,13 +44,13 @@
     
     span.navbar-item.is-hidden-touch:hover{
         a{
-            color: $pastel-purple;
+            color: $dark-purple;
         }
     }
 
     span.navbar-item.is-hidden-touch:active{
         a{
-            color: $dark-purple;
+            color: $natural-dark-gray;
         }
     }
 
@@ -273,11 +273,11 @@ nav.navbar.nav-checkout{
             }
             
             .border-bottom {
-                border-bottom: 1px solid #225C73;
+                border-bottom: 1px solid $natural-dark-gray;
             }
 
             .is-marginless-mobile{
-                border-top: 1px solid #225C73;;
+                border-top: 1px solid $natural-dark-gray;;
                 margin-right: 0px;
             }
             

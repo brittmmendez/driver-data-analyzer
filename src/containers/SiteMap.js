@@ -17,8 +17,8 @@ class SiteMap extends Component {
     window.PGdataLayer.page = {
       title: 'Site Map',
       url: match.path
-    }
-    window.dataLayer.push({ 'event': 'virtualPageview' })
+    };
+    window.dataLayer.push({ event: 'virtualPageview' });
   }
 
   render() {
@@ -37,7 +37,15 @@ class SiteMap extends Component {
               <div className="columns">
                 <div className="column no-padding-left-mobile">
                   <ul>
-                    <li> <Link to="/products-page/127#top" className="event_view_product_detail_page">Uplift Bladder Support</Link></li>
+                    <li>
+                      {' '}
+                      <Link
+                        to="/products-page/127#top"
+                        className="event_view_product_detail_page"
+                      >
+                        Product One
+                      </Link>
+                    </li>
                   </ul>
                 </div>
               </div>
@@ -47,8 +55,16 @@ class SiteMap extends Component {
               <div className="columns">
                 <div className="column no-padding-left-mobile">
                   <ul>
-                    <li> <Link to="/exchanges-returns#top">Returns and exchanges</Link></li>
-                    <li> <Link to="/faq#top">FAQs</Link></li>
+                    <li>
+                      {' '}
+                      <Link to="/exchanges-returns#top">
+                        Returns and exchanges
+                      </Link>
+                    </li>
+                    <li>
+                      {' '}
+                      <Link to="/faq#top">FAQs</Link>
+                    </li>
                   </ul>
                 </div>
               </div>
@@ -62,9 +78,7 @@ class SiteMap extends Component {
                   </a>
                 </li>
                 <li>
-                  <a
-                    href={customerSupport.customerSupportCtaEmailButtonUrl}
-                  >
+                  <a href={customerSupport.customerSupportCtaEmailButtonUrl}>
                     {customerSupport.customerSupportCtaEmailButtonText}
                   </a>
                 </li>
