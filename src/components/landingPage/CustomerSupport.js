@@ -25,12 +25,12 @@ class CustomerSupport extends Component {
                 {customerSupport.customerSupportMessaging}
               </p>
               <div className="desktop-view">
-                <a
+                {/* <a
                   className="primary-btn button"
                   href={customerSupport.customerSupportCtaCallButtonUrl}
                 >
                   {customerSupport.customerSupportCtaCallButtonText}
-                </a>
+                </a> */}
 
                 <a
                   className="primary-btn button"

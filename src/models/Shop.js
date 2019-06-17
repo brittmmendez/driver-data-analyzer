@@ -16,7 +16,6 @@ import Contentful from './Contentful';
 import LandingPage from './LandingPage/LandingPage';
 import AboutPage from './AboutPage/AboutPage';
 import FAQEntryGroup from './FAQpage/FAQEntryGroup';
-import HowItWorks from './HowItWorks';
 import CRMsignup from './CRMsignup'
 
 
@@ -37,7 +36,6 @@ const Shop = types
     products: types.optional(Products, { data: [] }),
     consentCopy: types.optional(ConsentCopy, {}),
     imagePlaceholder: types.optional(types.string, ''),
-    howItWorks: types.optional(HowItWorks, {}),
     searchProducts: types.optional(Products, { data: [] }),
     shipping: types.optional(Shipping, { shipping_rates: [] }),
     cart: types.optional(Cart, {}),
@@ -78,7 +76,7 @@ const Shop = types
     getProducts: flow(function* getProducts() {
       if (self.products.productCount === 0) {
         try {
-          const response = yield fetch(`${self.apiUrl}/products/category/27`);
+          const response = yield fetch(`${self.apiUrl}/products/category/28`);
           const json = yield response.json();
           self.products.data = json;
         } catch (err) {

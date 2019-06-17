@@ -28,7 +28,6 @@ const Contentful = types
       self.getImgs();
       self.getConsetCopy();
       self.getUpliftLogo();
-      self.getHowItWorks();
       // self.getAboutPageContent();
       // self.getOurStorySpotlight();
     },
@@ -36,12 +35,10 @@ const Contentful = types
     getLandingPageContent() {
       self.getSpotlightEntry();
       self.getSpotlightStatEntry();
-      self.getMediaCarousel();
       self.getSpotlightSolution();
-      self.getEngagementGroup();
       self.getBenefitsEntry();
       self.getFAQCallout();
-      // self.getSocialProofEntry();
+      self.getProductGroupingEntry();
       self.getSupportEntry();
       self.getSignup();
     },
@@ -63,19 +60,19 @@ const Contentful = types
       // eslint-disable-next-line
       self.errorCantFindProduct = `https:${
         errorCantFindProduct.fields.image.fields.file.url
-      }`;
+        }`;
       // eslint-disable-next-line
       self.errorCantLoad = `https:${
         errorCantLoad.fields.image.fields.file.url
-      }`;
+        }`;
       // eslint-disable-next-line
       self.errorCantPlaceOrder = `https:${
         errorCantPlaceOrder.fields.image.fields.file.url
-      }`;
+        }`;
       // eslint-disable-next-line
       self.errorCantShowConf = `https:${
         errorCantShowConf.fields.image.fields.file.url
-      }`;
+        }`;
       // eslint-disable-next-line
       self.emptyCartImg = `https:${emptyCartImg.fields.image.fields.file.url}`;
     }),
@@ -84,6 +81,16 @@ const Contentful = types
       const logo = yield client.getEntry('6oSCAj0KP3wnrSs6aYkBv4');
       // eslint-disable-next-line
       self.upliftLogo = `https:${logo.fields.image.fields.file.url}`;
+    }),
+
+    getProductGroupingEntry: flow(function* getProductGroupingEntry() {
+      const group = yield client.getEntries({
+        content_type: 'productGroupingGroup'
+      });
+
+      getParent(self, 1).landingPage.productGroupingGroup.setProductGroups(
+        group
+      );
     }),
 
     getSpotlightEntry: flow(function* getSpotlightEntry() {
@@ -98,11 +105,6 @@ const Contentful = types
       getParent(self, 1).landingPage.spotlightStat.setSpotlight(spotlight);
     }),
 
-    getMediaCarousel: flow(function* getMediaCarousel() {
-      const media = yield client.getEntry('7cOyDFczfeFkiAZ3oOBGDG');
-      getParent(self, 1).landingPage.mediaCarousel.setMediaCarousel(media);
-    }),
-
     getSpotlightSolution: flow(function* getSpotlightSolution() {
       const spotlight = yield client.getEntry('1QrUBOahikrNUuOrUFuFXD');
 
@@ -115,22 +117,11 @@ const Contentful = types
       getParent(self, 1).landingPage.faqCallout.setSpotlight(spotlight);
     }),
 
-    getEngagementGroup: flow(function* getEngagementGroup() {
-      const spotlight = yield client.getEntry('5TMcoVe7YttSyD6dIDxDC2');
-
-      getParent(self, 1).landingPage.engagementGroup.setConclusions(spotlight);
-    }),
-
     getBenefitsEntry: flow(function* getBenefitsEntry() {
       const benefit = yield client.getEntries({
         content_type: 'productBenefitGroup'
       });
       getParent(self, 1).landingPage.productBenefitGroup.setBenefits(benefit);
-    }),
-
-    getSocialProofEntry: flow(function* getSocialProofEntry() {
-      const proof = yield client.getEntry('2l8mBMv7R6YAAmcOiMmUM4');
-      getParent(self, 1).landingPage.socialProofGroup.setSocialProofs(proof);
     }),
 
     getSupportEntry: flow(function* getSupportEntry() {
@@ -185,13 +176,6 @@ const Contentful = types
       getParent(self, 1).aboutPage.parentCompany.setParentCompany(
         parentCompany
       );
-    }),
-
-    getHowItWorks: flow(function* getHowItWorks() {
-      const howItWorks = yield client.getEntries({
-        content_type: 'howItWorks'
-      });
-      getParent(self, 1).howItWorks.setHowItWorks(howItWorks);
     }),
 
     getPDPdetailsGroup: flow(function* getPDPdetailsGroup() {

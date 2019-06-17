@@ -39,8 +39,8 @@ class Footer extends Component {
     return (
       <footer
         className={
-          pathname === '/products-page/127' ||
-          (pathname === '/my-cart' && cart.itemCount)
+          pathname === '/products-page/119' ||
+            (pathname === '/my-cart' && cart.itemCount)
             ? 'footer extra-margin-bottom'
             : 'footer'
         }
@@ -64,7 +64,7 @@ class Footer extends Component {
                   <p className="footer-header topic is-hidden-mobile">Shop</p>
                   <p>
                     <Link
-                      to="/products-page/127#top"
+                      to="/products-page/119#top"
                       className="event_view_product_detail_page"
                     >
                       {' '}
