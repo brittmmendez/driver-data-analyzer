@@ -24,15 +24,27 @@ class Footer extends Component {
     } = this.props;
 
     if (
-      ['/checkout', '/shipping', '/billing', '/billing', '/terms-and-conditions', '/review-order'].find(
-        path => path === pathname
-      )
+      [
+        '/checkout',
+        '/shipping',
+        '/billing',
+        '/billing',
+        '/terms-and-conditions',
+        '/review-order'
+      ].find(path => path === pathname)
     ) {
       return <FooterCheckout pathname={pathname} />;
     }
 
     return (
-      <footer className={pathname === "/products-page/127" || (pathname === '/my-cart' && cart.itemCount) ? "footer extra-margin-bottom" : "footer"}>
+      <footer
+        className={
+          pathname === '/products-page/127' ||
+          (pathname === '/my-cart' && cart.itemCount)
+            ? 'footer extra-margin-bottom'
+            : 'footer'
+        }
+      >
         <div className="container">
           <div className="columns content">
             <div className="column is-4">
@@ -49,11 +61,15 @@ class Footer extends Component {
             <div className="column">
               <div className="columns">
                 <div className="column">
-                  <p className="footer-header topic is-hidden-mobile">
-                    Shop
-                  </p>
+                  <p className="footer-header topic is-hidden-mobile">Shop</p>
                   <p>
-                    <Link to="/products-page/127#top" className="event_view_product_detail_page"> Uplift Bladder Support </Link>
+                    <Link
+                      to="/products-page/127#top"
+                      className="event_view_product_detail_page"
+                    >
+                      {' '}
+                      Product Name{' '}
+                    </Link>
                   </p>
                 </div>
                 <div className="column">
@@ -61,7 +77,10 @@ class Footer extends Component {
                     Help & FAQs
                   </p>
                   <p>
-                    <Link to="/exchanges-returns#top"> Returns & Exchanges </Link>
+                    <Link to="/exchanges-returns#top">
+                      {' '}
+                      Returns & Exchanges{' '}
+                    </Link>
                   </p>
                   <p>
                     <Link to="/faq#top"> FAQs </Link>
@@ -104,10 +123,19 @@ class Footer extends Component {
             Privacy
           </a>
           <p className="is-hidden-tablet mobile-padding" />
-          <a className="info" href="https://info.evidon.com/pub_info/8875?v=1&nt=0&nw=false" target="_blank" rel="noopener noreferrer">
-            <img src="//c.betrad.com/pub/icon1.png" alt="Ad Choices Icon" />  AdChoices
+          <a
+            className="info"
+            href="https://info.evidon.com/pub_info/8875?v=1&nt=0&nw=false"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src="//c.betrad.com/pub/icon1.png" alt="Ad Choices Icon" />{' '}
+            AdChoices
           </a>
-          <Link to='/site-map#top' className="info"> Site Map</Link>
+          <Link to="/site-map#top" className="info">
+            {' '}
+            Site Map
+          </Link>
           <p className="is-hidden-tablet mobile-padding" />
           <span className="info">
             <i className="far fa-copyright" /> 2019 Procter & Gamble
