@@ -5,11 +5,9 @@ import { Cookies } from 'react-cookie';
 import PropTypes from 'prop-types';
 import SpotLight from '../components/landingPage/Spotlight';
 import SpotlightStat from '../components/landingPage/SpotlightStat';
-import MediaCarousel from '../components/landingPage/MediaCarousel';
-import EngagementGroup from '../components/landingPage/EngagementGroup';
 import Benefits from '../components/landingPage/Benefits';
-// import SocialProof from '../components/landingPage/SocialProof';
 import CustomerSupport from '../components/landingPage/CustomerSupport';
+import ProductGrouping from '../components/landingPage/ProductGrouping';
 import Signup from '../components/signupComponent/Signup';
 import SignupModal from '../components/signupComponent/SignupModal';
 import ThankYouModal from '../components/signupComponent/ThankYouModal';
@@ -70,11 +68,9 @@ class LandingPage extends Component {
           <ErrorModal />
           <SignupModal />
           <SpotLight />
-          <SpotlightStat />
-          <MediaCarousel />
-          <EngagementGroup />
           <Benefits />
-          {/* <SocialProof /> */}
+          <SpotlightStat />
+          <ProductGrouping />
           <CustomerSupport />
           <Signup />
         </div>

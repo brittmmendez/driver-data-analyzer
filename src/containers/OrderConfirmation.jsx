@@ -253,7 +253,7 @@ class OrderConfirmation extends Component {
             </div>
           </div>
           <div className="mobile-view">
-            <Link className="button secondary-btn cont-shopping event_continue_shopping" to="/products-page/127#top">
+            <Link className="button secondary-btn cont-shopping event_continue_shopping" to="/products-page#top">
               Continue Shopping
             </Link>
           </div>

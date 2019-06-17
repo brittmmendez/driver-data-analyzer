@@ -86,8 +86,8 @@ class ErrorPage extends Component {
                 </Link>
               </div>
               <div className="column">
-                <Link to="/products-page/127#top">
-                  <button type="button" aria-label="shop" className="primary-btn error-btn"> Shop Uplift</button>
+                <Link to="/products-page#top">
+                  <button type="button" aria-label="shop" className="primary-btn error-btn"> Shop Now</button>
                 </Link>
               </div>
               <div className="column">

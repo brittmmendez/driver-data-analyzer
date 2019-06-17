@@ -27,8 +27,8 @@ class EmptyCart extends Component {
               <p className="has-text-white">
                 Add a product (or two!) to your cart to start the checkout process.
         </p>
-              <Link to="/products-page/127#top">
-                <button type="button" aria-label="shop" className="primary-btn shop-btn"> Shop Uplift</button>
+              <Link to="/products-page#top">
+                <button type="button" aria-label="shop" className="primary-btn shop-btn"> Shop Now</button>
               </Link>
             </div>
           </div>

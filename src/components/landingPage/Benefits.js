@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { observer, inject } from 'mobx-react';
 import PropTypes from 'prop-types';
+import { HashLink as Link } from 'react-router-hash-link';
 import { Image, Transformation } from 'cloudinary-react';
 import LazyLoad from 'react-lazyload';
 
@@ -47,6 +48,9 @@ class Benefits extends Component {
               ))}
             </div>
           </LazyLoad>
+          <Link className="button secondary-btn cont-shopping" to={productBenefitGroup.ctaURL}>
+            {productBenefitGroup.ctaText}
+          </Link>
         </div>
       </section>
     );

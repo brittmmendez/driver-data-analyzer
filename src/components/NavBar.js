@@ -205,7 +205,7 @@ class NavBar extends Component {
                   >
                     <Link
                       className="navbar-item is-marginless-mobile event_view_product_detail_page"
-                      to="/products-page/127#top"
+                      to="/products-page"
                     >
                       <span className="has-hover-border"> SHOP</span>
                     </Link>
@@ -233,7 +233,7 @@ class NavBar extends Component {
                 >
                   <Link
                     className="has-hover-border event_view_product_detail_page"
-                    to="/products-page/127#top"
+                    to="/products-page"
                   >
                     SHOP
                     </Link>
