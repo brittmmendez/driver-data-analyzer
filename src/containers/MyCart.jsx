@@ -59,7 +59,7 @@ class MyCart extends Component {
                   ))}
                   <Link
                     className="secondary-btn button cont-shopping event_continue_shopping"
-                    to="/products-page/127#top"
+                    to="/products-page#top"
                   >
                     Continue Shopping
                   </Link>
