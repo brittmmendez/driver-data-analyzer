@@ -132,7 +132,7 @@ const Product = types
       self.variantPrice = price;
     },
 
-    findByVariant(optionValueId1) {
+    findByVariant(optionValueId1, optionValueId2, optionValueId3) {
       const images = self.variants.map(variant => {
         if (self.options.length) {
           if (self.options.length === 1) {
@@ -142,6 +142,25 @@ const Product = types
               if (variant.image_url) {
                 return variant.image_url
               }
+            }
+          } else if (self.options.length === 2) {
+            if (
+              variant.values[0].id === optionValueId1 &&
+              variant.values[1].id === optionValueId2 &&
+              variant.image_url
+            ) {
+              self.setSku(variant.sku)
+              return variant.image_url;
+            }
+          } else if (self.options.length === 3) {
+            if (
+              variant.values[0].id === optionValueId1 &&
+              variant.values[1].id === optionValueId2 &&
+              variant.values[2].id === optionValueId3 &&
+              variant.image_url
+            ) {
+              self.setSku(variant.sku)
+              return variant.image_url;
             }
           }
         }
