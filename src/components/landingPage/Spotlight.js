@@ -19,47 +19,75 @@ class Spotlight extends Component {
       }
     } = this.props;
     return (
-      <div className="spotlight">
-        <section className="section">
-          <div className="columns reverse-column-order content">
-            <div className="column is-6 has-text-left">
-              <div className="spotlight-msg">
-                <h1>{spotlight.spotlightProductTitle}</h1>
-                <p className="has-text-left">
-                  {spotlight.spotlightProductMessaging}
-                </p>
-                <div className="has-text-centered-mobile">
-                  <Link
-                    className="primary-btn button join-button"
-                    to={spotlight.spotlightProductCtaButtonRelativeURL}
-                  >
-                    {spotlight.spotlightProductCtaButtonText}
-                  </Link>
+      <LazyLoad height={200}>
+        <div
+          className="spotlight-stat"
+          style={{
+            backgroundImage: `url(${spotlight.spotlightProductMediaFile})`
+          }}
+        >
+          <section className="section spotlight">
+            <div className="content">
+              <div className="has-text-centered">
+                <div className="spotlight-msg has-text-centered-mobile">
+                  <h1>{spotlight.spotlightProductTitle}</h1>
+                  <p className="">{spotlight.spotlightProductMessaging}</p>
+                  <div className="has-text-centered-mobile">
+                    <Link
+                      className="primary-btn button join-button"
+                      to={spotlight.spotlightProductCtaButtonRelativeURL}
+                    >
+                      {spotlight.spotlightProductCtaButtonText}
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>
-            <LazyLoad height={200}>
-              <div className="column has-text-right has-text-centered-touch">
-                <Image
-                  publicId={spotlight.spotlightProductMediaFile}
-                  alt={spotlight.spotlightProductMediaText}
-                  className="spotlight-img"
-                  type="fetch"
-                >
-                  <Transformation
-                    quality="auto"
-                    dpr="auto"
-                    fetchFormat="auto"
-                    responsive
-                    crop="scale"
-                    width="550"
-                  />
-                </Image>
-              </div>
-            </LazyLoad>
-          </div>
-        </section>
-      </div>
+          </section>
+        </div>
+      </LazyLoad>
+
+      // <div className="spotlight">
+      //   <section className="section">
+      //     <div className="columns reverse-column-order content">
+      //       <div className="column is-6 has-text-left">
+      //         <div className="spotlight-msg">
+      //           <h1>{spotlight.spotlightProductTitle}</h1>
+      //           <p className="has-text-left">
+      //             {spotlight.spotlightProductMessaging}
+      //           </p>
+      // <div className="has-text-centered-mobile">
+      //   <Link
+      //     className="primary-btn button join-button"
+      //     to={spotlight.spotlightProductCtaButtonRelativeURL}
+      //   >
+      //     {spotlight.spotlightProductCtaButtonText}
+      //   </Link>
+      // </div>
+      //         </div>
+      //       </div>
+      //       <LazyLoad height={200}>
+      //         <div className="column has-text-right has-text-centered-touch">
+      //           <Image
+      //             publicId={spotlight.spotlightProductMediaFile}
+      //             alt={spotlight.spotlightProductMediaText}
+      //             className="spotlight-img"
+      //             type="fetch"
+      //           >
+      //             <Transformation
+      //               quality="auto"
+      //               dpr="auto"
+      //               fetchFormat="auto"
+      //               responsive
+      //               crop="scale"
+      //               width="550"
+      //             />
+      //           </Image>
+      //         </div>
+      //       </LazyLoad>
+      //     </div>
+      //   </section>
+      // </div>
     );
   }
 }
