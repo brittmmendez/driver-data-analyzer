@@ -21,14 +21,14 @@ class OrderConfirmation extends Component {
     history: {},
   };
 
-  componentWillMount() {
-    const { match } = this.props;
-    window.PGdataLayer.page = {
-      title: 'Order Confirmation',
-      url: match.path
-    }
-    window.dataLayer.push({ 'event': 'virtualPageview' })
-  }
+  // componentWillMount() {
+  //   const { match } = this.props;
+  //   window.PGdataLayer.page = {
+  //     title: 'Order Confirmation',
+  //     url: match.path
+  //   }
+  //   window.dataLayer.push({ 'event': 'virtualPageview' })
+  // }
 
   componentWillUnmount() {
     const {
@@ -45,39 +45,39 @@ class OrderConfirmation extends Component {
   };
 
   // GA track
-  trackPurchaseGA() {
-    const {
-      shop: {
-        checkout: { orderConfirmation }
-      }
-    } = this.props;
-    const { items } = orderConfirmation;
-    if (window && window.PGdataLayer) {
-      let transaction = {};
-      // add transaction details
-      transaction.transactionId = orderConfirmation.order_id;
-      transaction.transactionAffiliation = 'Uplift';
-      transaction.transactionTotal = orderConfirmation.total;
-      transaction.transactionTax = orderConfirmation.tax;
-      transaction.transactionShipping = orderConfirmation.shipping_handling;
+  // trackPurchaseGA() {
+  //   const {
+  //     shop: {
+  //       checkout: { orderConfirmation }
+  //     }
+  //   } = this.props;
+  //   const { items } = orderConfirmation;
+  //   if (window && window.PGdataLayer) {
+  //     let transaction = {};
+  //     // add transaction details
+  //     transaction.transactionId = orderConfirmation.order_id;
+  //     transaction.transactionAffiliation = 'Uplift';
+  //     transaction.transactionTotal = orderConfirmation.total;
+  //     transaction.transactionTax = orderConfirmation.tax;
+  //     transaction.transactionShipping = orderConfirmation.shipping_handling;
 
-      // add products to transaction
-      transaction.transactionProducts = [];
-      items.map(i => (
-        transaction.transactionProducts.push({
-          'id': i.id,
-          'sku': i.sku,
-          'name': i.name,
-          'category': 27,
-          'price': i.price,
-          'quantity': i.quantity
-        })
-      ))
-      transaction.event = 'BCtransactionComplete';
-      console.log(transaction);
-      window.dataLayer.push(transaction);
-    }
-  }
+  //     // add products to transaction
+  //     transaction.transactionProducts = [];
+  //     items.map(i => (
+  //       transaction.transactionProducts.push({
+  //         'id': i.id,
+  //         'sku': i.sku,
+  //         'name': i.name,
+  //         'category': 27,
+  //         'price': i.price,
+  //         'quantity': i.quantity
+  //       })
+  //     ))
+  //     transaction.event = 'BCtransactionComplete';
+  //     console.log(transaction);
+  //     window.dataLayer.push(transaction);
+  //   }
+  // }
 
   render() {
     const {
@@ -112,7 +112,7 @@ class OrderConfirmation extends Component {
       orderConfirmation.items.length > 0 &&
       orderConfirmation.securedConfirmation
     ) {
-      this.trackPurchaseGA()
+      // this.trackPurchaseGA()
 
       window.scrollTo(0, 0)
       return (
