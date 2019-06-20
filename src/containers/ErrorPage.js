@@ -29,14 +29,14 @@ class ErrorPage extends Component {
     };
   }
 
-  componentWillMount() {
-    const { match } = this.props;
-    window.PGdataLayer.page = {
-      title: 'Error',
-      url: match.path
-    }
-    window.dataLayer.push({ 'event': 'virtualPageview' })
-  }
+  // componentWillMount() {
+  //   const { match } = this.props;
+  //   window.PGdataLayer.page = {
+  //     title: 'Error',
+  //     url: match.path
+  //   }
+  //   window.dataLayer.push({ 'event': 'virtualPageview' })
+  // }
 
   componentDidMount() {
     const { errorTitle, errorMsg, hideErrorMsg, errorType, refreshBtn } = this.props;

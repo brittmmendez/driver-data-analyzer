@@ -2,4 +2,4 @@
 User-Agent: *
 Allow: /
 
-Sitemap: https://myuplift.co/sitemap.xml
+Sitemap: https://d1fksim8iub3hv.cloudfront.net/sitemap.xml

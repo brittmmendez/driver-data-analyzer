@@ -14,14 +14,14 @@ class FAQs extends Component {
     match: PropTypes.object.isRequired // eslint-disable-line react/forbid-prop-types
   };
 
-  componentWillMount() {
-    const { match } = this.props;
-    window.PGdataLayer.page = {
-      title: 'FAQs',
-      url: match.path
-    }
-    window.dataLayer.push({ 'event': 'virtualPageview' })
-  }
+  // componentWillMount() {
+  //   const { match } = this.props;
+  //   window.PGdataLayer.page = {
+  //     title: 'FAQs',
+  //     url: match.path
+  //   }
+  //   window.dataLayer.push({ 'event': 'virtualPageview' })
+  // }
 
   componentDidMount() {
     const { shop } = this.props;

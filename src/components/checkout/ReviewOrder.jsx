@@ -15,16 +15,16 @@ export default class ShippingMethod extends Component {
     history: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types,
   };
 
-  componentWillUpdate(prevProps) {
-    const currentLocation = prevProps.location.pathname
-    if (currentLocation === '/review-order') {
-      window.PGdataLayer.page = {
-        title: 'Review Order',
-        url: currentLocation
-      }
-      window.dataLayer.push({ 'event': 'virtualPageview' })
-    }
-  }
+  // componentWillUpdate(prevProps) {
+  //   const currentLocation = prevProps.location.pathname
+  //   if (currentLocation === '/review-order') {
+  //     window.PGdataLayer.page = {
+  //       title: 'Review Order',
+  //       url: currentLocation
+  //     }
+  //     window.dataLayer.push({ 'event': 'virtualPageview' })
+  //   }
+  // }
 
   handleCheckoutNow() {
     const {
