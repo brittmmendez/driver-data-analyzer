@@ -5,7 +5,9 @@ import { types } from 'mobx-state-tree';
 
 const Benefit = types.model({
   productBenefitMediaFile: types.optional(types.string, ''),
-  productBenefitMediaTitle: types.optional(types.string, '')
+  productBenefitMediaTitle: types.optional(types.string, ''),
+  productBenefitTitle: types.optional(types.string, ''),
+  productBenefitCopy: types.optional(types.string, '')
 });
 
 export default Benefit;

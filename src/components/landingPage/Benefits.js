@@ -25,7 +25,6 @@ class Benefits extends Component {
             {' '}
             {productBenefitGroup.productBenefitGroupTitle}{' '}
           </h1>
-          <p className="benefits-msg">{productBenefitGroup.productBenefitMessaging}</p>
           <LazyLoad height={200}>
             <div className="columns">
               {productBenefitGroup.benefits.map(benefit => (
@@ -44,11 +43,16 @@ class Benefits extends Component {
                       width="325"
                     />
                   </Image>
+                  <h2>{benefit.productBenefitTitle}</h2>
+                  <p className="has-text-left">{benefit.productBenefitCopy}</p>
                 </div>
               ))}
             </div>
           </LazyLoad>
-          <Link className="button secondary-btn cont-shopping" to={productBenefitGroup.ctaURL}>
+          <Link
+            className="button secondary-btn cont-shopping"
+            to={productBenefitGroup.ctaURL}
+          >
             {productBenefitGroup.ctaText}
           </Link>
         </div>
