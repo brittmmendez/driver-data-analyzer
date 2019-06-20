@@ -19,14 +19,18 @@ class SpotlightStat extends Component {
     } = this.props;
     return (
       <LazyLoad height={200}>
-        <div className="spotlight-stat" style={{ backgroundImage: `url(${spotlightStat.spotlightProductMediaFile})` }}>
+        <div
+          className="spotlight-stat"
+          style={{
+            backgroundImage: `url(${spotlightStat.spotlightProductMediaFile})`
+          }}
+        >
           <section className="section">
-            <div className="columns reverse-column-order content">
-              <div className="column" />
-              <div className="column has-text-left">
+            <div className="content">
+              <div className="has-text-center">
                 <div className="spotlight-msg">
                   <h1>{spotlightStat.spotlightProductTitle}</h1>
-                  <p className="has-text-left">
+                  <p className="has-text-center">
                     {spotlightStat.spotlightProductMessaging}
                   </p>
                 </div>

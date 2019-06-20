@@ -11,6 +11,7 @@
         .content {
             margin: 0% auto;
             max-width: 1300px;
+            padding: 55px 20%;
         }
 
         .column{
@@ -100,6 +101,9 @@
 @include mobile{
     .landing-page{
         .spotlight {
+            .content {
+                padding: 0px;
+            }
             .section{
                 .join-button{
                     width: 100%;
