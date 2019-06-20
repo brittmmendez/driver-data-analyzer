@@ -45,14 +45,14 @@ class ShippingInfo extends Component {
     };
   }
 
-  componentWillMount() {
-    const { location } = this.props;
-    window.PGdataLayer.page = {
-      title: 'Shipping Info',
-      url: location.pathname
-    }
-    window.dataLayer.push({ 'event': 'virtualPageview' })
-  }
+  // componentWillMount() {
+  //   const { location } = this.props;
+  //   window.PGdataLayer.page = {
+  //     title: 'Shipping Info',
+  //     url: location.pathname
+  //   }
+  //   window.dataLayer.push({ 'event': 'virtualPageview' })
+  // }
 
   componentDidMount() {
     const {

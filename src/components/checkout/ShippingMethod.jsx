@@ -21,16 +21,16 @@ export default class ShippingMethod extends Component {
     };
   }
 
-  componentWillUpdate(prevProps) {
-    const currentLocation = prevProps.location.pathname
-    if (currentLocation === '/shipping') {
-      window.PGdataLayer.page = {
-        title: 'Shipping Method',
-        url: currentLocation
-      }
-      window.dataLayer.push({ 'event': 'virtualPageview' })
-    }
-  }
+  // componentWillUpdate(prevProps) {
+  //   const currentLocation = prevProps.location.pathname
+  //   if (currentLocation === '/shipping') {
+  //     window.PGdataLayer.page = {
+  //       title: 'Shipping Method',
+  //       url: currentLocation
+  //     }
+  //     window.dataLayer.push({ 'event': 'virtualPageview' })
+  //   }
+  // }
 
   // change shipping selection but shipping is free so no need to do.
   // handleChange = (event) => {
