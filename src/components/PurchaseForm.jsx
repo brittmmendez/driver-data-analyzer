@@ -310,7 +310,6 @@ export default class PurchaseForm extends Component {
       state.optionValueId2,
       state.optionValueId3
     );
-    debugger;
     if (variantImg.length !== 0) {
       this.setVairantImg(variantImg[0]);
     }
@@ -318,7 +317,6 @@ export default class PurchaseForm extends Component {
 
   setVairantImg = imageUrl => {
     const { product, resetSlider } = this.props;
-    debugger;
     this.setState({
       vairantImg: imageUrl
     });

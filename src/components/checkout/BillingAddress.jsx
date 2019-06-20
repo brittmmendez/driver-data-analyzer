@@ -72,16 +72,16 @@ class ShippingInfo extends Component {
     }
   }
 
-  componentWillUpdate(prevProps) {
-    const currentLocation = prevProps.location.pathname
-    if (currentLocation === '/billing') {
-      window.PGdataLayer.page = {
-        title: 'Billing Info',
-        url: currentLocation
-      }
-      window.dataLayer.push({ 'event': 'virtualPageview' })
-    }
-  }
+  // componentWillUpdate(prevProps) {
+  //   const currentLocation = prevProps.location.pathname
+  //   if (currentLocation === '/billing') {
+  //     window.PGdataLayer.page = {
+  //       title: 'Billing Info',
+  //       url: currentLocation
+  //     }
+  //     window.dataLayer.push({ 'event': 'virtualPageview' })
+  //   }
+  // }
 
   handleChange = (event, confirmerFunction) => {
     this.setState({

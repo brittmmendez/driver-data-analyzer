@@ -56,12 +56,12 @@ class LandingPage extends Component {
         <Helmet>
           <meta property="og:type" content="website" />
           <meta property="og:url" content={process.env.REACT_APP_URL} />
-          <meta property="og:title" content="Uplift" />
+          <meta property="og:title" content="Mon Amie" />
           <meta
             property="og:description"
-            content="Uplift, the first bladder support to provide comfortable, invisible protection, so you can work out harder, longer, drier."
+            content="Brand Description"
           />
-          <meta property='og:image' content="http://res.cloudinary.com/alchemy-jdb/image/fetch/c_scale,dpr_auto,f_auto,q_auto,w_550/https://images.ctfassets.net/sv54axkydx8f/DtpxuvruCpbhhU35qVtzQ/3d24fdcc36fe6af1f63b36a0b624dab8/Spotlight.png" />
+          <meta property='og:image' content="http://res.cloudinary.com/alcmy/image/fetch/c_scale,dpr_auto,f_auto,q_auto,w_550/https://images.ctfassets.net/dx8s2zoelme1/5K5hbkXaqDNW17XouobaJA/a0a8ff9c48bbe8987e706674b665dc41/placeholder3.jpg" />
         </Helmet>
         <div className="landing-page">
           <ThankYouModal />

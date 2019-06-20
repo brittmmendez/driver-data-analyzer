@@ -13,14 +13,14 @@ class OrderLookUp extends Component {
     match: PropTypes.object.isRequired // eslint-disable-line react/forbid-prop-types
   };
 
-  componentWillMount() {
-    const { match } = this.props;
-    window.PGdataLayer.page = {
-      title: 'Order Lookup',
-      url: match.path
-    }
-    window.dataLayer.push({ 'event': 'virtualPageview' })
-  }
+  // componentWillMount() {
+  //   const { match } = this.props;
+  //   window.PGdataLayer.page = {
+  //     title: 'Order Lookup',
+  //     url: match.path
+  //   }
+  //   window.dataLayer.push({ 'event': 'virtualPageview' })
+  // }
 
   render() {
     const { shop, match } = this.props;
