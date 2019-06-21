@@ -61,6 +61,18 @@ class Footer extends Component {
             <div className="column">
               <div className="columns">
                 <div className="column">
+                  {/* <p className="footer-header topic is-hidden-mobile">Shop</p>
+                  <p>
+                    <Link
+                      to="/products-page/119#top"
+                      className="event_view_product_detail_page"
+                    >
+                      {' '}
+                      Product Name{' '}
+                    </Link>
+                  </p> */}
+                </div>
+                <div className="column">
                   <p className="footer-header topic is-hidden-mobile">Shop</p>
                   <p>
                     <Link
@@ -70,20 +82,6 @@ class Footer extends Component {
                       {' '}
                       Product Name{' '}
                     </Link>
-                  </p>
-                </div>
-                <div className="column">
-                  <p className="footer-header topic is-hidden-mobile">
-                    Help & FAQs
-                  </p>
-                  <p>
-                    <Link to="/exchanges-returns#top">
-                      {' '}
-                      Returns & Exchanges{' '}
-                    </Link>
-                  </p>
-                  <p>
-                    <Link to="/faq#top"> FAQs </Link>
                   </p>
                 </div>
                 <div className="column">

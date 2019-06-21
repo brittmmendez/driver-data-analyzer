@@ -90,11 +90,11 @@ class ErrorPage extends Component {
                   <button type="button" aria-label="shop" className="primary-btn error-btn"> Shop Now</button>
                 </Link>
               </div>
-              <div className="column">
+              {/* <div className="column">
                 <Link to="/faq#top">
                   <button type="button" className="primary-btn error-btn"> Read Our FAQs</button>
                 </Link>
-              </div>
+              </div> */}
             </div>
             :
             <button type="submit" className="refresh-btn" onClick={this.reloadPage}> Refresh page </button>
