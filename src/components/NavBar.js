@@ -216,12 +216,12 @@ class NavBar extends Component {
                     onClick={this.closeNav}
                     onKeyPress={this.closeNav}
                   >
-                    <Link
+                    {/* <Link
                       className="navbar-item is-marginless-mobile border-bottom"
                       to="/faq#top"
                     >
                       <span className="has-hover-border"> FAQs </span>
-                    </Link>
+                    </Link> */}
                   </span>
                 </div>
 
@@ -244,12 +244,12 @@ class NavBar extends Component {
                   onClick={this.closeNav}
                   onKeyPress={this.closeNav}
                 >
-                  <Link
+                  {/* <Link
                     className="has-hover-border"
                     to="/faq#top"
                   >
                     FAQs
-                    </Link>
+                    </Link> */}
                 </span>
               </div>
             </div>

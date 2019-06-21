@@ -51,26 +51,26 @@ class SiteMap extends Component {
               </div>
             </div>
             <div className="column is-3-desktop is-6-tablet is-12-mobile">
-              <h3 className="section-title"> Help & FAQs</h3>
+              <h3 className="section-title"> Customer Support</h3>
               <div className="columns">
                 <div className="column no-padding-left-mobile">
                   <ul>
                     <li>
-                      {' '}
-                      <Link to="/exchanges-returns#top">
-                        Returns and exchanges
-                      </Link>
+                      <a href={customerSupport.customerSupportCtaCallButtonUrl}>
+                        {customerSupport.customerSupportCtaCallButtonText}
+                      </a>
                     </li>
                     <li>
-                      {' '}
-                      <Link to="/faq#top">FAQs</Link>
+                      <a href={customerSupport.customerSupportCtaEmailButtonUrl}>
+                        {customerSupport.customerSupportCtaEmailButtonText}
+                      </a>
                     </li>
                   </ul>
                 </div>
               </div>
             </div>
             <div className="column  is-3-desktop is-6-tablet is-12-mobile">
-              <h3 className="section-title"> Customer Support</h3>
+              {/* <h3 className="section-title"> Customer Support</h3>
               <ul className="less-margin-left">
                 <li>
                   <a href={customerSupport.customerSupportCtaCallButtonUrl}>
@@ -82,7 +82,7 @@ class SiteMap extends Component {
                     {customerSupport.customerSupportCtaEmailButtonText}
                   </a>
                 </li>
-              </ul>
+              </ul> */}
             </div>
           </div>
           <div className="is-hidden-tablet">
