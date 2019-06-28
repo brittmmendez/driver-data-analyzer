@@ -51,6 +51,11 @@ class LandingPage extends Component {
   };
 
   render() {
+
+    const {
+      shop: { crmSignup },
+    } = this.props;
+
     return (
       <div>
         <Helmet>
@@ -64,9 +69,9 @@ class LandingPage extends Component {
           <meta property='og:image' content="http://res.cloudinary.com/alcmy/image/fetch/c_scale,dpr_auto,f_auto,q_auto,w_550/https://images.ctfassets.net/dx8s2zoelme1/5K5hbkXaqDNW17XouobaJA/a0a8ff9c48bbe8987e706674b665dc41/placeholder3.jpg" />
         </Helmet>
         <div className="landing-page">
-          <ThankYouModal />
-          <ErrorModal />
-          <SignupModal />
+          {crmSignup.signupFormSuccess && crmSignup.viaSignupModal && <ThankYouModal />}
+          {crmSignup.signupFormError && <ErrorModal />}
+          {crmSignup.signupModal && <SignupModal />}
           <SpotLight />
           <Benefits />
           <SpotlightStat />

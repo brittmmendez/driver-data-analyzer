@@ -9,10 +9,10 @@ describe('Product Show Page', () => {
     cy.get('.content');
   });
 
-  it('can add product to bag', () => {
-    cy.viewport('macbook-15');
-    cy.get('[data-cy=add-to-bag]').click();
-    cy.get('[data-cy=my-cart-modal]').click();
-    cy.contains('My Cart: (1) Item');
-  });
+  // it('can add product to bag', () => {
+  //   cy.viewport('macbook-15');
+  //   cy.get('[data-cy=add-to-bag]').click();
+  //   cy.get('[data-cy=my-cart-modal]').click();
+  //   cy.contains('My Cart: (1) Item');
+  // });
 });
