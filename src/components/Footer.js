@@ -123,7 +123,7 @@ class Footer extends Component {
           <p className="is-hidden-tablet mobile-padding" />
           <a
             className="info"
-            href="https://info.evidon.com/pub_info/8875?v=1&nt=0&nw=false"
+            href="https://www.pg.com/privacy/english/privacy_statement.shtml#iba"
             target="_blank"
             rel="noopener noreferrer"
           >
