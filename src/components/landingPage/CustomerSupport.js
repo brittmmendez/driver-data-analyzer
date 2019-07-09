@@ -20,7 +20,9 @@ class CustomerSupport extends Component {
         <section className="section content">
           <div className="customer-support">
             <div className="support-msg">
-              <h2 className="has-text-centered-mobile">{customerSupport.customerSupportTitle}</h2>
+              <h2 className="has-text-centered-mobile">
+                {customerSupport.customerSupportTitle}
+              </h2>
               <p className="support-description">
                 {customerSupport.customerSupportMessaging}
               </p>
@@ -29,14 +31,16 @@ class CustomerSupport extends Component {
                   className="primary-btn button"
                   href={customerSupport.customerSupportCtaCallButtonUrl}
                 >
-                  {customerSupport.customerSupportCtaCallButtonText}
+                  <span>{customerSupport.customerSupportCtaCallButtonText}</span>
                 </a> */}
 
                 <a
                   className="primary-btn button"
                   href={customerSupport.customerSupportCtaEmailButtonUrl}
                 >
-                  {customerSupport.customerSupportCtaEmailButtonText}
+                  <span>
+                    {customerSupport.customerSupportCtaEmailButtonText}
+                  </span>
                 </a>
               </div>
             </div>

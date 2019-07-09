@@ -6,7 +6,7 @@ import { observer, inject } from 'mobx-react';
 import { HashLink as Link } from 'react-router-hash-link';
 import PropTypes from 'prop-types';
 import { Image, Transformation } from 'cloudinary-react';
-import X from '../static/images/svg/X.svg'
+import X from '../static/images/svg/X.svg';
 
 @inject('shop')
 @observer
@@ -50,7 +50,6 @@ class CartItem extends Component {
     this.handleModalToggle();
     cart.removeFromCart(item);
   };
-
 
   handleLowerQuantity = item => {
     if (item.quantity > 1) {
@@ -130,8 +129,8 @@ class CartItem extends Component {
                   dpr="auto"
                   responsive
                   crop="scale"
-                // width="130"
-                // height="130"
+                  // width="130"
+                  // height="130"
                 />
               </Image>
             </figure>
@@ -164,13 +163,13 @@ class CartItem extends Component {
                     ${item.price.toFixed(2)} each
                   </p>
                 ) : (
-                    <div className="item-details">
-                      <s>${item.retail_price.toFixed(2)}</s>
-                      <span className="has-text-weight-bold">
-                        {'  '}${item.sale_price.toFixed(2)} each
+                  <div className="item-details">
+                    <s>${item.retail_price.toFixed(2)}</s>
+                    <span className="has-text-weight-bold">
+                      {'  '}${item.sale_price.toFixed(2)} each
                     </span>
-                    </div>
-                  )}
+                  </div>
+                )}
               </div>
               <div className="column item-product-selector">
                 <div className="field">
@@ -213,7 +212,8 @@ class CartItem extends Component {
             </div>
           </div>
           <div className="media-right has-text-right">
-            <div className="close"
+            <div
+              className="close"
               role="button"
               tabIndex="0"
               onClick={() => this.handleModalToggle()}
@@ -223,10 +223,10 @@ class CartItem extends Component {
               <span
                 className="icon"
                 data-cy="open-modal"
-              // role="button"
-              // tabIndex="0"
-              // onClick={() => this.handleModalToggle()}
-              // onKeyPress={() => this.handleModalToggle()}
+                // role="button"
+                // tabIndex="0"
+                // onClick={() => this.handleModalToggle()}
+                // onKeyPress={() => this.handleModalToggle()}
               >
                 <img src={X} alt="close-icon" className="close-icon" />
               </span>
@@ -237,16 +237,19 @@ class CartItem extends Component {
           </div>
         </article>
         <div className={`modal ${modalClass}`}>
-          <div className="modal-background" role="button"
+          <div
+            className="modal-background"
+            role="button"
             tabIndex="0"
             onClick={() => this.handleModalToggle()}
-            onKeyPress={() => this.handleModalToggle()} />
+            onKeyPress={() => this.handleModalToggle()}
+          />
           <div className="box has-text-centered">
             <div className="content is-expanded has-background-light-grey">
               <div className="modal-title">
                 <h3>
                   Are you sure you'd like to remove {item.name} from your cart?
-              </h3>
+                </h3>
               </div>
               <span
                 role="button"
@@ -271,8 +274,8 @@ class CartItem extends Component {
                       dpr="auto"
                       responsive
                       crop="scale"
-                    // width="93"
-                    // height="93"
+                      // width="93"
+                      // height="93"
                     />
                   </Image>
                 </div>
@@ -284,13 +287,13 @@ class CartItem extends Component {
                           ${item.price.toFixed(2)} each
                         </h4>
                       ) : (
-                          <div className="delete-item-price">
-                            <s>${item.retail_price.toFixed(2)}</s>
-                            <span className="has-text-weight-bold">
-                              {'  '}${item.sale_price.toFixed(2)} each
+                        <div className="delete-item-price">
+                          <s>${item.retail_price.toFixed(2)}</s>
+                          <span className="has-text-weight-bold">
+                            {'  '}${item.sale_price.toFixed(2)} each
                           </span>
-                          </div>
-                        )}
+                        </div>
+                      )}
                     </div>
                     <div className="item-details variants">
                       {item.option_values.length > 0 && (
@@ -305,19 +308,17 @@ class CartItem extends Component {
                           )}
                         </div>
                       )}
-                      <span>
-                        Quantity: {item.quantity}
-                      </span>
+                      <span>Quantity: {item.quantity}</span>
                     </div>
                   </div>
                 </div>
               </div>
               <button
-                className="button secondary-btn keep-cta"
+                className="button primary-btn keep-cta"
                 type="button"
                 onClick={() => this.handleModalToggle()}
               >
-                No, keep item in cart
+                <span>No, keep item in cart</span>
               </button>
               <button
                 className="button primary-btn remove-cta event_remove_from_cart"
@@ -325,7 +326,7 @@ class CartItem extends Component {
                 type="button"
                 onClick={() => this.handleRemoveFromCart(item)}
               >
-                Yes, remove item
+                <span>Yes, remove item</span>
               </button>
             </div>
           </div>

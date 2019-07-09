@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 class OOSnotifyMeSignup extends Component {
   static propTypes = {
     shop: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
-    handleSignupSuccess: PropTypes.func.isRequired, // eslint-disable-line react/forbid-prop-types
+    handleSignupSuccess: PropTypes.func.isRequired // eslint-disable-line react/forbid-prop-types
   };
 
   constructor(props) {
@@ -15,7 +15,7 @@ class OOSnotifyMeSignup extends Component {
 
     this.state = {
       email: '',
-      ErrorEmail: false,
+      ErrorEmail: false
     };
   }
 
@@ -37,7 +37,7 @@ class OOSnotifyMeSignup extends Component {
     }
   };
 
-  handleSubmit = (event) => {
+  handleSubmit = event => {
     event.preventDefault();
 
     const { state_or_province: state } = this.state;
@@ -45,7 +45,7 @@ class OOSnotifyMeSignup extends Component {
     this.formErrors();
 
     if (this.validateForm() && state !== '') {
-      this.submitNotifyMeInfo()
+      this.submitNotifyMeInfo();
     }
   };
 
@@ -73,10 +73,10 @@ class OOSnotifyMeSignup extends Component {
 
   async submitNotifyMeInfo() {
     const { shop, handleSignupSuccess } = this.props;
-    // submit notify me call to klaviyo 
+    // submit notify me call to klaviyo
     // const res = await shop.checkout.addShippingInfo(this.state);
 
-    handleSignupSuccess()
+    handleSignupSuccess();
     // if success, close toggle
     // if (res) {
     // handleSuccess
@@ -88,9 +88,7 @@ class OOSnotifyMeSignup extends Component {
   }
 
   validateForm() {
-    return (
-      this.confirmEmail()
-    );
+    return this.confirmEmail();
   }
 
   render() {
@@ -114,12 +112,15 @@ class OOSnotifyMeSignup extends Component {
                 />
               </div>
               {state.ErrorEmail && state.email === '' && (
-                <p className="error is-danger">We need your information here.</p>
+                <p className="error is-danger">
+                  We need your information here.
+                </p>
               )}
               {state.ErrorEmail && state.email !== '' && (
                 <p className="error is-danger">
-                  Hmm, this doesn’t seem right. Enter the right information here.
-                    </p>
+                  Hmm, this doesn’t seem right. Enter the right information
+                  here.
+                </p>
               )}
             </label>
           </div>
@@ -128,14 +129,13 @@ class OOSnotifyMeSignup extends Component {
             <button
               className={
                 state.ErrorEmail || state.email === ''
-                  ? "button disabled-btn notify-me-cta" : "button primary-btn notify-me-cta"
+                  ? 'button disabled-btn notify-me-cta'
+                  : 'button primary-btn notify-me-cta'
               }
               type="submit"
-              disabled={
-                state.ErrorEmail || state.email === ''
-              }
+              disabled={state.ErrorEmail || state.email === ''}
             >
-              NOTIFY ME
+              <span>NOTIFY ME</span>
             </button>
           </div>
         </form>

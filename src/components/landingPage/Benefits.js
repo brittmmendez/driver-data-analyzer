@@ -49,12 +49,12 @@ class Benefits extends Component {
               ))}
             </div>
           </LazyLoad>
-          <Link
-            className="button secondary-btn cont-shopping"
+          {/* <Link
+            className="button primary-btn cont-shopping"
             to={productBenefitGroup.ctaURL}
           >
-            {productBenefitGroup.ctaText}
-          </Link>
+            <span>{productBenefitGroup.ctaText}</span>
+          </Link> */}
         </div>
       </section>
     );

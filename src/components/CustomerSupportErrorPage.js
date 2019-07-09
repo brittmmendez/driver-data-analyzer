@@ -22,21 +22,26 @@ class CustomerSupportErrorPage extends Component {
             <div className="support-msg">
               <div className="columns">
                 <div className="column">
-                  <h2 className="has-text-white">{customerSupport.customerSupportTitle}</h2>
+                  <h2 className="has-text-white">
+                    {customerSupport.customerSupportTitle}
+                  </h2>
                   <p className="has-text-white">
                     {customerSupport.customerSupportMessaging}
                   </p>
                 </div>
 
                 <div className="column has-text-right ">
-
                   <div className="desktop-view ">
                     <div className="">
                       <a
                         className="primary-btn button"
                         href={customerSupport.customerSupportCtaCallButtonUrl}
                       >
-                        {customerSupport.customerSupportCtaCallButtonMobileText}
+                        <span>
+                          {
+                            customerSupport.customerSupportCtaCallButtonMobileText
+                          }
+                        </span>
                       </a>
                     </div>
                     <div className="">
@@ -44,7 +49,11 @@ class CustomerSupportErrorPage extends Component {
                         className="primary-btn button"
                         href={customerSupport.customerSupportCtaEmailButtonUrl}
                       >
-                        {customerSupport.customerSupportCtaEmailButtonMobileText}
+                        <span>
+                          {
+                            customerSupport.customerSupportCtaEmailButtonMobileText
+                          }
+                        </span>
                       </a>
                     </div>
                   </div>

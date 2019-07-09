@@ -121,7 +121,7 @@ class OrderSummary extends Component {
               className="button primary-btn checkout-cta"
               onClick={e => this.handleCheckoutNow(e)}
             >
-              Checkout Now
+              <span>Checkout Now</span>
             </button>
             <button
               type="button"

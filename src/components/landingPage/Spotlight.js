@@ -37,7 +37,7 @@ class Spotlight extends Component {
                       className="primary-btn button join-button"
                       to={spotlight.spotlightProductCtaButtonRelativeURL}
                     >
-                      {spotlight.spotlightProductCtaButtonText}
+                      <span>{spotlight.spotlightProductCtaButtonText}</span>
                     </Link>
                   </div>
                 </div>
@@ -61,7 +61,7 @@ class Spotlight extends Component {
       //     className="primary-btn button join-button"
       //     to={spotlight.spotlightProductCtaButtonRelativeURL}
       //   >
-      //     {spotlight.spotlightProductCtaButtonText}
+      //     <span>{spotlight.spotlightProductCtaButtonText}</span>
       //   </Link>
       // </div>
       //         </div>

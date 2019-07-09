@@ -21,7 +21,7 @@ class ShopProductsBtn extends Component {
       <div>
         <Link to="/products-page">
           <button type="button" className="button primary-btn" to="/products-page" onClick={this.handleClick}>
-            Shop Products
+            <span>Shop Products</span>
           </button>
         </Link>
       </div>
