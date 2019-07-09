@@ -19,8 +19,13 @@ $gradient: linear-gradient(315deg, $pastel-purple 0%, $dark-purple 52.54%, $neon
 
 
 // Updated primary colors (mon amie)
-$coral-candy: #F6CDC3;
-$black-text: #000000;
+$hard-pink: #F6CDC3;
+$soft-pink: #F6E6DF;
+$hover-pink: #fbf3ef;
+$disabled-pink: #FDF5F1;
+$navy: #033B68;
+$white: #ffffff;
+$black: #000000;
 $montserrat-font: 'Montserrat', sans-serif;
 $lato-font: 'Lato', sans-serif;
 
@@ -145,9 +150,9 @@ strong{
     .primary-btn{
         cursor: pointer;
         height: 49px;
-        background-color: $coral-candy;	
+        background-color: $hard-pink;	
         box-shadow: 0 2px 4px 0 rgba(0,0,0,0.5);
-        color: $black-text;
+        color: $black;
         font-family: $montserrat-font;
         font-size: 16px;
         line-height: 19px;	
@@ -161,14 +166,14 @@ strong{
 
     .primary-btn:hover{
         span {
-            background: #fbf3ef;
+            background: $hover-pink;
             padding: 2px;
         }
     }
 
     .primary-btn:active {
         span {
-            background: #fbf3ef;
+            background: $hover-pink;
             padding: 2px;
         }
     }
@@ -181,12 +186,12 @@ strong{
 
     
     .disabled-btn{
-        background-color: $natural-light-gray;
-        color: $natural-gray;	
+        background-color: $disabled-pink;
+        color: $hard-pink;	
         border: none;
-        font-family: $overpass-font;
-        font-size: 18px;
-        line-height: 20px;	
+        font-family: $montserrat-font;
+        font-size: 16px;
+        line-height: 19px;	
         text-align: center;
         border-radius: 1px;
         opacity: 1;
