@@ -43,6 +43,7 @@ class FormikSignup extends Component {
           })}
           onSubmit={async (values, { setSubmitting, resetForm }) => {
             const {
+              shop,
               shop: { crmSignup },
               viaModal
             } = this.props;

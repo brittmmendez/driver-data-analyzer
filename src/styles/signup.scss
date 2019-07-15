@@ -68,7 +68,7 @@
 
     .input{
         height: 49px;	
-        width: 367px;	
+        //width: 367px;	
         border: 1.5px solid $black;
         background-color: $white;
         border-radius: 1px;
@@ -154,15 +154,15 @@
 }
 
 
-@media (max-width: 930px) {
-    .signup{
-        .signup-form {
-            .input{
-                width: 225px;
-            }
-        }
-    }
-}
+// @media (max-width: 930px) {
+//     .signup{
+//         .signup-form {
+//             .input{
+//                 width: 225px;
+//             }
+//         }
+//     }
+// }
 
 
 @include mobile{
