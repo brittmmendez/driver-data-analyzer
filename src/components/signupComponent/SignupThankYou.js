@@ -10,14 +10,18 @@ class SignupThankYou extends Component {
   };
 
   render() {
-    const { shop: { crmSignup } } = this.props;
+    const {
+      shop: { crmSignup }
+    } = this.props;
     return (
       <div className="signup thank-you">
         <section className="section component">
           <div className=" columns content">
             <div className="column is-6 has-text-left">
               <div className="">
-                <h1 className="section-title has-text-white">{crmSignup.signupThankYouHeadline}</h1>
+                <h1 className="section-title has-text-black">
+                  {crmSignup.signupThankYouHeadline}
+                </h1>
               </div>
             </div>
             <div className="column signup-column is-6 has-text-left">

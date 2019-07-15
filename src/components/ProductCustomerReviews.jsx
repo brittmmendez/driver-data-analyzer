@@ -105,7 +105,7 @@ class ProductCustomerReviews extends Component {
               <div className="star-filter">
                 {' '}
                 {product.average_rating} out of 5 stars
-                </div>
+              </div>
               <div
                 role="link"
                 className="star-rating-filter"
@@ -113,7 +113,11 @@ class ProductCustomerReviews extends Component {
                 onClick={() => this.handleFilterChange(0)}
                 onKeyPress={() => this.handleFilterChange(0)}
               >
-                <ProductStarRating product={product} showAll={false} color="#1A699F" />
+                <ProductStarRating
+                  product={product}
+                  showAll={false}
+                  color="#1A699F"
+                />
               </div>
             </div>
             <div className="column is-6 ratings-and-reviews">
@@ -244,7 +248,10 @@ class ProductCustomerReviews extends Component {
 
           <div className="review-list">
             {setReviews.map(review => (
-              <div className="columns has-border-bottom review-body" key={review.name}>
+              <div
+                className="columns has-border-bottom review-body"
+                key={review.name}
+              >
                 <div className="column is-3 has-text-left">
                   <div className="is-hidden-mobile">
                     <p className="sub-text">
@@ -306,11 +313,15 @@ class ProductCustomerReviews extends Component {
                 this.handleItemsCountChange(itemsCountPerPage + 10)
               }
               disabled={disabledBtn}
-              className={disabledBtn ? "is-hidden-tablet disabled-btn load-more-reviews" : "is-hidden-tablet secondary-btn load-more-reviews"}
+              className={
+                disabledBtn
+                  ? 'is-hidden-tablet disabled-btn load-more-reviews'
+                  : 'is-hidden-tablet primary-btn load-more-reviews'
+              }
               type="button"
             >
               {' '}
-              Load More{' '}
+              <span>Load More</span>{' '}
             </button>
           )}
         </div>
@@ -319,7 +330,10 @@ class ProductCustomerReviews extends Component {
     return (
       <div className="container product-review">
         <h3 className="product-name">{product.name}</h3>
-        <p> <i> We currently have no reviews for this product. </i></p>
+        <p>
+          {' '}
+          <i> We currently have no reviews for this product. </i>
+        </p>
       </div>
     );
   }

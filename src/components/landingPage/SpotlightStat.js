@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { observer, inject } from 'mobx-react';
 import PropTypes from 'prop-types';
-// import { Image, Transformation } from 'cloudinary-react';
+import { Image, Transformation } from 'cloudinary-react';
 import LazyLoad from 'react-lazyload';
 
 @inject('shop')
@@ -21,18 +21,69 @@ class SpotlightStat extends Component {
       <LazyLoad height={200}>
         <div
           className="spotlight-stat"
-          style={{
-            backgroundImage: `url(${spotlightStat.spotlightProductMediaFile})`
-          }}
+          // style={{
+          //   backgroundImage: `url(${spotlightStat.spotlightProductMediaFile})`
+          // }}
         >
+          <Image
+            publicId={spotlightStat.spotlightBackgroundLeft}
+            alt={spotlightStat.spotlightBackgroundLeft}
+            type="fetch"
+            className="background-left"
+          >
+            <Transformation
+              quality="auto"
+              fetchFormat="auto"
+              dpr="auto"
+              responsive
+              crop="scale"
+              width="325"
+            />
+          </Image>
+          <Image
+            publicId={spotlightStat.spotlightBackgroundRight}
+            alt={spotlightStat.spotlightBackgroundRight}
+            type="fetch"
+            className="background-right"
+          >
+            <Transformation
+              quality="auto"
+              fetchFormat="auto"
+              dpr="auto"
+              responsive
+              crop="scale"
+              width="325"
+            />
+          </Image>
+
           <section className="section">
             <div className="content">
-              <div className="has-text-center">
-                <div className="spotlight-msg">
-                  <h1>{spotlightStat.spotlightProductTitle}</h1>
-                  <p className="has-text-center">
-                    {spotlightStat.spotlightProductMessaging}
-                  </p>
+              <div className="">
+                <div className="columns">
+                  <div className="column is-5 img">
+                    <Image
+                      publicId={spotlightStat.spotlightProductMediaFile}
+                      //alt={benefit.productBenefitMediaTitle}
+                      type="fetch"
+                    >
+                      <Transformation
+                        quality="auto"
+                        fetchFormat="auto"
+                        dpr="auto"
+                        responsive
+                        crop="scale"
+                        width="450"
+                      />
+                    </Image>
+                  </div>
+                  <div className="column is-7">
+                    <div className="spotlight-msg">
+                      <h3>{spotlightStat.spotlightProductTitle}</h3>
+                      <p className="has-text-left">
+                        {spotlightStat.spotlightProductMessaging}
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

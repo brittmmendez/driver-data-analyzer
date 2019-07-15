@@ -18,24 +18,30 @@ class CustomerSupportBox extends Component {
     return (
       <div className="customer-support-box container content">
         <div className="support-msg">
-          <h3 className="has-text-left-mobile">{customerSupport.customerSupportTitle}</h3>
+          <h3 className="has-text-left-mobile">
+            {customerSupport.customerSupportTitle}
+          </h3>
           <p className="has-text-left support-description">
             {customerSupport.customerSupportMessaging}
           </p>
           <div>
             <a
-              className="secondary-btn button"
+              className="primary-btn button"
               href={customerSupport.customerSupportCtaCallButtonUrl}
             >
-              {customerSupport.customerSupportCtaCallButtonMobileText}
+              <span>
+                {customerSupport.customerSupportCtaCallButtonMobileText}
+              </span>
             </a>
           </div>
           <div>
             <a
-              className="secondary-btn button"
+              className="primary-btn button"
               href={customerSupport.customerSupportCtaEmailButtonUrl}
             >
-              {customerSupport.customerSupportCtaEmailButtonMobileText}
+              <span>
+                {customerSupport.customerSupportCtaEmailButtonMobileText}
+              </span>
             </a>
           </div>
         </div>

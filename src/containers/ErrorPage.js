@@ -82,17 +82,17 @@ class ErrorPage extends Component {
             <div className="columns error-btn-container">
               <div className="column">
                 <Link to="/#top">
-                  <button type="button" className="primary-btn error-btn"> Go to Our Homepage</button>
+                  <button type="button" className="primary-btn error-btn"> <span>Go to Our Homepage</span></button>
                 </Link>
               </div>
               <div className="column">
                 <Link to="/products-page#top">
-                  <button type="button" aria-label="shop" className="primary-btn error-btn"> Shop Now</button>
+                  <button type="button" aria-label="shop" className="primary-btn error-btn"> <span>Shop Now</span></button>
                 </Link>
               </div>
               {/* <div className="column">
                 <Link to="/faq#top">
-                  <button type="button" className="primary-btn error-btn"> Read Our FAQs</button>
+                  <button type="button" className="primary-btn error-btn"> <span>Read Our FAQs</span></button>
                 </Link>
               </div> */}
             </div>

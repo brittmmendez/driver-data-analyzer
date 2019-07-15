@@ -38,7 +38,7 @@ class QnA extends Component {
           </div>
         )}
         <Link className="primary-btn button back-to-top" to="/#top">
-          BACK TO HOMEPAGE
+          <span>BACK TO HOMEPAGE</span>
         </Link>
       </div>
     );

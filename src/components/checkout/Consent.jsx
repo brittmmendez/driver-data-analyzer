@@ -3,8 +3,8 @@ import { observer, inject } from 'mobx-react';
 import PropTypes from 'prop-types';
 import Markdown from 'react-markdown';
 import { Link } from 'react-router-dom';
-import X from '../../static/images/svg/X.svg'
-import CheckmarkInCircle from '../../static/images/svg/CheckmarkInCircle.svg'
+import X from '../../static/images/svg/X.svg';
+import CheckmarkInCircle from '../../static/images/svg/CheckmarkInCircle.svg';
 
 @inject('shop')
 @observer
@@ -28,69 +28,85 @@ export default class Consent extends Component {
   }
 
   handleModalToggle = () => {
-    const { modalClass } = this.state
-    const { shop: { checkout } } = this.props
+    const { modalClass } = this.state;
+    const {
+      shop: { checkout }
+    } = this.props;
 
     // if modal class is closed track in Klaviyo that it is now open and user started consent
-    if (!modalClass && !checkout.checkoutStepTracker.consentComplete && window._learnq) {
+    if (
+      !modalClass &&
+      !checkout.checkoutStepTracker.consentComplete &&
+      window._learnq
+    ) {
       window._learnq.push(['track', 'Consent Form Opened']);
     }
 
     this.setState({
-      modalClass: modalClass === "is-active" ? "" : "is-active"
+      modalClass: modalClass === 'is-active' ? '' : 'is-active'
     });
-
   };
 
   startKlaviyoTracker = () => {
-    const { shop: { checkout } } = this.props
+    const {
+      shop: { checkout }
+    } = this.props;
 
     // track in Klaviyo that user finished payment and it now on consent page
     if (!checkout.checkoutStepTracker.consentComplete && window._learnq) {
-      window._learnq.push(['identify', {
-        '$email': checkout.shippingInfo.email,
-      }]);
+      window._learnq.push([
+        'identify',
+        {
+          $email: checkout.shippingInfo.email
+        }
+      ]);
     }
-  }
-
-  handleFirstClick = (event) => {
-    this.setState({
-      option1: event.target.checked
-    })
-  }
-
-  handleFirstNameChange = (event) => {
-    this.setState({
-      [event.target.id]: event.target.value
-    });
-    this.confirmFirstName(event.target.value)
   };
 
-  handleLastNameChange = (event) => {
+  handleFirstClick = event => {
+    this.setState({
+      option1: event.target.checked
+    });
+  };
+
+  handleFirstNameChange = event => {
     this.setState({
       [event.target.id]: event.target.value
     });
-    this.confirmLastName(event.target.value)
+    this.confirmFirstName(event.target.value);
+  };
+
+  handleLastNameChange = event => {
+    this.setState({
+      [event.target.id]: event.target.value
+    });
+    this.confirmLastName(event.target.value);
   };
 
   confirmFirstName = name => {
     const { ErrorFirstName } = this.state;
     let { firstName } = this.state;
-    const { shop: {
-      checkout:
-      { shippingInfo }
-    } } = this.props
+    const {
+      shop: {
+        checkout: { shippingInfo }
+      }
+    } = this.props;
 
     if (typeof name === 'string') {
       firstName = name;
     }
 
-    if (firstName.toLowerCase() !== shippingInfo.first_name.toLowerCase() && firstName !== "") {
-      this.setState({ ErrorFirstName: "First name must match shipping information." });
+    if (
+      firstName.toLowerCase() !== shippingInfo.first_name.toLowerCase() &&
+      firstName !== ''
+    ) {
+      this.setState({
+        ErrorFirstName: 'First name must match shipping information.'
+      });
     } else if (firstName.length > 0) {
       this.setState({ ErrorFirstName: false });
     } else {
-      this.setState({ ErrorFirstName: "We need your info here." });
+      this.setState({ ErrorFirstName: 'We need your info here.' });
     }
     return !ErrorFirstName;
   };
@@ -98,21 +114,27 @@ export default class Consent extends Component {
   confirmLastName = name => {
     const { ErrorLastName } = this.state;
     let { lastName } = this.state;
-    const { shop: {
-      checkout:
-      { shippingInfo }
-    } } = this.props
+    const {
+      shop: {
+        checkout: { shippingInfo }
+      }
+    } = this.props;
 
     if (typeof name === 'string') {
       lastName = name;
     }
 
-    if (lastName.toLowerCase() !== shippingInfo.last_name.toLowerCase() && lastName !== "") {
-      this.setState({ ErrorLastName: "Last name must match shipping information." });
+    if (
+      lastName.toLowerCase() !== shippingInfo.last_name.toLowerCase() &&
+      lastName !== ''
+    ) {
+      this.setState({
+        ErrorLastName: 'Last name must match shipping information.'
+      });
     } else if (lastName.length > 0) {
       this.setState({ ErrorLastName: false });
     } else {
-      this.setState({ ErrorLastName: "We need your info here." });
+      this.setState({ ErrorLastName: 'We need your info here.' });
     }
 
     return !ErrorLastName;
@@ -121,7 +143,7 @@ export default class Consent extends Component {
   async handleSubmit() {
     const { history } = this.props;
     const { shop } = this.props;
-    const { firstName, lastName } = this.state
+    const { firstName, lastName } = this.state;
     if (this.validateForm()) {
       const consentComplete = await shop.checkout.checkoutStepTracker.setConsentComplete(
         firstName,
@@ -129,7 +151,8 @@ export default class Consent extends Component {
         shop.checkout.shippingInfo.email,
         shop.consentCopy.consentLegalNumber,
         shop.consentCopy.consentFormSubHeader,
-        shop.consentCopy.consentFormBody);
+        shop.consentCopy.consentFormBody
+      );
       if (consentComplete) {
         // track in Klaviyo that user finished consent form
         window._learnq.push(['track', 'Consent Form Completed']);
@@ -145,40 +168,49 @@ export default class Consent extends Component {
   }
 
   validateForm() {
-    return (
-      this.confirmFirstName() &&
-      this.confirmLastName()
-    );
+    return this.confirmFirstName() && this.confirmLastName();
   }
 
   render() {
-    const { shop: { checkout, consentCopy }, location } = this.props;
-    const { modalClass,
+    const {
+      shop: { checkout, consentCopy },
+      location
+    } = this.props;
+    const {
+      modalClass,
       ErrorFirstName,
       firstName,
       option1,
       lastName,
-      ErrorLastName } = this.state;
+      ErrorLastName
+    } = this.state;
     if (location.pathname === '/terms-and-conditions') {
-      this.startKlaviyoTracker()
+      this.startKlaviyoTracker();
       return (
         <div className="consent checkout-steps">
           <p className="has-text-weight-bold">Terms and Conditions</p>
-          <p style={{ marginBottom: "0px" }}> Please read and accept the Terms and Conditions before placing your order.</p>
+          <p style={{ marginBottom: '0px' }}>
+            {' '}
+            Please read and accept the Terms and Conditions before placing your
+            order.
+          </p>
           <button
             type="button"
             aria-label="consent-form"
             className="primary-btn open-terms-btn"
             onClick={() => this.handleModalToggle()}
           >
-            Read Terms & Conditions
+            <span>Read Terms & Conditions</span>
           </button>
 
           <div className={`modal ${modalClass}`}>
-            <div className="modal-background" role="button"
+            <div
+              className="modal-background"
+              role="button"
               tabIndex="0"
               onClick={() => this.handleModalToggle()}
-              onKeyPress={() => this.handleModalToggle()} />
+              onKeyPress={() => this.handleModalToggle()}
+            />
 
             <div className="modal-card">
               <section className="modal-card-body has-text-centered">
@@ -196,27 +228,34 @@ export default class Consent extends Component {
                   <div className="consent-body has-text-left">
                     <div className="columns is-mobile">
                       <div className="column">
-                        <h2 className="is-marginless">{consentCopy.consentFormTitle}</h2>
+                        <h2 className="is-marginless">
+                          {consentCopy.consentFormTitle}
+                        </h2>
                       </div>
                       <div className="column has-text-right">
-                        <p className="has-text-weight-bold">{consentCopy.consentLegalNumber}</p>
+                        <p className="has-text-weight-bold">
+                          {consentCopy.consentLegalNumber}
+                        </p>
                       </div>
                     </div>
 
                     <Markdown source={consentCopy.consentFormSubHeader} />
 
-                    <Markdown className="consent-directions" source={consentCopy.consentFormBody} />
+                    <Markdown
+                      className="consent-directions"
+                      source={consentCopy.consentFormBody}
+                    />
                     <br />
-                    <Markdown className="consent-directions" source={consentCopy.checkoutConsentFormDescription} />
+                    <Markdown
+                      className="consent-directions"
+                      source={consentCopy.checkoutConsentFormDescription}
+                    />
 
                     <div className="has-text-left">
                       <form className="consent-form">
                         <div className="control">
                           <div className="columns is-marginless is-mobile">
-                            <label
-                              className="checkbox"
-                              htmlFor="option1"
-                            >
+                            <label className="checkbox" htmlFor="option1">
                               <input
                                 name="option1"
                                 type="checkbox"
@@ -238,11 +277,13 @@ export default class Consent extends Component {
                             <div className="field">
                               <label className="label" htmlFor="firstName">
                                 First Name
-                            <div className="control has-icons-right">
+                                <div className="control has-icons-right">
                                   <input
                                     id="firstName"
                                     className={
-                                      ErrorFirstName ? 'input is-danger' : 'input'
+                                      ErrorFirstName
+                                        ? 'input is-danger'
+                                        : 'input'
                                     }
                                     type="text"
                                     value={firstName}
@@ -254,7 +295,9 @@ export default class Consent extends Component {
                                   />
                                 </div>
                                 {ErrorFirstName && (
-                                  <p className="error is-danger">{ErrorFirstName}</p>
+                                  <p className="error is-danger">
+                                    {ErrorFirstName}
+                                  </p>
                                 )}
                               </label>
                             </div>
@@ -263,23 +306,25 @@ export default class Consent extends Component {
                             <div className="field">
                               <label className="label" htmlFor="lastName">
                                 Last Name
-                            <div className="control has-icons-right">
+                                <div className="control has-icons-right">
                                   <input
                                     id="lastName"
                                     className={
-                                      ErrorLastName ? 'input is-danger' : 'input'
+                                      ErrorLastName
+                                        ? 'input is-danger'
+                                        : 'input'
                                     }
                                     type="text"
                                     value={lastName}
-                                    onChange={e =>
-                                      this.handleLastNameChange(e)
-                                    }
+                                    onChange={e => this.handleLastNameChange(e)}
                                     onBlur={this.confirmLastName}
                                     required
                                   />
                                 </div>
                                 {ErrorLastName && (
-                                  <p className="error is-danger">{ErrorLastName}</p>
+                                  <p className="error is-danger">
+                                    {ErrorLastName}
+                                  </p>
                                 )}
                               </label>
                             </div>
@@ -287,27 +332,23 @@ export default class Consent extends Component {
                         </div>
                       </form>
                     </div>
-
                   </div>
                   <button
                     type="submit"
                     aria-label="consent-form"
                     className={
                       ErrorFirstName ||
-                        ErrorLastName ||
-                        firstName === '' ||
-                        lastName === '' ||
-                        !option1
-                        ? "button disabled-btn terms-btn" : "button primary-btn terms-btn"
-                    }
-                    disabled={
+                      ErrorLastName ||
                       firstName === '' ||
                       lastName === '' ||
                       !option1
+                        ? 'button disabled-btn terms-btn'
+                        : 'button primary-btn terms-btn'
                     }
+                    disabled={firstName === '' || lastName === '' || !option1}
                     onClick={() => this.handleSubmit()}
                   >
-                    Save & Continue
+                    <span>Save & Continue</span>
                   </button>
                 </div>
               </section>
@@ -327,15 +368,13 @@ export default class Consent extends Component {
               </div>
               <div className="circle-icon-text">
                 You have accepted the terms and conditions.
-            </div>
+              </div>
             </div>
           )}
         </div>
         <div className="column is-4 has-text-right">
           {checkout.checkoutStepTracker.consentComplete && (
-            <Link to="/terms-and-conditions">
-              Edit
-            </Link>
+            <Link to="/terms-and-conditions">Edit</Link>
           )}
         </div>
       </div>

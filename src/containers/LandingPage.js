@@ -19,7 +19,7 @@ const cookies = new Cookies();
 @observer
 class LandingPage extends Component {
   static propTypes = {
-    shop: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
+    shop: PropTypes.object.isRequired // eslint-disable-line react/forbid-prop-types
   };
 
   componentDidMount() {
@@ -34,26 +34,27 @@ class LandingPage extends Component {
   }
 
   trackScrolling = () => {
-    const { shop: { crmSignup } } = this.props
+    const {
+      shop: { crmSignup }
+    } = this.props;
     if (!crmSignup.signupCompleted) {
       if (document.body.clientWidth > 709 && window.scrollY > 1000) {
         console.log('trigger reached');
-        crmSignup.setSignupModal(true)
+        crmSignup.setSignupModal(true);
         document.removeEventListener('scroll', this.trackScrolling);
       }
 
       if (document.body.clientWidth <= 709 && window.scrollY > 2000) {
         console.log('trigger reached');
-        crmSignup.setSignupModal(true)
+        crmSignup.setSignupModal(true);
         document.removeEventListener('scroll', this.trackScrolling);
       }
     }
   };
 
   render() {
-
     const {
-      shop: { crmSignup },
+      shop: { crmSignup }
     } = this.props;
 
     return (
@@ -62,21 +63,23 @@ class LandingPage extends Component {
           <meta property="og:type" content="website" />
           <meta property="og:url" content={process.env.REACT_APP_URL} />
           <meta property="og:title" content="Mon Amie" />
+          <meta property="og:description" content="Brand Description" />
           <meta
-            property="og:description"
-            content="Brand Description"
+            property="og:image"
+            content="http://res.cloudinary.com/alcmy/image/fetch/c_scale,dpr_auto,f_auto,q_auto,w_550/https://images.ctfassets.net/dx8s2zoelme1/5K5hbkXaqDNW17XouobaJA/a0a8ff9c48bbe8987e706674b665dc41/placeholder3.jpg"
           />
-          <meta property='og:image' content="http://res.cloudinary.com/alcmy/image/fetch/c_scale,dpr_auto,f_auto,q_auto,w_550/https://images.ctfassets.net/dx8s2zoelme1/5K5hbkXaqDNW17XouobaJA/a0a8ff9c48bbe8987e706674b665dc41/placeholder3.jpg" />
         </Helmet>
         <div className="landing-page">
-          {crmSignup.signupFormSuccess && crmSignup.viaSignupModal && <ThankYouModal />}
+          {crmSignup.signupFormSuccess && crmSignup.viaSignupModal && (
+            <ThankYouModal />
+          )}
           {crmSignup.signupFormError && <ErrorModal />}
           {crmSignup.signupModal && <SignupModal />}
           <SpotLight />
           <Benefits />
           <SpotlightStat />
           <ProductGrouping />
-          <CustomerSupport />
+          {/* <CustomerSupport /> */}
           <Signup />
         </div>
       </div>

@@ -98,19 +98,19 @@ class ShippingInfo extends Component {
   handleStateChange = (event, confirmStateAddress) => {
     this.setState({
       state_or_province: event.label,
-      state_or_province_code: event.value,
+      state_or_province_code: event.value
     });
     confirmStateAddress(event.label, event.value);
   };
 
-  handleSubmit = (event) => {
+  handleSubmit = event => {
     event.preventDefault();
     const { state_or_province: state } = this.state;
 
     this.formErrors();
 
     if (this.validateForm() && state !== '') {
-      this.submitShippingInfo()
+      this.submitShippingInfo();
     }
   };
 
@@ -205,7 +205,7 @@ class ShippingInfo extends Component {
     return !ErrorStreetAddress;
   };
 
-  confirmCityAddress = (cityAddress) => {
+  confirmCityAddress = cityAddress => {
     const { ErrorCityAddress } = this.state;
     let { city } = this.state;
 
@@ -225,7 +225,7 @@ class ShippingInfo extends Component {
     return !ErrorCityAddress;
   };
 
-  confirmStateAddress = (prov) => {
+  confirmStateAddress = prov => {
     const { ErrorStateAddress } = this.state;
     let { state_or_province: state } = this.state;
 
@@ -337,12 +337,12 @@ class ShippingInfo extends Component {
               state.ErrorStateAddress ||
               state.ErrorZipAddress ||
               state.ErrorPhone) && (
-                <div className="column">
-                  <p className="error error-message has-text-right-tablet">
-                    Please complete the highlighted areas below.
+              <div className="column">
+                <p className="error error-message has-text-right-tablet">
+                  Please complete the highlighted areas below.
                 </p>
-                </div>
-              )}
+              </div>
+            )}
           </div>
           <div className="checkout">
             <form onSubmit={this.handleSubmit}>
@@ -370,7 +370,9 @@ class ShippingInfo extends Component {
                     )}
                   </div>
                   {state.ErrorFirstName && (
-                    <p className="error is-danger">We need your information here.</p>
+                    <p className="error is-danger">
+                      We need your information here.
+                    </p>
                   )}
                 </label>
               </div>
@@ -397,7 +399,9 @@ class ShippingInfo extends Component {
                     )}
                   </div>
                   {state.ErrorLastName && (
-                    <p className="error is-danger">We need your information here.</p>
+                    <p className="error is-danger">
+                      We need your information here.
+                    </p>
                   )}
                 </label>
               </div>
@@ -422,11 +426,14 @@ class ShippingInfo extends Component {
                     )}
                   </div>
                   {state.ErrorEmail && state.email === '' && (
-                    <p className="error is-danger">We need your information here.</p>
+                    <p className="error is-danger">
+                      We need your information here.
+                    </p>
                   )}
                   {state.ErrorEmail && state.email !== '' && (
                     <p className="error is-danger">
-                      Hmm, this doesn’t seem right. Enter the right information here.
+                      Hmm, this doesn’t seem right. Enter the right information
+                      here.
                     </p>
                   )}
                 </label>
@@ -437,7 +444,8 @@ class ShippingInfo extends Component {
                   Phone Number
                   {state.ErrorPhone && (
                     <p className="error is-danger">
-                      Hmm, this doesn’t seem right. Enter the right information here.
+                      Hmm, this doesn’t seem right. Enter the right information
+                      here.
                     </p>
                   )}
                   <div className="control has-icons-right short">
@@ -474,7 +482,7 @@ class ShippingInfo extends Component {
                       id="address1"
                       className={`input ${
                         state.ErrorStreetAddress ? 'is-danger' : ''
-                        }`}
+                      }`}
                       type="text"
                       defaultValue={state.address1}
                       onChange={e =>
@@ -490,7 +498,9 @@ class ShippingInfo extends Component {
                     )}
                   </div>
                   {state.ErrorStreetAddress && (
-                    <p className="error is-danger">We need your information here.</p>
+                    <p className="error is-danger">
+                      We need your information here.
+                    </p>
                   )}
                 </label>
               </div>
@@ -517,7 +527,7 @@ class ShippingInfo extends Component {
                       id="city"
                       className={`input short ${
                         state.ErrorCityAddress ? 'is-danger' : ''
-                        }`}
+                      }`}
                       type="text"
                       defaultValue={state.city}
                       onChange={e =>
@@ -533,7 +543,9 @@ class ShippingInfo extends Component {
                     )}
                   </div>
                   {state.ErrorCityAddress && (
-                    <p className="error is-danger">We need your information here.</p>
+                    <p className="error is-danger">
+                      We need your information here.
+                    </p>
                   )}
                 </label>
               </div>
@@ -545,7 +557,7 @@ class ShippingInfo extends Component {
                       id="state_or_province"
                       className={`select-state-input short  ${
                         state.ErrorStateAddress ? 'is-danger' : ''
-                        }`}
+                      }`}
                       options={statesEnums}
                       onChange={e =>
                         this.handleStateChange(e, this.confirmStateAddress)
@@ -554,15 +566,15 @@ class ShippingInfo extends Component {
                       defaultValue={statesEnums[index]}
                       isSearchable
                       required
-                    // theme={(theme) => ({
-                    //   ...theme,
-                    //   borderRadius: 0,
-                    //   colors: {
-                    //     // ...theme.czolors,
-                    //     primary25: '#DEEBFF',
-                    //     // primary: '#002C73',
-                    //   }
-                    // })}
+                      // theme={(theme) => ({
+                      //   ...theme,
+                      //   borderRadius: 0,
+                      //   colors: {
+                      //     // ...theme.czolors,
+                      //     primary25: '#DEEBFF',
+                      //     // primary: '#002C73',
+                      //   }
+                      // })}
                     />
                     {state.ErrorStateAddress && (
                       <span className="icon is-small is-right">
@@ -572,7 +584,9 @@ class ShippingInfo extends Component {
                   </div>
                 </span>
                 {state.ErrorStateAddress && (
-                  <p className="error is-danger">We need your information here.</p>
+                  <p className="error is-danger">
+                    We need your information here.
+                  </p>
                 )}
               </div>
 
@@ -584,7 +598,7 @@ class ShippingInfo extends Component {
                       id="postal_code"
                       className={`input short ${
                         state.ErrorZipAddress ? 'is-danger' : ''
-                        }`}
+                      }`}
                       type="tel"
                       defaultValue={state.postal_code}
                       onChange={this.handleChange}
@@ -597,11 +611,14 @@ class ShippingInfo extends Component {
                       </span>
                     )}
                     {state.ErrorZipAddress && state.postal_code === '' && (
-                      <p className="error is-danger">We need your information here.</p>
+                      <p className="error is-danger">
+                        We need your information here.
+                      </p>
                     )}
                     {state.ErrorZipAddress && state.postal_code !== '' && (
                       <p className="error is-danger">
-                        Hmm, this doesn’t seem right. Enter the right information here.
+                        Hmm, this doesn’t seem right. Enter the right
+                        information here.
                       </p>
                     )}
                   </div>
@@ -612,15 +629,16 @@ class ShippingInfo extends Component {
                 <button
                   className={
                     state.ErrorFirstName ||
-                      state.ErrorLastName ||
-                      state.ErrorEmail ||
-                      state.ErrorStreetAddress ||
-                      state.ErrorCityAddress ||
-                      state.ErrorStateAddress ||
-                      state.state_or_province === '' ||
-                      state.ErrorZipAddress ||
-                      state.ErrorPhone
-                      ? "button disabled-btn disabled-cta" : "button primary-btn cta"
+                    state.ErrorLastName ||
+                    state.ErrorEmail ||
+                    state.ErrorStreetAddress ||
+                    state.ErrorCityAddress ||
+                    state.ErrorStateAddress ||
+                    state.state_or_province === '' ||
+                    state.ErrorZipAddress ||
+                    state.ErrorPhone
+                      ? 'button disabled-btn disabled-cta'
+                      : 'button primary-btn cta'
                   }
                   type="submit"
                   disabled={
@@ -635,7 +653,7 @@ class ShippingInfo extends Component {
                     state.ErrorPhone
                   }
                 >
-                  Save and Continue
+                  <span>Save and Continue</span>
                 </button>
               </div>
             </form>
@@ -671,9 +689,7 @@ class ShippingInfo extends Component {
           <p> {shippingInfo.phone} </p>
         </div>
         <div className="column is-4 has-text-right">
-          <Link to="/checkout">
-            Edit
-          </Link>
+          <Link to="/checkout">Edit</Link>
         </div>
       </div>
     );

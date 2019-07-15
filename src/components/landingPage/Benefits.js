@@ -40,21 +40,23 @@ class Benefits extends Component {
                       dpr="auto"
                       responsive
                       crop="scale"
-                      width="325"
+                      height="100"
                     />
                   </Image>
-                  <h2>{benefit.productBenefitTitle}</h2>
-                  <p className="has-text-left">{benefit.productBenefitCopy}</p>
+                  <h3>{benefit.productBenefitTitle}</h3>
+                  <h4 className="has-text-left">
+                    {benefit.productBenefitCopy}
+                  </h4>
                 </div>
               ))}
             </div>
           </LazyLoad>
-          <Link
-            className="button secondary-btn cont-shopping"
+          {/* <Link
+            className="button primary-btn cont-shopping"
             to={productBenefitGroup.ctaURL}
           >
-            {productBenefitGroup.ctaText}
-          </Link>
+            <span>{productBenefitGroup.ctaText}</span>
+          </Link> */}
         </div>
       </section>
     );

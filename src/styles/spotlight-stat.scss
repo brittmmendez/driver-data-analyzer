@@ -1,32 +1,73 @@
 .landing-page {
     .spotlight-stat {
-        min-height: 400px;
-        text-align: center;
+        min-height: 377px;
+        text-align: left;
         background-position: center; /* Center the image */
         background-repeat: no-repeat; /* Do not repeat the image */
         background-size: cover; /* Resize the background image to cover the entire container */
+        background-color: $hard-pink;
+        position: relative;
+        z-index: 0;
+
+        .background-left {
+            position: absolute;
+            z-index: -1;
+            height: 141px;
+        }
+
+        .background-right {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            z-index: -1;
+            height: 70px;
+        }
         
         .content {
             margin: 0% auto;
             max-width: 1300px;
-            padding: 55px 20%;
+            padding: 25px 10%;
+
         }
 
-        .column{
-            padding-left: 4%;
-            padding-right: 4%;
+        .column:last-child{
+            padding-left: 6%;
+            padding-right: 13%;
+        }
+
+        .img {
+            // max-width: 353px;
+            //padding-right: 40px;
         }
 
         .spotlight-msg {
-            margin-top: 5%;
+            max-width: 440px;
+            margin-top: 14%;
+            padding-top: 30px;
+
             
-            h1 {
-                color: white;
-                margin: 20px 0px;
+            h3 {
+                color: $navy;
+                text-align: left;
+                margin: 15px 15px;
+                font-weight: normal;
+                text-transform: uppercase;
             }
 
-            p{color: white;}
+            p{
+                color: $black;
+                text-align: left;
+                margin: 0px 15px;
+            }
         }
+
+        // .background-left {
+
+        // }
+
+        // .background-right {
+
+        // }
     }
 }
 

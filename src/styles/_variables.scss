@@ -1,7 +1,8 @@
 /* Import a Google Font */
 @import url('https://fonts.googleapis.com/css?family=Overpass:400,900&font-display=swap');
 @import url('https://fonts.googleapis.com/css?family=Mukta:400,800&font-display=swap');
-
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,700');
+@import url('https://fonts.googleapis.com/css?family=Lato:400,800');
 
 // ***** TYPE STYLES *****
 $overpass-font: 'Overpass', sans-serif;
@@ -17,12 +18,27 @@ $natural-dark-gray: #5C5C5D;
 $gradient: linear-gradient(315deg, $pastel-purple 0%, $dark-purple 52.54%, $neon-blue 100%);
 
 
+// Updated primary colors (mon amie)
+$hard-pink: #F6CDC3;
+$soft-pink: #F6E6DF;
+$pale-pink: #FDF5F1;
+$navy: #033B68;
+$white: #ffffff;
+$black: #000000;
+$white: #FFFFFF;
+$montserrat-font: 'Montserrat', sans-serif;
+$montserrat-medium-font: 'Montserrat Medium', sans-serif;
+$lato-font: 'Lato', sans-serif;
+
+
+
+
 // Tertiary Color
 $bright-red: #DF2742;
 
 body {
-    color: $natural-dark-gray;
-    font-family:$mukta-font;
+    color: $black;
+    font-family:$lato-font;
 }
 
 strong{
@@ -35,38 +51,38 @@ strong{
     }
 
     h1 {
-        font-family: $overpass-font;
+        font-family: $montserrat-font;
         font-size: 38px;
         font-weight: bold;
-        color: $natural-dark-gray;
+        color: $navy;
     };
 
     h2 {
-        font-family: $overpass-font;
+        font-family: $montserrat-font;
         font-size: 30px;
         font-weight: bold;
-        color: $natural-dark-gray;
+        color: $navy;
     }
 
     h3 {
-        font-family: $overpass-font;
+        font-family: $montserrat-font;
         font-size: 20px;
         font-weight: bold;
-        color: $natural-dark-gray;
+        color: $navy;
     }
 
     h4 {
-        font-family: $mukta-font;
+        font-family: $lato-font;
         font-size: 17px;
         font-weight: bold;
-        color: $natural-dark-gray;
+        color: $black;
     }
 
     p {
-        font-family: $mukta-font;
+        font-family: $lato-font;
         font-size: 17px;
         font-weight: normal;
-        color: $natural-dark-gray;
+        color: $black;
     }
 
     // .btn-text{
@@ -85,38 +101,40 @@ strong{
     // }
 
     .footer-header{
-        font-family: $overpass-font;
+        text-transform: uppercase;
+        font-family: $montserrat-font;
         font-size: 14px;
-        font-weight: bold;
-        color: $natural-dark-gray;
+        font-weight: 500;
+        color: $black;
     }
 
     .footer-text{
-        font-family: $overpass-font;
+        text-transform: uppercase;
+        font-family: $montserrat-font;
         font-size: 14px;
         font-weight: bold;
-        color: $dark-teal;
+        color: $black;
     }
 
     .sub-header{
-        font-family: $mukta-font;
+        font-family: $montserrat-font;
         font-size: 14px;
         font-weight: normal;
-        color: $natural-dark-gray;
+        color: $black;
     }
 
     .sub-header-bold{
-        font-family: $mukta-font;
+        font-family: $montserrat-font;
         font-size: 14px;
         font-weight: bold;
-        color: $natural-dark-gray;
+        color: $black;
     }
 
     .sub-text{
-        font-family: $mukta-font;
+        font-family: $montserrat-font;
         font-size: 14px;
         font-weight: normal;
-        color: $natural-dark-gray;
+        color: $black;
     }
 
     // .sub-text-bold{
@@ -134,13 +152,13 @@ strong{
 
     .primary-btn{
         cursor: pointer;
-        height: 56px;
-        background-color: $dark-teal;	
+        height: 49px;
+        background-color: $hard-pink;	
         box-shadow: 0 2px 4px 0 rgba(0,0,0,0.5);
-        color: white;
-        font-family: $overpass-font;
-        font-size: 18px;
-        line-height: 20px;	
+        color: $black;
+        font-family: $montserrat-font;
+        font-size: 16px;
+        line-height: 19px;	
         text-align: center;
         border: none;
         border-radius: 1px;
@@ -150,55 +168,33 @@ strong{
     }
 
     .primary-btn:hover{
-        color: white;
-        background-color: $pastel-purple;
+        span {
+            background: $pale-pink;
+            padding: 2px;
+        }
     }
 
     .primary-btn:active {
-        background-color: $dark-purple;
+        span {
+            background: $pale-pink;
+            padding: 2px;
+        }
     }
 
     .submitting.primary-btn {
-        background-color: $dark-purple;
+        span {
+            background: transparent;
+        }
     }
 
-    .secondary-btn{
-        cursor: pointer;
-        background-color: white;	
-        box-shadow: 0 2px 4px 0 rgba(0,0,0,0.25);
-        color: $dark-teal;
-        font-family: $overpass-font;
-        font-size: 18px;
-        line-height: 20px;	
-        text-align: center;
-        border: 2px solid $dark-teal;
-        border-radius: 1px;
-        text-transform: uppercase;
-        font-weight: bold; 
-        max-width: 450px;
-    }
-    
-    .secondary-btn:hover{
-        color: $pastel-purple;
-        border: 2px solid $pastel-purple;
-    }
-    
-    .secondary-btn:active {
-        color:  $dark-purple;
-        border: 2px solid $dark-purple;
-    }
-    
-    .submitting.secondary-btn {
-        border: 2px solid $dark-purple;
-    }
     
     .disabled-btn{
-        background-color: $natural-light-gray;
-        color: $natural-gray;	
+        background-color: $pale-pink;
+        color: $hard-pink;	
         border: none;
-        font-family: $overpass-font;
-        font-size: 18px;
-        line-height: 20px;	
+        font-family: $montserrat-font;
+        font-size: 16px;
+        line-height: 19px;	
         text-align: center;
         border-radius: 1px;
         opacity: 1;
@@ -211,7 +207,7 @@ strong{
 @include mobile{
     .content{
         h1 {
-            font-size: 30px;
+            font-size: 38px;
         };
     
         h2 {

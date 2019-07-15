@@ -21,23 +21,23 @@ class Spotlight extends Component {
     return (
       <LazyLoad height={200}>
         <div
-          className="spotlight-stat"
+          className="spotlight-img-background"
           style={{
             backgroundImage: `url(${spotlight.spotlightProductMediaFile})`
           }}
         >
           <section className="section spotlight">
             <div className="content">
-              <div className="has-text-centered">
-                <div className="spotlight-msg has-text-centered-mobile">
+              <div className="has-text-left">
+                <div className="spotlight-msg has-text-left-mobile">
                   <h1>{spotlight.spotlightProductTitle}</h1>
-                  <p className="">{spotlight.spotlightProductMessaging}</p>
+                  {/* <p className="">{spotlight.spotlightProductMessaging}</p> */}
                   <div className="has-text-centered-mobile">
                     <Link
                       className="primary-btn button join-button"
                       to={spotlight.spotlightProductCtaButtonRelativeURL}
                     >
-                      {spotlight.spotlightProductCtaButtonText}
+                      <span>{spotlight.spotlightProductCtaButtonText}</span>
                     </Link>
                   </div>
                 </div>
@@ -61,7 +61,7 @@ class Spotlight extends Component {
       //     className="primary-btn button join-button"
       //     to={spotlight.spotlightProductCtaButtonRelativeURL}
       //   >
-      //     {spotlight.spotlightProductCtaButtonText}
+      //     <span>{spotlight.spotlightProductCtaButtonText}</span>
       //   </Link>
       // </div>
       //         </div>
