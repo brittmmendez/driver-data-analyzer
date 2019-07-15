@@ -8,9 +8,10 @@ import PropTypes from 'prop-types';
 import { HashLink as Link } from 'react-router-hash-link';
 import { Image, Transformation } from 'cloudinary-react';
 import PurchaseFormErrorMsg from './PurchaseFormErrorMsg';
+import OOSnotifyMeSignup from './OOSnotifyMeSignup';
 import Swatch from './productOptions/Swatch';
 import Rectangles from './productOptions/Rectangles';
-import X from '../static/images/svg/X.svg'
+import X from '../static/images/svg/X.svg';
 
 @inject('shop')
 @observer
@@ -40,7 +41,8 @@ export default class PurchaseForm extends Component {
       optionValueId3: this.setOptionId(product.options[2]),
       optionValueName3: this.setOptionName(product.options[2]),
       optionErrorMsg3: '',
-      vairantImg: this.setInitialImg(product)
+      vairantImg: this.setInitialImg(product),
+      submitSuccess: false
     };
   }
 
@@ -52,9 +54,7 @@ export default class PurchaseForm extends Component {
 
     // resets state if default option is OOS
     if (product.options.length === 1) {
-      if (
-        product.findInOOSarray(state.optionValueId1)
-      ) {
+      if (product.findInOOSarray(state.optionValueId1)) {
         const getProduct = product.variants.find(v => v.inventory_level !== 0);
         this.setState(
           {
@@ -63,9 +63,9 @@ export default class PurchaseForm extends Component {
             // vairantImg: product.images[0].standard_url
             vairantImg: product.variants[1].image_url
           },
-          function () {
+          function() {
             product.clearOOSarray();
-            product.setVariantPrice(getProduct.price)
+            product.setVariantPrice(getProduct.price);
             this.checkInStock();
             // TODO -- need to figure out how to swap photo
           }
@@ -88,7 +88,7 @@ export default class PurchaseForm extends Component {
             // vairantImg: product.images[0].standard_url
             vairantImg: product.variants[1].image_url
           },
-          function () {
+          function() {
             product.clearOOSarray();
             this.checkInStock();
             // TODO -- need to figure out how to swap photo
@@ -115,7 +115,7 @@ export default class PurchaseForm extends Component {
             // vairantImg: product.images[0].standard_url
             vairantImg: product.variants[1].image_url
           },
-          function () {
+          function() {
             product.clearOOSarray();
             this.checkInStock();
             // TODO -- need to figure out how to swap photo
@@ -124,6 +124,12 @@ export default class PurchaseForm extends Component {
       }
     }
   }
+
+  handleSignupSuccess = () => {
+    this.setState({
+      submitSuccess: true
+    });
+  };
 
   setOptionDisplayName = option => {
     if (option) {
@@ -290,7 +296,7 @@ export default class PurchaseForm extends Component {
             [event.target.name]: parseInt(event.target.value, 10),
             [valueName]: event.target.id
           },
-          function () {
+          function() {
             this.findVairant();
             this.checkInStock();
           }
@@ -310,7 +316,6 @@ export default class PurchaseForm extends Component {
       state.optionValueId2,
       state.optionValueId3
     );
-
     if (variantImg.length !== 0) {
       this.setVairantImg(variantImg[0]);
     }
@@ -333,35 +338,50 @@ export default class PurchaseForm extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    const { shop, product } = this.props;
     const { state } = this;
     this.formErrors();
     if (this.confirmOptionsSelected()) {
-      shop.cart.addToCart({
-        item: product,
-        quantity: state.quantity,
-        optionValue1: state.optionValueId1 || 0,
-        optionValue2: state.optionValueId2 || 0,
-        optionValue3: state.optionValueId3 || 0,
-        optionValueName1: state.optionValueName1 || 0,
-        optionValueName2: state.optionValueName2 || 0,
-        optionValueName3: state.optionValueName3 || 0
-      });
       this.handleModalToggle();
 
       this.setState({
         modalQuantity: state.quantity,
         quantity: 1
       });
-
     }
   };
+
+  // handleSubmit = event => {
+  //   event.preventDefault();
+  //   const { shop, product } = this.props;
+  //   const { state } = this;
+  //   this.formErrors();
+  //   if (this.confirmOptionsSelected()) {
+  //     shop.cart.addToCart({
+  //       item: product,
+  //       quantity: state.quantity,
+  //       optionValue1: state.optionValueId1 || 0,
+  //       optionValue2: state.optionValueId2 || 0,
+  //       optionValue3: state.optionValueId3 || 0,
+  //       optionValueName1: state.optionValueName1 || 0,
+  //       optionValueName2: state.optionValueName2 || 0,
+  //       optionValueName3: state.optionValueName3 || 0
+  //     });
+  //     this.handleModalToggle();
+
+  //     this.setState({
+  //       modalQuantity: state.quantity,
+  //       quantity: 1
+  //     });
+
+  //   }
+  // };
 
   handleModalToggle = () => {
     const { modalClass } = this.state;
 
     this.setState({
-      modalClass: modalClass === '' ? 'is-active' : ''
+      modalClass: modalClass === '' ? 'is-active' : '',
+      submitSuccess: false
     });
   };
 
@@ -455,12 +475,16 @@ export default class PurchaseForm extends Component {
       optionErrorMsg1,
       optionErrorMsg2,
       optionErrorMsg3,
-      vairantImg
+      vairantImg,
+      submitSuccess
     } = this.state;
 
     // if variant img is diff than first img in array, reset array
-    if (product.images.length && vairantImg !== product.images[0].standard_url) {
-      this.setVairantImg(vairantImg)
+    if (
+      product.images.length &&
+      vairantImg !== product.images[0].standard_url
+    ) {
+      this.setVairantImg(vairantImg);
     }
 
     return (
@@ -468,7 +492,7 @@ export default class PurchaseForm extends Component {
         <form onSubmit={this.handleSubmit}>
           {/* if options are given figure out which to display */}
           {product.options[0] &&
-            product.options.map((option) => (
+            product.options.map(option => (
               <div className="product-options" key={option.id}>
                 {option.type === 'swatch' && (
                   <div className="option">
@@ -485,17 +509,17 @@ export default class PurchaseForm extends Component {
 
                 {(option.type === 'rectangles' ||
                   option.type === 'radio_buttons') && (
-                    <div className="option">
-                      <Rectangles
-                        option={option}
-                        optionValueName={this.displayOptionValueName(option)}
-                        formErrorMsg={this.displayErrorMsg(option)}
-                        handleOnChange={this.handleOnChange}
-                        getIndex={this.getIndex(option)}
-                        checkInStock={product.findInOOSarray}
-                      />
-                    </div>
-                  )}
+                  <div className="option">
+                    <Rectangles
+                      option={option}
+                      optionValueName={this.displayOptionValueName(option)}
+                      formErrorMsg={this.displayErrorMsg(option)}
+                      handleOnChange={this.handleOnChange}
+                      getIndex={this.getIndex(option)}
+                      checkInStock={product.findInOOSarray}
+                    />
+                  </div>
+                )}
               </div>
             ))}
 
@@ -514,15 +538,15 @@ export default class PurchaseForm extends Component {
                     ${product.getPrice()}
                   </div>
                 ) : (
-                    <span>
-                      <s className="mobile-sale-price">
-                        ${product.price.toFixed(2)}
-                      </s>
-                      <p className="mobile-price has-text-weight-bold">
-                        {'  '}${product.sale_price.toFixed(2)}
-                      </p>
-                    </span>
-                  )}
+                  <span>
+                    <s className="mobile-sale-price">
+                      ${product.price.toFixed(2)}
+                    </s>
+                    <p className="mobile-price has-text-weight-bold">
+                      {'  '}${product.sale_price.toFixed(2)}
+                    </p>
+                  </span>
+                )}
               </div>
               <div className="has-text-right mobile-pricing">
                 <PurchaseFormErrorMsg
@@ -556,7 +580,7 @@ export default class PurchaseForm extends Component {
                         value={quantity}
                         onChange={this.handleOnChange}
                         disabled={product.inventory_level < 1}
-                      // disabled={product.inventory_level < 1 || quantity >= product.inventory_level}
+                        // disabled={product.inventory_level < 1 || quantity >= product.inventory_level}
                       />
                     </div>
                   </label>
@@ -566,7 +590,7 @@ export default class PurchaseForm extends Component {
                     type="button"
                     onClick={() => this.increaseQuantity()}
                     disabled={product.inventory_level < 1}
-                  // disabled={product.inventory_level < 1 || quantity >= product.inventory_level}
+                    // disabled={product.inventory_level < 1 || quantity >= product.inventory_level}
                   >
                     <i className="fas fa-plus" />
                   </button>
@@ -581,19 +605,22 @@ export default class PurchaseForm extends Component {
                 {product.inventory_level < 1 ? (
                   <span>Sold Out</span>
                 ) : (
-                    <span>Add To Cart</span>
-                  )}
+                  <span>Add To Cart</span>
+                )}
               </button>
             </div>
           </div>
         </form>
 
-        {!shop.cart.addToCartError &&
+        {!shop.cart.addToCartError && (
           <div className={`modal ${modalClass}`}>
-            <div className="modal-background" role="button"
+            <div
+              className="modal-background"
+              role="button"
               tabIndex="0"
               onClick={() => this.handleModalToggle()}
-              onKeyPress={() => this.handleModalToggle()} />
+              onKeyPress={() => this.handleModalToggle()}
+            />
             <div className="box has-text-centered">
               <span
                 role="button"
@@ -605,86 +632,183 @@ export default class PurchaseForm extends Component {
                 <img src={X} alt="close-icon" className="close-icon" />
               </span>
               <div className="content is-expanded has-background-light-grey">
-                <h3 className="modal-title">
-                  {product.name} has been added to your cart!
-                </h3>
-                <div className="columns is-mobile">
-                  <div className="column is-6 has-text-right">
-                    <Image
-                      publicId={vairantImg || product.thumbnail_url}
-                      className="modal-img"
-                      alt="img"
-                      type="fetch"
-                    >
-                      <Transformation
-                        quality="auto"
-                        fetchFormat="auto"
-                        dpr="auto"
-                        responsive
-                        crop="scale"
-                      // width="120"
-                      // height="120"
-                      />
-                    </Image>
-                  </div>
-                  <div className="column has-text-left">
-                    <div>
-                      <div className="added-item-price">
-                        {product.sale_price === 0 ? (
-                          <h4 className="has-text-weight-bold">
-                            ${product.getPrice()} each
-                          </h4>
-                        ) : (
-                            <div>
-                              <s>${product.price.toFixed(2)}</s>
-                              <span className="has-text-weight-bold">
-                                {'  '}${product.sale_price.toFixed(2)} each
-                              </span>
-                            </div>
-                          )}
+                {submitSuccess ? (
+                  <h4 className="success-modal-title">
+                    Thanks! We’ll let you know when it’s back!
+                  </h4>
+                ) : (
+                  <div>
+                    <h3 className="modal-title">
+                      We’re out of stock but you’re in luck!
+                    </h3>
+                    <div className="columns is-mobile">
+                      <div className="column is-5">
+                        <Image
+                          publicId={vairantImg || product.thumbnail_url}
+                          className="oos-modal-img"
+                          alt="img"
+                          type="fetch"
+                        >
+                          <Transformation
+                            quality="auto"
+                            fetchFormat="auto"
+                            dpr="auto"
+                            responsive
+                            crop="scale"
+                            // width="120"
+                            // height="120"
+                          />
+                        </Image>
                       </div>
-                      <p className="product-options">
-                        {product.options[0] && (
-                          <span>
-                            {optionDisplayName1}: {optionValueName1}
-                          </span>
-                        )}
-                        {product.options[1] && (
-                          <span>
-                            {optionDisplayName2}: {optionValueName2}
-                          </span>
-                        )}
-                        {product.options[2] && (
-                          <span>
-                            {optionDisplayName3}: {optionValueName3}
-                          </span>
-                        )}
-                        <span>
-                          Quantity: {modalQuantity}
-                        </span>
-                      </p>
+                      <div className="column has-text-left">
+                        <div>
+                          <p>
+                            We reorder based on community feedback and demand,
+                            so your voice is very important. We’ll email you
+                            when we bring your style and size back!
+                          </p>
+                          <div className="added-item-price">
+                            {product.sale_price === 0 ? (
+                              <h4 className="has-text-weight-bold">
+                                ${product.getPrice()} each
+                              </h4>
+                            ) : (
+                              <div>
+                                <s>${product.price.toFixed(2)}</s>
+                                <span className="has-text-weight-bold">
+                                  {'  '}${product.sale_price.toFixed(2)} each
+                                </span>
+                              </div>
+                            )}
+                          </div>
+                          <p className="product-options">
+                            {product.options[0] && (
+                              <span>
+                                {optionDisplayName1}: {optionValueName1}
+                              </span>
+                            )}
+                            {product.options[1] && (
+                              <span>
+                                {optionDisplayName2}: {optionValueName2}
+                              </span>
+                            )}
+                            {product.options[2] && (
+                              <span>
+                                {optionDisplayName3}: {optionValueName3}
+                              </span>
+                            )}
+                            <span>Quantity: {modalQuantity}</span>
+                          </p>
+                        </div>
+
+                        <OOSnotifyMeSignup
+                          handleSignupSuccess={this.handleSignupSuccess}
+                          // handleOnChange={this.handleOnChange}
+                        />
+                      </div>
                     </div>
                   </div>
-                </div>
-                <button
-                  className="button secondary-btn keep-cta event_continue_shopping"
-                  type="button"
-                  onClick={() => this.handleModalToggle()}
-                >
-                  Continue Shopping
-              </button>
-                <Link to="/my-cart#top" data-cy="my-cart-modal">
-                  <button
-                    className="button primary-btn checkout-cta event_checkout_now"
-                    type="button"
-                    onClick={() => this.handleModalToggle()}
-                  >
-                    Checkout Now
-                </button>
-                </Link>
+                )}
               </div>
             </div>
           </div>
+        )
+        // <div className={`modal ${modalClass}`}>
+        //   <div className="modal-background" role="button"
+        //     tabIndex="0"
+        //     onClick={() => this.handleModalToggle()}
+        //     onKeyPress={() => this.handleModalToggle()} />
+        //   <div className="box has-text-centered">
+        //     <span
+        //       role="button"
+        //       tabIndex="0"
+        //       className="icon pull-right"
+        //       onClick={() => this.handleModalToggle()}
+        //       onKeyPress={() => this.handleModalToggle()}
+        //     >
+        //       <img src={X} alt="close-icon" className="close-icon" />
+        //     </span>
+        //     <div className="content is-expanded has-background-light-grey">
+        //       <h3 className="modal-title">
+        //         {product.name} has been added to your cart!
+        //       </h3>
+        //       <div className="columns is-mobile">
+        //         <div className="column is-6 has-text-right">
+        //           <Image
+        //             publicId={vairantImg || product.thumbnail_url}
+        //             className="modal-img"
+        //             alt="img"
+        //             type="fetch"
+        //           >
+        //             <Transformation
+        //               quality="auto"
+        //               fetchFormat="auto"
+        //               dpr="auto"
+        //               responsive
+        //               crop="scale"
+        //             // width="120"
+        //             // height="120"
+        //             />
+        //           </Image>
+        //         </div>
+        //         <div className="column has-text-left">
+        //           <div>
+        //             <div className="added-item-price">
+        //               {product.sale_price === 0 ? (
+        //                 <h4 className="has-text-weight-bold">
+        //                   ${product.getPrice()} each
+        //                 </h4>
+        //               ) : (
+        //                   <div>
+        //                     <s>${product.price.toFixed(2)}</s>
+        //                     <span className="has-text-weight-bold">
+        //                       {'  '}${product.sale_price.toFixed(2)} each
+        //                     </span>
+        //                   </div>
+        //                 )}
+        //             </div>
+        //             <p className="product-options">
+        //               {product.options[0] && (
+        //                 <span>
+        //                   {optionDisplayName1}: {optionValueName1}
+        //                 </span>
+        //               )}
+        //               {product.options[1] && (
+        //                 <span>
+        //                   {optionDisplayName2}: {optionValueName2}
+        //                 </span>
+        //               )}
+        //               {product.options[2] && (
+        //                 <span>
+        //                   {optionDisplayName3}: {optionValueName3}
+        //                 </span>
+        //               )}
+        //               <span>
+        //                 Quantity: {modalQuantity}
+        //               </span>
+        //             </p>
+        //           </div>
+        //         </div>
+        //       </div>
+        //       <button
+        //         className="button primary-btn keep-cta event_continue_shopping"
+        //         type="button"
+        //         onClick={() => this.handleModalToggle()}
+        //       >
+        //         <span>Continue Shopping</span>
+        //     </button>
+        //       <Link to="/my-cart#top" data-cy="my-cart-modal">
+        //         <button
+        //           className="button primary-btn checkout-cta event_checkout_now"
+        //           type="button"
+        //           onClick={() => this.handleModalToggle()}
+        //         >
+        //           <span>Checkout Now</span>
+        //       </button>
+        //       </Link>
+        //     </div>
+        //   </div>
+        // </div>
         }
       </div>
     );

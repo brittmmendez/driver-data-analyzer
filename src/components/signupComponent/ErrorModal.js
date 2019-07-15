@@ -39,7 +39,7 @@ class ErrorModal extends Component {
                   onClick={() => crmSignup.setSignupFormError(false)}
                   aria-label="close"
                 >
-                  CLOSE
+                  <span>CLOSE</span>
                 </button>
               </div>
             </section>

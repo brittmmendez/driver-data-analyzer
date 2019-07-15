@@ -21,16 +21,16 @@ export default class ShippingMethod extends Component {
     };
   }
 
-  componentWillUpdate(prevProps) {
-    const currentLocation = prevProps.location.pathname
-    if (currentLocation === '/shipping') {
-      window.PGdataLayer.page = {
-        title: 'Shipping Method',
-        url: currentLocation
-      }
-      window.dataLayer.push({ 'event': 'virtualPageview' })
-    }
-  }
+  // componentWillUpdate(prevProps) {
+  //   const currentLocation = prevProps.location.pathname
+  //   if (currentLocation === '/shipping') {
+  //     window.PGdataLayer.page = {
+  //       title: 'Shipping Method',
+  //       url: currentLocation
+  //     }
+  //     window.dataLayer.push({ 'event': 'virtualPageview' })
+  //   }
+  // }
 
   // change shipping selection but shipping is free so no need to do.
   // handleChange = (event) => {
@@ -48,7 +48,9 @@ export default class ShippingMethod extends Component {
   async submitShippingOption() {
     const { history } = this.props;
     const { shop } = this.props;
-    const shippingOptionInfo = await shop.shipping.setShippingOption(shop.shipping.shipping_rates[0].id);
+    const shippingOptionInfo = await shop.shipping.setShippingOption(
+      shop.shipping.shipping_rates[0].id
+    );
     if (shippingOptionInfo) {
       const nextStep = shop.checkout.checkoutStepTracker.setShippingOptionComplete();
       history.push(`${nextStep}`);
@@ -97,13 +99,13 @@ export default class ShippingMethod extends Component {
                   className="button primary-btn continue-cta"
                   onClick={handleSubmit}
                 >
-                  Save and Continue
-              </button>
+                  <span>Save and Continue</span>
+                </button>
               </div>
             </div>
           ) : (
-              ''
-            )}
+            ''
+          )}
         </div>
       );
     }
@@ -128,9 +130,7 @@ export default class ShippingMethod extends Component {
         </div>
         <div className="column is-4 has-text-right">
           {checkout.checkoutStepTracker.shippingOptionComplete && (
-            <Link to="/shipping">
-              Edit
-            </Link>
+            <Link to="/shipping">Edit</Link>
           )}
         </div>
       </div>

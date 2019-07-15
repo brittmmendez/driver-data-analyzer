@@ -205,7 +205,7 @@ class NavBar extends Component {
                   >
                     <Link
                       className="navbar-item is-marginless-mobile event_view_product_detail_page"
-                      to="/products-page/127#top"
+                      to="/products-page"
                     >
                       <span className="has-hover-border"> SHOP</span>
                     </Link>
@@ -216,12 +216,12 @@ class NavBar extends Component {
                     onClick={this.closeNav}
                     onKeyPress={this.closeNav}
                   >
-                    <Link
+                    {/* <Link
                       className="navbar-item is-marginless-mobile border-bottom"
                       to="/faq#top"
                     >
                       <span className="has-hover-border"> FAQs </span>
-                    </Link>
+                    </Link> */}
                   </span>
                 </div>
 
@@ -233,7 +233,7 @@ class NavBar extends Component {
                 >
                   <Link
                     className="has-hover-border event_view_product_detail_page"
-                    to="/products-page/127#top"
+                    to="/products-page"
                   >
                     SHOP
                     </Link>
@@ -244,12 +244,12 @@ class NavBar extends Component {
                   onClick={this.closeNav}
                   onKeyPress={this.closeNav}
                 >
-                  <Link
+                  {/* <Link
                     className="has-hover-border"
                     to="/faq#top"
                   >
                     FAQs
-                    </Link>
+                    </Link> */}
                 </span>
               </div>
             </div>

@@ -21,14 +21,14 @@ class MyCart extends Component {
     match: PropTypes.object.isRequired // eslint-disable-line react/forbid-prop-types
   };
 
-  componentWillMount() {
-    const { match } = this.props;
-    window.PGdataLayer.page = {
-      title: 'Cart',
-      url: match.path
-    }
-    window.dataLayer.push({ 'event': 'virtualPageview' })
-  }
+  // componentWillMount() {
+  //   const { match } = this.props;
+  //   window.PGdataLayer.page = {
+  //     title: 'Cart',
+  //     url: match.path
+  //   }
+  //   window.dataLayer.push({ 'event': 'virtualPageview' })
+  // }
 
   render() {
     const {
@@ -52,16 +52,17 @@ class MyCart extends Component {
               <div className="columns">
                 <div className="column is-8">
                   <h3 className="my-cart" data-cy="item-count">
-                    My Cart: ({cart.itemCount}) {cart.itemCount > 1 ? "Items" : "Item"}
+                    My Cart: ({cart.itemCount}){' '}
+                    {cart.itemCount > 1 ? 'Items' : 'Item'}
                   </h3>
                   {cart.items.map(item => (
                     <CartItem key={item.id} item={item} />
                   ))}
                   <Link
-                    className="secondary-btn button cont-shopping event_continue_shopping"
-                    to="/products-page/127#top"
+                    className="primary-btn button cont-shopping event_continue_shopping"
+                    to="/products-page#top"
                   >
-                    Continue Shopping
+                    <span>Continue Shopping</span>
                   </Link>
                 </div>
                 <div className="column is-4">
@@ -74,19 +75,18 @@ class MyCart extends Component {
               </div>
             </div>
           </section>
-        </div >
+        </div>
       );
     }
 
     if (cart.itemCount === 0 && cookies.get('cart')) {
-      return <LoadingView />
+      return <LoadingView />;
     }
 
     if (cart.itemCount === 0 && cart.creatingCart) {
-      return <LoadingView />
+      return <LoadingView />;
     }
     return <EmptyCart />;
-
   }
 }
 

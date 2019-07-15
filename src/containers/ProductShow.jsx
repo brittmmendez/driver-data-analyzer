@@ -11,8 +11,6 @@ import PurchaseForm from '../components/PurchaseForm';
 import LoadingView from '../components/LoadingView';
 import ProductImageArray from '../components/ProductImageArray';
 import MobileProductImageArray from '../components/MobileProductImageArray';
-import EngagementGroup from '../components/landingPage/EngagementGroup';
-import HowItWorks from '../components/HowItWorks';
 // import ProductCustomerReviews from '../components/ProductCustomerReviews';
 import ProductStarRating from '../components/ProductStarRating';
 import ErrorPage from './ErrorPage';
@@ -33,15 +31,15 @@ class ProductShow extends Component {
     };
   }
 
-  componentWillMount() {
-    const { match } = this.props
-    match.params.productId
-    window.PGdataLayer.page = {
-      title: 'Uplift Details Page',
-      url: 'products-page/uplift'
-    }
-    window.dataLayer.push({ 'event': 'virtualPageview' })
-  }
+  // componentWillMount() {
+  //   const { match } = this.props
+  //   match.params.productId
+  //   window.PGdataLayer.page = {
+  //     title: 'Uplift Details Page',
+  //     url: 'products-page/uplift'
+  //   }
+  //   window.dataLayer.push({ 'event': 'virtualPageview' })
+  // }
 
   onProductButtonClick(product) {
     const { shop } = this.props;
@@ -248,8 +246,6 @@ class ProductShow extends Component {
                 </div>
               </section>
             </div>
-            <HowItWorks />
-            <EngagementGroup />
             {/* <LazyLoad height={200}>
               <section className="section has-text-centered">
                 <div className="container content product-review">

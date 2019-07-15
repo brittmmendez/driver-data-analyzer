@@ -6,7 +6,8 @@
     z-index: 2;    
     padding: 0px 20px;
     height: 80px;
-    background-color: $natural-light-gray;
+    background-color: $white;
+    font-family: $montserrat-font;
 
 
     .navBar-logo-img {
@@ -16,46 +17,39 @@
         margin-right: 50px;
     }
 
-    // .has-hover-border{
-    //     background-color: transparent;	
-    //     border-bottom: 3px solid  transparent;   
-    // }
-    // .has-hover-border:hover{
-    //     background-color: transparent;	
-    //     border-bottom: 3px solid  $dark-teal;   
-    // }
-    // .has-hover-border:active{
-    //     background-color: transparent;	
-    //     border-image: linear-gradient(
-    //     to left,
-    //     $dark-teal 0%,
-    //     $dark-purple 100%
-    //     ) 0 0 100% 0/0 0 3px 0;
-    // }
+    .has-hover-border{
+        background-color: transparent;	
+    }
+    .has-hover-border:hover{
+        background-color: $pale-pink;	   
+    }
+    .has-hover-border:active{
+        background-color: $pale-pink;
+    }
 
 
     a {
-        color: $dark-teal;
+        color: $black;
     }
     
     .navbar-item:hover{
-        background-color:  $natural-light-gray;
+        background-color:  transparent;
     }
     
     span.navbar-item.is-hidden-touch:hover{
         a{
-            color: $pastel-purple;
+            color: $black;
         }
     }
 
     span.navbar-item.is-hidden-touch:active{
         a{
-            color: $dark-purple;
+            color: $black;
         }
     }
 
     .navbar-item:hover{
-        background-color: $natural-light-gray;
+        background-color: transparent;
     }
 
     span{
@@ -273,11 +267,11 @@ nav.navbar.nav-checkout{
             }
             
             .border-bottom {
-                border-bottom: 1px solid #225C73;
+                border-bottom: 1px solid $natural-dark-gray;
             }
 
             .is-marginless-mobile{
-                border-top: 1px solid #225C73;;
+                border-top: 1px solid $natural-dark-gray;;
                 margin-right: 0px;
             }
             

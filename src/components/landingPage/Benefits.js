@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { observer, inject } from 'mobx-react';
 import PropTypes from 'prop-types';
+import { HashLink as Link } from 'react-router-hash-link';
 import { Image, Transformation } from 'cloudinary-react';
 import LazyLoad from 'react-lazyload';
 
@@ -24,7 +25,6 @@ class Benefits extends Component {
             {' '}
             {productBenefitGroup.productBenefitGroupTitle}{' '}
           </h1>
-          <p className="benefits-msg">{productBenefitGroup.productBenefitMessaging}</p>
           <LazyLoad height={200}>
             <div className="columns">
               {productBenefitGroup.benefits.map(benefit => (
@@ -43,10 +43,20 @@ class Benefits extends Component {
                       width="325"
                     />
                   </Image>
+                  <h2>{benefit.productBenefitTitle}</h2>
+                  <h4 className="has-text-left">
+                    {benefit.productBenefitCopy}
+                  </h4>
                 </div>
               ))}
             </div>
           </LazyLoad>
+          {/* <Link
+            className="button primary-btn cont-shopping"
+            to={productBenefitGroup.ctaURL}
+          >
+            <span>{productBenefitGroup.ctaText}</span>
+          </Link> */}
         </div>
       </section>
     );

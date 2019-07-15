@@ -59,7 +59,7 @@ class ThankYouModal extends Component {
                   onClick={() => crmSignup.setSignupFormSuccess(false)}
                   aria-label="close"
                 >
-                  {crmSignup.closeBtnText}
+                  <span>{crmSignup.closeBtnText}</span>
                 </button>
               </div>
             </section>

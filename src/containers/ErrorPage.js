@@ -29,14 +29,14 @@ class ErrorPage extends Component {
     };
   }
 
-  componentWillMount() {
-    const { match } = this.props;
-    window.PGdataLayer.page = {
-      title: 'Error',
-      url: match.path
-    }
-    window.dataLayer.push({ 'event': 'virtualPageview' })
-  }
+  // componentWillMount() {
+  //   const { match } = this.props;
+  //   window.PGdataLayer.page = {
+  //     title: 'Error',
+  //     url: match.path
+  //   }
+  //   window.dataLayer.push({ 'event': 'virtualPageview' })
+  // }
 
   componentDidMount() {
     const { errorTitle, errorMsg, hideErrorMsg, errorType, refreshBtn } = this.props;
@@ -82,19 +82,19 @@ class ErrorPage extends Component {
             <div className="columns error-btn-container">
               <div className="column">
                 <Link to="/#top">
-                  <button type="button" className="primary-btn error-btn"> Go to Our Homepage</button>
+                  <button type="button" className="primary-btn error-btn"> <span>Go to Our Homepage</span></button>
                 </Link>
               </div>
               <div className="column">
-                <Link to="/products-page/127#top">
-                  <button type="button" aria-label="shop" className="primary-btn error-btn"> Shop Uplift</button>
+                <Link to="/products-page#top">
+                  <button type="button" aria-label="shop" className="primary-btn error-btn"> <span>Shop Now</span></button>
                 </Link>
               </div>
-              <div className="column">
+              {/* <div className="column">
                 <Link to="/faq#top">
-                  <button type="button" className="primary-btn error-btn"> Read Our FAQs</button>
+                  <button type="button" className="primary-btn error-btn"> <span>Read Our FAQs</span></button>
                 </Link>
-              </div>
+              </div> */}
             </div>
             :
             <button type="submit" className="refresh-btn" onClick={this.reloadPage}> Refresh page </button>

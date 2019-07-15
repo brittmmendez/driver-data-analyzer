@@ -12,14 +12,14 @@ class SiteMap extends Component {
     match: PropTypes.object.isRequired // eslint-disable-line react/forbid-prop-types
   };
 
-  componentWillMount() {
-    const { match } = this.props;
-    window.PGdataLayer.page = {
-      title: 'Site Map',
-      url: match.path
-    }
-    window.dataLayer.push({ 'event': 'virtualPageview' })
-  }
+  // componentWillMount() {
+  //   const { match } = this.props;
+  //   window.PGdataLayer.page = {
+  //     title: 'Site Map',
+  //     url: match.path
+  //   };
+  //   window.dataLayer.push({ event: 'virtualPageview' });
+  // }
 
   render() {
     const {
@@ -37,24 +37,40 @@ class SiteMap extends Component {
               <div className="columns">
                 <div className="column no-padding-left-mobile">
                   <ul>
-                    <li> <Link to="/products-page/127#top" className="event_view_product_detail_page">Uplift Bladder Support</Link></li>
+                    <li>
+                      {' '}
+                      <Link
+                        to="/products-page/119#top"
+                        className="event_view_product_detail_page"
+                      >
+                        Product One
+                      </Link>
+                    </li>
                   </ul>
                 </div>
               </div>
             </div>
             <div className="column is-3-desktop is-6-tablet is-12-mobile">
-              <h3 className="section-title"> Help & FAQs</h3>
+              <h3 className="section-title"> Customer Support</h3>
               <div className="columns">
                 <div className="column no-padding-left-mobile">
                   <ul>
-                    <li> <Link to="/exchanges-returns#top">Returns and exchanges</Link></li>
-                    <li> <Link to="/faq#top">FAQs</Link></li>
+                    <li>
+                      <a href={customerSupport.customerSupportCtaCallButtonUrl}>
+                        {customerSupport.customerSupportCtaCallButtonText}
+                      </a>
+                    </li>
+                    <li>
+                      <a href={customerSupport.customerSupportCtaEmailButtonUrl}>
+                        {customerSupport.customerSupportCtaEmailButtonText}
+                      </a>
+                    </li>
                   </ul>
                 </div>
               </div>
             </div>
             <div className="column  is-3-desktop is-6-tablet is-12-mobile">
-              <h3 className="section-title"> Customer Support</h3>
+              {/* <h3 className="section-title"> Customer Support</h3>
               <ul className="less-margin-left">
                 <li>
                   <a href={customerSupport.customerSupportCtaCallButtonUrl}>
@@ -62,13 +78,11 @@ class SiteMap extends Component {
                   </a>
                 </li>
                 <li>
-                  <a
-                    href={customerSupport.customerSupportCtaEmailButtonUrl}
-                  >
+                  <a href={customerSupport.customerSupportCtaEmailButtonUrl}>
                     {customerSupport.customerSupportCtaEmailButtonText}
                   </a>
                 </li>
-              </ul>
+              </ul> */}
             </div>
           </div>
           <div className="is-hidden-tablet">

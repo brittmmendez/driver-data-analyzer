@@ -1,7 +1,8 @@
 .landing-page {
     .product-grouping {
-        background-color: #D8D8D8;
-        text-align: center;        
+        background-color: $white;
+        text-align: center;
+        margin-top: 35px;        
         .columns {
             max-width: 1500px;
             margin: 0% auto;
@@ -22,14 +23,26 @@
             border-left: none;
         }
         .product-img {
-            height: 179px;
-            // width: 266px;
+            height: 440px;
+            //width: 438px;
+            padding-bottom: 20px;
+
+        }
+
+        .single-img {
+            padding-top: 12px;
+            padding-bottom: 20px;
         }
         
         .background{
             padding-top: 35px;
             background-color: #D8D8D8;
             padding-bottom: 25px;
+        }
+
+        .button {
+            width: 220px;
+            height: 49px;
         }
     }
 

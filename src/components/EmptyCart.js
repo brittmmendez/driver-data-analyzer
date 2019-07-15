@@ -14,21 +14,32 @@ class EmptyCart extends Component {
 
   render() {
     const {
-      shop: {
-        contentful
-      }
+      shop: { contentful }
     } = this.props;
     return (
-      <div className="empty-cart" style={{ backgroundImage: `url(${contentful.emptyCartImg})` }}>
+      <div
+        className="empty-cart"
+        style={{ backgroundImage: `url(${contentful.emptyCartImg})` }}
+      >
         <section className="section">
           <div className="container has-text-centered">
             <div className="content">
-              <h1 className="has-text-white">Looks like there’s room for some products!</h1>
+              <h1 className="has-text-white">
+                Looks like there’s room for some products!
+              </h1>
               <p className="has-text-white">
-                Add a product (or two!) to your cart to start the checkout process.
-        </p>
-              <Link to="/products-page/127#top">
-                <button type="button" aria-label="shop" className="primary-btn shop-btn"> Shop Uplift</button>
+                Add a product (or two!) to your cart to start the checkout
+                process.
+              </p>
+              <Link to="/products-page#top">
+                <button
+                  type="button"
+                  aria-label="shop"
+                  className="primary-btn shop-btn"
+                >
+                  {' '}
+                  <span>Shop Now</span>
+                </button>
               </Link>
             </div>
           </div>

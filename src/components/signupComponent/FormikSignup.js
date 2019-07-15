@@ -5,7 +5,7 @@ import Yup from 'yup';
 import { inject, observer } from 'mobx-react';
 import { Cookies } from 'react-cookie';
 import PropTypes from 'prop-types';
-import MDSpinner from "react-md-spinner";
+import MDSpinner from 'react-md-spinner';
 
 const cookies = new Cookies();
 
@@ -14,10 +14,10 @@ const cookies = new Cookies();
 class FormikSignup extends Component {
   static propTypes = {
     shop: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
-    viaModal: PropTypes.bool,
+    viaModal: PropTypes.bool
   };
   static defaultProps = {
-    viaModal: false,
+    viaModal: false
   };
 
   render() {
@@ -34,7 +34,10 @@ class FormikSignup extends Component {
               .required('Oops! Please enter your email.')
           })}
           onSubmit={async (values, { setSubmitting, resetForm }) => {
-            const { shop: { crmSignup }, viaModal } = this.props;
+            const {
+              shop: { crmSignup },
+              viaModal
+            } = this.props;
             const url =
               'https://0khg96ijce.execute-api.us-east-1.amazonaws.com/prod/email';
             const data = {
@@ -55,11 +58,7 @@ class FormikSignup extends Component {
                 crmSignup.setSignupFormSuccess(true);
                 crmSignup.setSignupModal(false);
                 crmSignup.setViaSignupModal(viaModal);
-                cookies.set(
-                  'CRMsignup',
-                  { CRMsignup: true },
-                  { path: '/' }
-                );
+                cookies.set('CRMsignup', { CRMsignup: true }, { path: '/' });
               } else {
                 crmSignup.setSignupFormError(true);
                 crmSignup.setSignupModal(false);
@@ -77,14 +76,14 @@ class FormikSignup extends Component {
         >
           {({ isSubmitting, errors }) => (
             <Form className="signup-form">
-              <div className="field has-addons">
+              <div className="field has-addons has-addons-centered">
                 <div className="control">
                   <label
-                    htmlFor={viaModal ? "emailModal" : "email"}
+                    htmlFor={viaModal ? 'emailModal' : 'email'}
                     className={errors.email ? 'error-border' : ''}
                   >
                     <Field
-                      id={viaModal ? "emailModal" : "email"}
+                      id={viaModal ? 'emailModal' : 'email'}
                       className="input form-input"
                       type="email"
                       name="email"
@@ -96,15 +95,23 @@ class FormikSignup extends Component {
                 </div>
                 <div className="control">
                   <button
-                    className={isSubmitting ? "submitting primary-btn form-btn" : "primary-btn form-btn event_crm_action"}
+                    className={
+                      isSubmitting
+                        ? 'submitting primary-btn form-btn'
+                        : 'primary-btn form-btn event_crm_action'
+                    }
                     type="submit"
                     disabled={isSubmitting}
                   >
-                    {isSubmitting ?
-                      <MDSpinner size={20} singleColor="#ffffff" duration={2000} />
-                      :
-                      'ADD ME'
-                    }
+                    {isSubmitting ? (
+                      <MDSpinner
+                        size={20}
+                        singleColor="#000000"
+                        duration={2000}
+                      />
+                    ) : (
+                      <span>ADD ME</span>
+                    )}
                   </button>
                 </div>
               </div>

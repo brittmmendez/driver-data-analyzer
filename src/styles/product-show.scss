@@ -262,7 +262,7 @@
 
 .RRT__container{
   background-color: white;
-  border: 3px solid #225C73;
+  border: 3px solid $natural-dark-gray;
   // margin-top: 51px;
   // margin: 51px auto;
 
@@ -380,9 +380,9 @@
 
 @include mobile {
   .RRT__container{
-    border: 1px solid #225C73;
+    border: 1px solid $natural-dark-gray;
     .RRT__tab.tabs.RRT__tab{
-      border-bottom: 1px solid #225C73;    
+      border-bottom: 1px solid $natural-dark-gray;    
     }
   }
 

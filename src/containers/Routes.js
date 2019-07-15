@@ -41,8 +41,8 @@ const Routes = () => (
     {/* <Route path="/basic" component={Basic} /> */}
     {/* <Route path="/reactslickintegration" component={ReactSlickInt} /> */}
     {/* <Route path="/about" component={About} /> */}
-    <Route path="/exchanges-returns" component={ExchangesReturns} />
-    <Route path="/faq" component={FAQs} />
+    {/* <Route path="/exchanges-returns" component={ExchangesReturns} /> */}
+    {/* <Route path="/faq" component={FAQs} /> */}
     <Route path="/site-map" component={SiteMap} />
     <Route path="/my-cart" component={MyCart} />
     <Route path="/checkout" component={Checkout} />

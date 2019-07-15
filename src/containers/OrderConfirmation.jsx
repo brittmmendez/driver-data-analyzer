@@ -6,7 +6,7 @@ import OrderConfirmationItem from '../components/OrderConfirmationItem';
 import LoadingView from '../components/LoadingView';
 import PaymentCard from '../components/checkout/PaymentCard';
 import ErrorPage from './ErrorPage';
-import Print from '../static/images/svg/Printer.svg'
+import Print from '../static/images/svg/Printer.svg';
 
 @inject('shop')
 @observer
@@ -18,17 +18,17 @@ class OrderConfirmation extends Component {
   };
 
   static defaultProps = {
-    history: {},
+    history: {}
   };
 
-  componentWillMount() {
-    const { match } = this.props;
-    window.PGdataLayer.page = {
-      title: 'Order Confirmation',
-      url: match.path
-    }
-    window.dataLayer.push({ 'event': 'virtualPageview' })
-  }
+  // componentWillMount() {
+  //   const { match } = this.props;
+  //   window.PGdataLayer.page = {
+  //     title: 'Order Confirmation',
+  //     url: match.path
+  //   }
+  //   window.dataLayer.push({ 'event': 'virtualPageview' })
+  // }
 
   componentWillUnmount() {
     const {
@@ -45,39 +45,39 @@ class OrderConfirmation extends Component {
   };
 
   // GA track
-  trackPurchaseGA() {
-    const {
-      shop: {
-        checkout: { orderConfirmation }
-      }
-    } = this.props;
-    const { items } = orderConfirmation;
-    if (window && window.PGdataLayer) {
-      let transaction = {};
-      // add transaction details
-      transaction.transactionId = orderConfirmation.order_id;
-      transaction.transactionAffiliation = 'Uplift';
-      transaction.transactionTotal = orderConfirmation.total;
-      transaction.transactionTax = orderConfirmation.tax;
-      transaction.transactionShipping = orderConfirmation.shipping_handling;
+  // trackPurchaseGA() {
+  //   const {
+  //     shop: {
+  //       checkout: { orderConfirmation }
+  //     }
+  //   } = this.props;
+  //   const { items } = orderConfirmation;
+  //   if (window && window.PGdataLayer) {
+  //     let transaction = {};
+  //     // add transaction details
+  //     transaction.transactionId = orderConfirmation.order_id;
+  //     transaction.transactionAffiliation = 'Uplift';
+  //     transaction.transactionTotal = orderConfirmation.total;
+  //     transaction.transactionTax = orderConfirmation.tax;
+  //     transaction.transactionShipping = orderConfirmation.shipping_handling;
 
-      // add products to transaction
-      transaction.transactionProducts = [];
-      items.map(i => (
-        transaction.transactionProducts.push({
-          'id': i.id,
-          'sku': i.sku,
-          'name': i.name,
-          'category': 27,
-          'price': i.price,
-          'quantity': i.quantity
-        })
-      ))
-      transaction.event = 'BCtransactionComplete';
-      console.log(transaction);
-      window.dataLayer.push(transaction);
-    }
-  }
+  //     // add products to transaction
+  //     transaction.transactionProducts = [];
+  //     items.map(i => (
+  //       transaction.transactionProducts.push({
+  //         'id': i.id,
+  //         'sku': i.sku,
+  //         'name': i.name,
+  //         'category': 27,
+  //         'price': i.price,
+  //         'quantity': i.quantity
+  //       })
+  //     ))
+  //     transaction.event = 'BCtransactionComplete';
+  //     console.log(transaction);
+  //     window.dataLayer.push(transaction);
+  //   }
+  // }
 
   render() {
     const {
@@ -93,34 +93,33 @@ class OrderConfirmation extends Component {
     }
 
     if (orderConfirmation.orderSummaryError) {
-      return <ErrorPage
-        errorTitle="Thank you, your order has been placed!"
-        errorMsg="Look out for your order confirmation and details in your email inbox, or feel free to explore our site."
-        errorType="confirmation" />
+      return (
+        <ErrorPage
+          errorTitle="Thank you, your order has been placed!"
+          errorMsg="Look out for your order confirmation and details in your email inbox, or feel free to explore our site."
+          errorType="confirmation"
+        />
+      );
     }
 
     if (
       orderConfirmation.items.length < 0 &&
       orderConfirmation.securedConfirmation
     ) {
-      return (
-        <LoadingView />
-      )
+      return <LoadingView />;
     }
 
     if (
       orderConfirmation.items.length > 0 &&
       orderConfirmation.securedConfirmation
     ) {
-      this.trackPurchaseGA()
+      // this.trackPurchaseGA()
 
-      window.scrollTo(0, 0)
+      window.scrollTo(0, 0);
       return (
         <div className="order-confirmation content">
           <div className="has-text-centered">
-            <h2>
-              Thank you, your order has been placed.
-            </h2>
+            <h2>Thank you, your order has been placed.</h2>
             <div className="confirmation-msg">
               <h3 className="msg">
                 Your order #{orderConfirmation.order_id} will arrive in up to 10
@@ -131,9 +130,7 @@ class OrderConfirmation extends Component {
             </div>
           </div>
           <div className="columns order-details">
-            <h3 className="column has-text-left">
-              Order Details
-            </h3>
+            <h3 className="column has-text-left">Order Details</h3>
             <div className="column has-text-right print-option">
               <span
                 onClick={this.handleClick}
@@ -141,7 +138,8 @@ class OrderConfirmation extends Component {
                 tabIndex="0"
                 role="link"
               >
-                <a>Print This Page{" "}
+                <a>
+                  Print This Page{' '}
                   <img src={Print} alt="print-icon" className="" />
                 </a>
               </span>
@@ -149,7 +147,10 @@ class OrderConfirmation extends Component {
           </div>
           <div className="columns has-text-left">
             <div className="column is-5">
-              <div className="order-detail-title has-text-weight-bold"> Shipping Info </div>
+              <div className="order-detail-title has-text-weight-bold">
+                {' '}
+                Shipping Info{' '}
+              </div>
               {orderConfirmation.shipping_first_name}{' '}
               {orderConfirmation.shipping_last_name}
               <br />
@@ -168,11 +169,17 @@ class OrderConfirmation extends Component {
               </p>
             </div>
             <div className="column is-4">
-              <div className="order-detail-title has-text-weight-bold"> Payment Method </div>
+              <div className="order-detail-title has-text-weight-bold">
+                {' '}
+                Payment Method{' '}
+              </div>
               {payment.creditCardComplete && <PaymentCard />}
             </div>
             <div className="column has-text-left">
-              <div className="order-detail-title has-text-weight-bold"> Billing Address </div>
+              <div className="order-detail-title has-text-weight-bold">
+                {' '}
+                Billing Address{' '}
+              </div>
               {orderConfirmation.billing_first_name}{' '}
               {orderConfirmation.billing_last_name}
               <br />
@@ -243,8 +250,8 @@ class OrderConfirmation extends Component {
                 </div>
               </div>
             ) : (
-                ''
-              )}
+              ''
+            )}
             <div className="columns is-mobile has-text-weight-bold total">
               <div className="column is-paddingless is-8">Total</div>
               <div className="column is-4 is-paddingless has-text-right">
@@ -253,8 +260,11 @@ class OrderConfirmation extends Component {
             </div>
           </div>
           <div className="mobile-view">
-            <Link className="button secondary-btn cont-shopping event_continue_shopping" to="/products-page/127#top">
-              Continue Shopping
+            <Link
+              className="button primary-btn cont-shopping event_continue_shopping"
+              to="/products-page#top"
+            >
+              <span>Continue Shopping</span>
             </Link>
           </div>
         </div>
