@@ -40,7 +40,7 @@ class Footer extends Component {
       <footer
         className={
           pathname === '/products-page/119' ||
-            (pathname === '/my-cart' && cart.itemCount)
+          (pathname === '/my-cart' && cart.itemCount)
             ? 'footer extra-margin-bottom'
             : 'footer'
         }
@@ -74,7 +74,7 @@ class Footer extends Component {
                 </div>
                 <div className="column">
                   <p className="footer-header topic is-hidden-mobile">Shop</p>
-                  <p>
+                  <p className="footer-text is-hidden-mobile">
                     <Link
                       to="/products-page/119#top"
                       className="event_view_product_detail_page"
@@ -88,12 +88,12 @@ class Footer extends Component {
                   <p className="footer-header topic is-hidden-mobile">
                     Customer Support
                   </p>
-                  <p>
+                  <p className="footer-text is-hidden-mobile">
                     <a href={customerSupport.customerSupportCtaCallButtonUrl}>
                       {customerSupport.customerSupportCtaCallButtonText}
                     </a>
                   </p>
-                  <p>
+                  <p className="footer-text is-hidden-mobile">
                     <a href={customerSupport.customerSupportCtaEmailButtonUrl}>
                       {customerSupport.customerSupportCtaEmailButtonText}
                     </a>

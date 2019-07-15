@@ -18,23 +18,25 @@ class ProductGrouping extends Component {
         landingPage: { productGroupingGroup }
       }
     } = this.props;
-    return (
-      <section className="section product-grouping">
-        <div className="content has-text-centered">
-          <div className="columns">
-            {productGroupingGroup.productGroups.map((groupTwo, idx) => (
+    const product1 = productGroupingGroup.productGroups[0];
+    const product2 = productGroupingGroup.productGroups[1];
+    const product3 = productGroupingGroup.productGroups[2];
 
-              <div
-                className={`column col${idx}`}
-                key={groupTwo.productGroupTitle}
-              >
-                <Link
-                  to={groupTwo.productGroupRelativeUrl}
-                >
+    return (
+      productGroupingGroup.productGroups.length && (
+        <div className="content has-text-centered">
+          {/* <h2 className="extra-padding-bottom">
+            {' '}
+            {productGroupingGroup.productGroupingGroupTitle}
+          </h2> */}
+          <section className="section product-grouping">
+            <div className="columns double-img">
+              <div className="column">
+                <div>
                   <LazyLoad height={200}>
                     <Image
-                      publicId={groupTwo.productGroupMediaFile}
-                      alt={groupTwo.productGroupMediaTitle}
+                      publicId={product1.productGroupMediaFile}
+                      alt={product1.productGroupMediaTitle}
                       className="product-img"
                       type="fetch"
                     >
@@ -43,19 +45,75 @@ class ProductGrouping extends Component {
                         dpr="auto"
                         fetchFormat="auto"
                         responsive
-                        width="auto"
-                        crop="scale"
+                        height="440"
                       />
                     </Image>
                   </LazyLoad>
-                  <h3> {groupTwo.productGroupTitle} </h3>
-
+                </div>
+                <Link
+                  className="primary-btn button"
+                  to={product1.productGroupRelativeUrl}
+                >
+                  <span> {product1.productGroupTitle} </span>
                 </Link>
               </div>
-            ))}
-          </div>
+              <div className="column">
+                <div>
+                  <LazyLoad height={200}>
+                    <Image
+                      publicId={product2.productGroupMediaFile}
+                      alt={product2.productGroupMediaTitle}
+                      className="product-img"
+                      type="fetch"
+                    >
+                      <Transformation
+                        quality="auto"
+                        dpr="auto"
+                        fetchFormat="auto"
+                        responsive
+                        height="440"
+                      />
+                    </Image>
+                  </LazyLoad>
+                </div>
+                <Link
+                  className="primary-btn button"
+                  to={product2.productGroupRelativeUrl}
+                >
+                  <span> {product2.productGroupTitle} </span>
+                </Link>
+              </div>
+            </div>
+            <div className="column">
+              <div className="single-img">
+                <LazyLoad height={200}>
+                  <Image
+                    publicId={product3.productGroupMediaFile}
+                    alt={product3.productGroupMediaTitle}
+                    className="full-width-product-img"
+                    type="fetch"
+                  >
+                    <Transformation
+                      quality="auto"
+                      dpr="auto"
+                      fetchFormat="auto"
+                      responsive
+                      height="364"
+                      crop="scale"
+                    />
+                  </Image>
+                </LazyLoad>
+              </div>
+              <Link
+                className="primary-btn button"
+                to={product3.productGroupRelativeUrl}
+              >
+                <span> {product3.productGroupTitle} </span>
+              </Link>
+            </div>
+          </section>
         </div>
-      </section>
+      )
     );
   }
 }

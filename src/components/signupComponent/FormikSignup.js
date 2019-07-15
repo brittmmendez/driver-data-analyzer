@@ -76,7 +76,7 @@ class FormikSignup extends Component {
         >
           {({ isSubmitting, errors }) => (
             <Form className="signup-form">
-              <div className="field has-addons">
+              <div className="field has-addons has-addons-centered">
                 <div className="control">
                   <label
                     htmlFor={viaModal ? 'emailModal' : 'email'}

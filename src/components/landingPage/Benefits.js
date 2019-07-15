@@ -44,7 +44,9 @@ class Benefits extends Component {
                     />
                   </Image>
                   <h2>{benefit.productBenefitTitle}</h2>
-                  <p className="has-text-left">{benefit.productBenefitCopy}</p>
+                  <h4 className="has-text-left">
+                    {benefit.productBenefitCopy}
+                  </h4>
                 </div>
               ))}
             </div>
