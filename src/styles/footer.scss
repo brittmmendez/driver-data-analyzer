@@ -1,10 +1,10 @@
 .footer {
-    background-color: $natural-light-gray;
-    color: $natural-dark-gray;
+    background-color: $hard-pink;
+    color: $black;
     bottom: 0%;
     padding-top: 45px;
     padding-bottom: 30px;
-    font-family: $mukta-font;
+    font-family: $montserrat-font;
     // font-size: 14px;
     line-height: 17px;   
 
@@ -27,14 +27,16 @@
     }
     
     a {
-        color:$dark-teal;
+        color:$black;
     }
 
     a:hover {
-        color:$pastel-purple;
+        background: $pale-pink;
+        color:$black;
     }
     a:active {
-        color:$dark-purple;
+        background: $pale-pink;
+        color:$black;
     }
     
     .info-center {

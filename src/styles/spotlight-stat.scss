@@ -1,15 +1,17 @@
 .landing-page {
     .spotlight-stat {
         min-height: 400px;
-        text-align: center;
+        text-align: left;
         background-position: center; /* Center the image */
         background-repeat: no-repeat; /* Do not repeat the image */
         background-size: cover; /* Resize the background image to cover the entire container */
+        background-color: $hard-pink;
         
         .content {
             margin: 0% auto;
             max-width: 1300px;
-            padding: 55px 20%;
+            padding: 25px 10%;
+
         }
 
         .column{
@@ -17,16 +19,41 @@
             padding-right: 4%;
         }
 
+        .img {
+            max-width: 353px;
+            padding-right: 40px;
+        }
+
         .spotlight-msg {
+            max-width: 440px;
             margin-top: 5%;
+            padding-top: 30px;
+
             
-            h1 {
-                color: white;
-                margin: 20px 0px;
+            h3 {
+                color: $navy;
+                text-align: left;
+                margin: 15px 15px;
+                font-weight: normal;
+                text-transform: uppercase;
             }
 
-            p{color: white;}
+            p{
+                color: $black;
+                text-align: left;
+                margin: 0px 15px;
+            }
         }
+
+        // .background-left {
+        //     background-image: url('./src/static/images/Homepage_Lines_TopLeft.png');
+
+        // }
+
+        // .background-right {
+        //     background-image: url('./src/static/images/Homepage_Lines_BottomRight.png');
+
+        // }
     }
 }
 

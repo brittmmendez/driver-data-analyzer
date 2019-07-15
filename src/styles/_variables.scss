@@ -1,7 +1,7 @@
 /* Import a Google Font */
 @import url('https://fonts.googleapis.com/css?family=Overpass:400,900&font-display=swap');
 @import url('https://fonts.googleapis.com/css?family=Mukta:400,800&font-display=swap');
-@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,700');
 @import url('https://fonts.googleapis.com/css?family=Lato:400,800');
 
 // ***** TYPE STYLES *****
@@ -21,12 +21,13 @@ $gradient: linear-gradient(315deg, $pastel-purple 0%, $dark-purple 52.54%, $neon
 // Updated primary colors (mon amie)
 $hard-pink: #F6CDC3;
 $soft-pink: #F6E6DF;
-$hover-pink: #fbf3ef;
-$disabled-pink: #FDF5F1;
+$pale-pink: #FDF5F1;
 $navy: #033B68;
 $white: #ffffff;
 $black: #000000;
+$white: #FFFFFF;
 $montserrat-font: 'Montserrat', sans-serif;
+$montserrat-medium-font: 'Montserrat Medium', sans-serif;
 $lato-font: 'Lato', sans-serif;
 
 
@@ -36,7 +37,7 @@ $lato-font: 'Lato', sans-serif;
 $bright-red: #DF2742;
 
 body {
-    color: $natural-dark-gray;
+    color: $black;
     font-family:$lato-font;
 }
 
@@ -53,35 +54,35 @@ strong{
         font-family: $montserrat-font;
         font-size: 38px;
         font-weight: bold;
-        color: $natural-dark-gray;
+        color: $navy;
     };
 
     h2 {
         font-family: $montserrat-font;
         font-size: 30px;
         font-weight: bold;
-        color: $natural-dark-gray;
+        color: $navy;
     }
 
     h3 {
         font-family: $montserrat-font;
         font-size: 20px;
         font-weight: bold;
-        color: $natural-dark-gray;
+        color: $navy;
     }
 
     h4 {
         font-family: $lato-font;
         font-size: 17px;
         font-weight: bold;
-        color: $natural-dark-gray;
+        color: $black;
     }
 
     p {
         font-family: $lato-font;
         font-size: 17px;
         font-weight: normal;
-        color: $natural-dark-gray;
+        color: $black;
     }
 
     // .btn-text{
@@ -100,38 +101,40 @@ strong{
     // }
 
     .footer-header{
-        font-family: $overpass-font;
+        text-transform: uppercase;
+        font-family: $montserrat-font;
         font-size: 14px;
-        font-weight: bold;
-        color: $natural-dark-gray;
+        font-weight: 500;
+        color: $black;
     }
 
     .footer-text{
-        font-family: $overpass-font;
+        text-transform: uppercase;
+        font-family: $montserrat-font;
         font-size: 14px;
         font-weight: bold;
-        color: $dark-teal;
+        color: $black;
     }
 
     .sub-header{
-        font-family: $mukta-font;
+        font-family: $montserrat-font;
         font-size: 14px;
         font-weight: normal;
-        color: $natural-dark-gray;
+        color: $black;
     }
 
     .sub-header-bold{
-        font-family: $mukta-font;
+        font-family: $montserrat-font;
         font-size: 14px;
         font-weight: bold;
-        color: $natural-dark-gray;
+        color: $black;
     }
 
     .sub-text{
-        font-family: $mukta-font;
+        font-family: $montserrat-font;
         font-size: 14px;
         font-weight: normal;
-        color: $natural-dark-gray;
+        color: $black;
     }
 
     // .sub-text-bold{
@@ -166,14 +169,14 @@ strong{
 
     .primary-btn:hover{
         span {
-            background: $hover-pink;
+            background: $pale-pink;
             padding: 2px;
         }
     }
 
     .primary-btn:active {
         span {
-            background: $hover-pink;
+            background: $pale-pink;
             padding: 2px;
         }
     }
@@ -186,7 +189,7 @@ strong{
 
     
     .disabled-btn{
-        background-color: $disabled-pink;
+        background-color: $pale-pink;
         color: $hard-pink;	
         border: none;
         font-family: $montserrat-font;
@@ -204,7 +207,7 @@ strong{
 @include mobile{
     .content{
         h1 {
-            font-size: 30px;
+            font-size: 38px;
         };
     
         h2 {

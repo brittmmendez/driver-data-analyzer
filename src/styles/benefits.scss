@@ -1,7 +1,7 @@
 .landing-page {
     .benefits {
         .content {
-            margin: 5px auto;
+            margin: 5px 63px;
             margin-bottom: 30px;
             max-width: 1250px;
         }
@@ -13,9 +13,33 @@
         }
     
         img {
-            height: 218;	
-            width: 291;
+            height: 105px;	
+            // width: 291;
         }
+
+        .title {
+            padding-bottom: 30px;
+        }
+
+        h4 {
+            max-width: 223px;
+            padding-left: 50px;
+            font-weight: normal;
+        }
+
+
+
+        // h2 {
+        //     text-transform: uppercase;
+        // }
+
+        // .background-detail-left {
+
+        // }
+
+        // .background-detail-right {
+
+        // }
     }
 
     @include mobile {
@@ -29,6 +53,7 @@
             }
         
             .content {
+                margin: auto;
                 text-align: center;
             }
 

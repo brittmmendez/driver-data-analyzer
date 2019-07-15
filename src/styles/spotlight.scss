@@ -1,7 +1,7 @@
 .landing-page {
     .spotlight {
         text-align: center;
-        min-height: 375px;
+        min-height: 488px;
         // margin-bottom:40px;
 
         .section{
@@ -11,7 +11,7 @@
         .content {
             margin: 0% auto;
             max-width: 1300px;
-            padding: 55px 20%;
+            padding: 90px 447px 10% 147px;
         }
 
         .column{
@@ -33,7 +33,7 @@
         }
 
         .spotlight-img {
-            max-width: 100%;
+            //max-width: 945px;
             // position: absolute;
             // right: 0;
             // // height: 295px;
@@ -44,7 +44,7 @@
         .join-button{
             margin-top: 8px;
             height: 56px;
-            width: 284.36px;
+            width: 220px;
         }
     }
 }
@@ -102,11 +102,12 @@
     .landing-page{
         .spotlight {
             .content {
-                padding: 0px;
+                padding: 20px;
+                padding-top: 41px;
             }
             .section{
                 .join-button{
-                    width: 100%;
+                    //width: 100%;
                     // width: 284.36px;
                 }
 
