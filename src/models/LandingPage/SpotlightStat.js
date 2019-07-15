@@ -8,9 +8,9 @@ const SpotlightStat = types
     spotlightProductTitle: types.optional(types.string, ''),
     spotlightProductMessaging: types.optional(types.string, ''),
     spotlightProductMediaFile: types.optional(types.string, ''),
-    spotlightProductMediaText: types.optional(types.string, '')
-    // spotlightBackgroundLeft: types.optional(types.string, ''),
-    // spotlightBackgroundRight: types.optional(types.string, '')
+    spotlightProductMediaText: types.optional(types.string, ''),
+    spotlightBackgroundLeft: types.optional(types.string, ''),
+    spotlightBackgroundRight: types.optional(types.string, '')
   })
   .actions(self => ({
     setSpotlight(spotlight) {
@@ -22,6 +22,12 @@ const SpotlightStat = types
       }`;
       self.spotlightProductMediaText =
         spotlight.fields.spotlightProductMedia.fields.title;
+      self.spotlightBackgroundLeft = `https:${
+        spotlight.fields.backgroundImageLeft.fields.file.url
+      }`;
+      self.spotlightBackgroundRight = `https:${
+        spotlight.fields.backgroundImageRight.fields.file.url
+      }`;
     }
   }));
 

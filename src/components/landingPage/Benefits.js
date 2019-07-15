@@ -40,10 +40,10 @@ class Benefits extends Component {
                       dpr="auto"
                       responsive
                       crop="scale"
-                      width="325"
+                      height="100"
                     />
                   </Image>
-                  <h2>{benefit.productBenefitTitle}</h2>
+                  <h3>{benefit.productBenefitTitle}</h3>
                   <h4 className="has-text-left">
                     {benefit.productBenefitCopy}
                   </h4>

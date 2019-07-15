@@ -9,15 +9,26 @@ const cookies = new Cookies();
 const User = types
   .model({
     id: types.optional(types.number, 0),
-    first_name: types.optional(types.string, ''),
-    last_name: types.optional(types.string, ''),
-    email: types.optional(types.string, ''),
+    first_name: types.optional(types.string, 'Brittany'),
+    last_name: types.optional(types.string, 'Morris'),
+    email: types.optional(types.string, 'brittmmendez@gmail.com'),
+    newUser: types.optional(types.boolean, false),
     registerError: types.optional(types.boolean, false),
     logInError: types.optional(types.boolean, false),
     loggedIn: types.optional(types.boolean, false),
-    token: types.optional(types.string, ''),
+    guestToken: types.optional(
+      types.string,
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjdXN0b21lcl9pZCI6MH0.VZCOAFwY_bppftzT0AFGWuPo2pF06inOP2GeQhkbamM'
+    ),
+    token: types.optional(types.string, '')
   })
   .actions(self => ({
+    getToken() {
+      const token = self.loggedIn ? self.token : self.guestToken;
+
+      return token;
+    },
+
     logOut() {
       self.id = 0;
       self.first_name = '';
@@ -28,29 +39,33 @@ const User = types
       cookies.remove('user');
       console.log(cookies);
       console.log('logged Out');
+
+      if (getParent(self, 1).cart.id) {
+        getParent(self, 1).cart.updateCartCustomer(0);
+      }
     },
 
-    logIn: flow(function* logIn(userInfo) {
+    signin: flow(function* signin(userInfo) {
       try {
-        const response = yield window.fetch(`${getParent(self, 1).apiUrl}/login`, {
-          method: 'POST',
-          body: JSON.stringify({
-            email: userInfo.email,
-            password: userInfo.password,
-          }),
-          headers: {
-            'Content-Type': 'application/json',
-            Accept: 'application/json',
-          },
-        });
-
-        if (response.status === 401) {
-          const result = yield response.json();
+        const response = yield window.fetch(
+          `${getParent(self, 1).apiUrl}/login`,
+          {
+            method: 'POST',
+            body: JSON.stringify({
+              email: userInfo.email,
+              password: userInfo.signinPassword
+            }),
+            headers: {
+              'Content-Type': 'application/json',
+              Accept: 'application/json'
+            }
+          }
+        );
+        if (response.status !== 200) {
           self.logInError = true;
-          console.log(result);
+          console.log(response);
           return false;
         }
-
         if (response.status === 200) {
           let result = response;
           result = yield result.json();
@@ -61,10 +76,15 @@ const User = types
           self.token = result.token;
           self.logInError = false;
           self.loggedIn = true;
-          getParent(self, 1).cart.updateCartCustomer(self.id);
+          if (getParent(self, 1).cart.itemCount > 0) {
+            getParent(self, 1).cart.updateCartCustomer(result.id);
+          }
           console.log('signed in');
-          console.log(result);
-          cookies.set('user', { token: result.token, id: result.customer.id }, { path: '/' });
+          cookies.set(
+            'user',
+            { token: result.token, id: result.customer.id },
+            { path: '/' }
+          );
           console.log(cookies.get('user'));
           return true;
         }
@@ -79,38 +99,50 @@ const User = types
 
     register: flow(function* register(userInfo) {
       try {
-        const response = yield window.fetch(`${getParent(self, 1).apiUrl}/register`, {
-          method: 'POST',
-          body: JSON.stringify({
-            first_name: userInfo.firstName,
-            last_name: userInfo.lastName,
-            email: userInfo.email,
-            password: userInfo.password,
-          }),
-          headers: {
-            'Content-Type': 'application/json',
-            Accept: 'application/json',
-          },
-        });
-
-        if (response.status === 400) {
+        const response = yield window.fetch(
+          `${getParent(self, 1).apiUrl}/register`,
+          {
+            method: 'POST',
+            body: JSON.stringify({
+              first_name: userInfo.firstName,
+              last_name: userInfo.lastName,
+              email: userInfo.email,
+              password: userInfo.password
+            }),
+            headers: {
+              'Content-Type': 'application/json',
+              Accept: 'application/json'
+            }
+          }
+        );
+        if (response.status !== 201) {
           const result = yield response.json();
           self.registerError = true;
           console.log(result);
           return false;
         }
-
         if (response.status === 201) {
           let result = response;
           result = yield result.json();
-          self.id = result.customer.id;
-          self.first_name = result.customer.first_name;
-          self.last_name = result.customer.last_name;
+          self.id = result.id;
+          self.first_name = result.first_name;
+          self.last_name = result.last_name;
           self.email = userInfo.email;
+          self.token = result.token;
           self.registerError = false;
-          getParent(self, 1).cart.updateCartCustomer(self.id);
+          self.newUser = true;
+          self.loggedIn = true;
+          if (getParent(self, 1).cart.itemCount > 0) {
+            getParent(self, 1).cart.updateCartCustomer(result.id);
+          }
+
           console.log('created');
-          console.log(result);
+          cookies.set(
+            'user',
+            { token: result.token, id: result.id },
+            { path: '/' }
+          );
+          console.log(cookies.get('user'));
           return true;
         }
       } catch (err) {
@@ -121,6 +153,37 @@ const User = types
       self.registerError = false;
       return true;
     }),
+
+    forgotPassword: flow(function* register(userInfo) {
+      try {
+        const response = yield window.fetch(
+          `${getParent(self, 1).apiUrl}/customers/passwordResetRequest`,
+          {
+            method: 'POST',
+            body: JSON.stringify({
+              email: userInfo.email
+            }),
+            headers: {
+              'Content-Type': 'application/json',
+              Accept: 'application/json',
+              Authorization: `Bearer ${self.getToken()}`
+            }
+          }
+        );
+
+        let result = response;
+        result = yield result.json();
+
+        if (result.success) {
+          return true;
+        }
+        return false;
+      } catch (err) {
+        self.registerError = true;
+        console.log(err);
+        return false;
+      }
+    })
   }));
 
 export default User;

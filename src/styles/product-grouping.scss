@@ -23,6 +23,8 @@
             border-left: none;
         }
         .product-img {
+            object-fit: cover;
+            width: 100%;
             height: 440px;
             //width: 438px;
             padding-bottom: 20px;
@@ -32,6 +34,12 @@
         .single-img {
             padding-top: 12px;
             padding-bottom: 20px;
+
+            img {
+                height: 364px;
+                width: 100%;
+                object-fit: cover;
+            }
         }
         
         .background{
