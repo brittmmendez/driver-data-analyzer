@@ -21,7 +21,7 @@ class Spotlight extends Component {
     return (
       <LazyLoad height={200}>
         <div
-          className="spotlight"
+          className="spotlight-img-background"
           style={{
             backgroundImage: `url(${spotlight.spotlightProductMediaFile})`
           }}

@@ -1,11 +1,27 @@
 .landing-page {
     .spotlight-stat {
-        min-height: 400px;
+        min-height: 377px;
         text-align: left;
         background-position: center; /* Center the image */
         background-repeat: no-repeat; /* Do not repeat the image */
         background-size: cover; /* Resize the background image to cover the entire container */
         background-color: $hard-pink;
+        position: relative;
+        z-index: 0;
+
+        .background-left {
+            position: absolute;
+            z-index: -1;
+            height: 141px;
+        }
+
+        .background-right {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            z-index: -1;
+            height: 70px;
+        }
         
         .content {
             margin: 0% auto;
@@ -14,19 +30,19 @@
 
         }
 
-        .column{
-            padding-left: 4%;
-            padding-right: 4%;
+        .column:last-child{
+            padding-left: 6%;
+            padding-right: 13%;
         }
 
         .img {
-            max-width: 353px;
-            padding-right: 40px;
+            // max-width: 353px;
+            //padding-right: 40px;
         }
 
         .spotlight-msg {
             max-width: 440px;
-            margin-top: 5%;
+            margin-top: 14%;
             padding-top: 30px;
 
             
@@ -46,12 +62,10 @@
         }
 
         // .background-left {
-        //     background-image: url('./src/static/images/Homepage_Lines_TopLeft.png');
 
         // }
 
         // .background-right {
-        //     background-image: url('./src/static/images/Homepage_Lines_BottomRight.png');
 
         // }
     }

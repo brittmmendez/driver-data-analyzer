@@ -25,11 +25,42 @@ class SpotlightStat extends Component {
           //   backgroundImage: `url(${spotlightStat.spotlightProductMediaFile})`
           // }}
         >
+          <Image
+            publicId={spotlightStat.spotlightBackgroundLeft}
+            alt={spotlightStat.spotlightBackgroundLeft}
+            type="fetch"
+            className="background-left"
+          >
+            <Transformation
+              quality="auto"
+              fetchFormat="auto"
+              dpr="auto"
+              responsive
+              crop="scale"
+              width="325"
+            />
+          </Image>
+          <Image
+            publicId={spotlightStat.spotlightBackgroundRight}
+            alt={spotlightStat.spotlightBackgroundRight}
+            type="fetch"
+            className="background-right"
+          >
+            <Transformation
+              quality="auto"
+              fetchFormat="auto"
+              dpr="auto"
+              responsive
+              crop="scale"
+              width="325"
+            />
+          </Image>
+
           <section className="section">
             <div className="content">
-              <div className="has-text-center">
+              <div className="">
                 <div className="columns">
-                  <div className="column-is-6 img">
+                  <div className="column is-5 img">
                     <Image
                       publicId={spotlightStat.spotlightProductMediaFile}
                       //alt={benefit.productBenefitMediaTitle}
@@ -41,11 +72,11 @@ class SpotlightStat extends Component {
                         dpr="auto"
                         responsive
                         crop="scale"
-                        width="325"
+                        width="450"
                       />
                     </Image>
                   </div>
-                  <div className="column-is-6">
+                  <div className="column is-7">
                     <div className="spotlight-msg">
                       <h3>{spotlightStat.spotlightProductTitle}</h3>
                       <p className="has-text-left">
