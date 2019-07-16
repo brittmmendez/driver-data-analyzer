@@ -19,7 +19,7 @@ class SignupThankYou extends Component {
           <div className=" columns content">
             <div className="column is-6 has-text-left">
               <div className="">
-                <h1 className="section-title has-text-black">
+                <h1 className="section-title">
                   {crmSignup.signupThankYouHeadline}
                 </h1>
               </div>

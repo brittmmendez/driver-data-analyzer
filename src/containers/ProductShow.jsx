@@ -67,7 +67,7 @@ class ProductShow extends Component {
     )[0];
 
     const productDescription = details.productDetails.map(detail => ({
-      name: (<span className="tabs-title">{detail.productDetailsTitle}</span>),
+      name: <span className="tabs-title">{detail.productDetailsTitle}</span>,
       details: (
         <div>
           {detail.productDetailsMediaFile ? (
@@ -83,8 +83,8 @@ class ProductShow extends Component {
               </div>
             </div>
           ) : (
-              <Markdown source={detail.productDetailsCopy} />
-            )}
+            <Markdown source={detail.productDetailsCopy} />
+          )}
         </div>
       )
     }));
@@ -110,7 +110,8 @@ class ProductShow extends Component {
     const {
       shop,
       shop: { contentful },
-      match } = this.props;
+      match
+    } = this.props;
     const { resetSlider } = this.state;
     const params = parseInt(match.params.productId, 10);
 
@@ -136,7 +137,7 @@ class ProductShow extends Component {
               property="og:url"
               content={`${process.env.REACT_APP_URL}/products-page/${
                 product.id
-                }`}
+              }`}
             />
             <meta property="og:title" content={product.page_title} />
             <meta
@@ -150,24 +151,22 @@ class ProductShow extends Component {
             <section className="section">
               <div className="container content has-text-left">
                 <div className="product-show-mobile">
-                  <h2 className="product-name has-text-weight-bold is-marginless">
-                    {product.name}
-                  </h2>
+                  <h2 className="product-name is-marginless">{product.name}</h2>
                   {/* <p className="sku">{product.sku}</p> */}
                   {product.sale_price === 0 ? (
                     <h3 className="product-regular-price">
                       ${product.getPrice()}
                     </h3>
                   ) : (
-                      <div>
-                        <s className="product-price">
-                          ${product.price.toFixed(2)}
-                        </s>
-                        <span className="product-price has-text-weight-bold">
-                          {'  '}${product.sale_price.toFixed(2)}
-                        </span>
-                      </div>
-                    )}
+                    <div>
+                      <s className="product-price">
+                        ${product.price.toFixed(2)}
+                      </s>
+                      <span className="product-price">
+                        {'  '}${product.sale_price.toFixed(2)}
+                      </span>
+                    </div>
+                  )}
                   <div className="rating">
                     <ProductStarRating product={product} showAll />
                   </div>
@@ -199,31 +198,33 @@ class ProductShow extends Component {
                           ${product.getPrice()}
                         </h3>
                       ) : (
-                          <div>
-                            <s className="product-price">
-                              ${product.price.toFixed(2)}
-                            </s>
-                            <span className="product-price has-text-weight-bold">
-                              {'  '}${product.sale_price.toFixed(2)}
-                            </span>
-                          </div>
-                        )}
+                        <div>
+                          <s className="product-price">
+                            ${product.price.toFixed(2)}
+                          </s>
+                          <span className="product-price has-text-weight-bold">
+                            {'  '}${product.sale_price.toFixed(2)}
+                          </span>
+                        </div>
+                      )}
                       <div>
                         <ProductStarRating product={product} showAll />
                       </div>
                       <div className="product-description">
                         {/* <p> */}
-                        <Markdown
-                          escapeHtml={false}
-                          source={product.description}
-                        />
-                        <Link
-                          className="event_view_more_details"
-                          smooth
-                          to={`/products-page/${product.id}#more-details`}
-                        >
-                          View Details
+                        <span>
+                          <Markdown
+                            escapeHtml={false}
+                            source={product.description}
+                          />
+                          <Link
+                            className="event_view_more_details"
+                            smooth
+                            to={`/products-page/${product.id}#more-details`}
+                          >
+                            View Details
                           </Link>
+                        </span>
                         {/* </p> */}
                       </div>
                     </div>
@@ -235,7 +236,10 @@ class ProductShow extends Component {
                 </div>
               </div>
             </section>
-            <div className="product-details-section" style={{ backgroundImage: `url(${contentful.emptyCartImg})` }}>
+            <div
+              className="product-details-section"
+              style={{ backgroundImage: `url(${contentful.emptyCartImg})` }}
+            >
               <section className="section">
                 <div className="container">
                   {this.getDetails(product) && (
@@ -257,12 +261,12 @@ class ProductShow extends Component {
           </div>
         </div>
       ) : (
-          <ErrorPage
-            errorTitle="We're sorry, we couldn't find this product."
-            errorMsg="This product has either been removed, renamed or is unavailable. Feel free to take a look at our current products or to explore other parts of our site."
-            errorType="product"
-          />
-        );
+        <ErrorPage
+          errorTitle="We're sorry, we couldn't find this product."
+          errorMsg="This product has either been removed, renamed or is unavailable. Feel free to take a look at our current products or to explore other parts of our site."
+          errorType="product"
+        />
+      );
     }
     return (
       <div className="spinner-container">

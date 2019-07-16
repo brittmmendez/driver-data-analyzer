@@ -417,18 +417,18 @@
         .slick-arrow{
             height: 35px;	
             width: 35px;	
-            border: 1px solid $dark-purple;	
+            border: 1px solid $black;	
             border-radius: 1px;	
-            background-color: $pastel-purple;
-            margin-right: 22px;
-            margin-left: 22px;
+            background-color: $pale-pink;
+            margin-right: 20px;
+            margin-left: 20px;
         }
     }
     .slick-prev:before, .slick-next:before{
         box-sizing: border-box;	
         height: 13.38px;	
         width: 6.18px;	
-        color: white;	
+        color: $black;	
         line-height: inherit;
     }
 

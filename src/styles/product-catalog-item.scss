@@ -8,7 +8,11 @@
 
   .product-catalog-title{
     padding-left: 1.25rem;
+    padding-bottom: 13px;
+    font-weight: normal;
+    text-transform: uppercase;
   }
+
   .product-catalog-item {
     margin-bottom: 20px;
     .box{
@@ -21,6 +25,8 @@
     a{
       h4{
         border-bottom: 3px solid transparent;
+        text-transform: initial;
+        font-weight: normal;
       }
     }
 
@@ -31,7 +37,7 @@
     }
 
     .product-options{
-      border-bottom: 1px solid rgba(219, 219, 219, 0.5);
+      border-bottom: 1px solid $hard-pink;
       margin-bottom: 10px;
       padding-top: 15px;
       padding-bottom: 5px;
