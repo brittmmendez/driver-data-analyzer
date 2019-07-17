@@ -31,15 +31,15 @@ class ProductShow extends Component {
     };
   }
 
-  // componentWillMount() {
-  //   const { match } = this.props
-  //   match.params.productId
-  //   window.PGdataLayer.page = {
-  //     title: 'Uplift Details Page',
-  //     url: 'products-page/uplift'
-  //   }
-  //   window.dataLayer.push({ 'event': 'virtualPageview' })
-  // }
+  componentWillMount() {
+    const { match } = this.props
+    match.params.productId
+    window.PGdataLayer.page = {
+      title: 'weAreBB Details Page',
+      url: `products-page/${match.params.productId}`
+    }
+    window.dataLayer.push({ 'event': 'virtualPageview' })
+  }
 
   onProductButtonClick(product) {
     const { shop } = this.props;
