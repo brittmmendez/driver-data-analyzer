@@ -32,7 +32,7 @@ class SiteMap extends Component {
         <div className="container content body">
           <h2 className="site-map-title"> Site Map</h2>
           <div className="columns main-column-padding-left is-multiline is-mobile">
-            <div className="column is-3-desktop is-6-tablet is-12-mobile">
+            <div className="column is-4-desktop is-6-tablet is-12-mobile">
               <h3 className="section-title"> Shop</h3>
               <div className="columns">
                 <div className="column no-padding-left-mobile">
@@ -43,7 +43,25 @@ class SiteMap extends Component {
                         to="/products-page/119#top"
                         className="event_view_product_detail_page"
                       >
-                        Product One
+                        Product Sub-Category
+                      </Link>
+                    </li>
+                    <li>
+                      {' '}
+                      <Link
+                        to="/products-page/119#top"
+                        className="event_view_product_detail_page"
+                      >
+                        Product Sub-Category
+                      </Link>
+                    </li>
+                    <li>
+                      {' '}
+                      <Link
+                        to="/products-page/119#top"
+                        className="event_view_product_detail_page"
+                      >
+                        Product Sub-Category
                       </Link>
                     </li>
                   </ul>
@@ -61,7 +79,9 @@ class SiteMap extends Component {
                       </a>
                     </li>
                     <li>
-                      <a href={customerSupport.customerSupportCtaEmailButtonUrl}>
+                      <a
+                        href={customerSupport.customerSupportCtaEmailButtonUrl}
+                      >
                         {customerSupport.customerSupportCtaEmailButtonText}
                       </a>
                     </li>

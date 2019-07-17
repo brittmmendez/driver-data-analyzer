@@ -24,15 +24,23 @@
 
     a{
       h4{
-        border-bottom: 3px solid transparent;
         text-transform: initial;
         font-weight: normal;
+      }
+      img {
+        border: solid 4px transparent;
       }
     }
 
     a:hover{
-      h4{
-        border-bottom: 3px solid $dark-teal;
+      img {
+        border: solid 4px $hard-pink;
+      }
+    }
+
+    a:active{
+      img {
+        border: solid 4px $hard-pink;
       }
     }
 

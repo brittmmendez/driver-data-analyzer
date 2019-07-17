@@ -4,15 +4,19 @@
         margin-top: 50px;
     }    
     .error-title{
+        margin: auto;
         margin-bottom: 25px;
+        max-width: 593px;
         // padding-top: 42px;
         // font-size: 23px;
     }
 
     .error-msg{
-        max-width: 500px;
+        max-width: 480px;
         margin: 30px auto;
         margin-bottom: 28px;
+        font-size: 17px;
+        line-height: 23px;
     }
 
     .error-btn-container{
