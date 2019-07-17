@@ -148,98 +148,132 @@ class ProductShow extends Component {
           </Helmet>
           <div className="product-show">
             {shop.cart.addToCartError && <ErrorBanner />}
-            <section className="section">
-              <div className="container content has-text-left">
-                <div className="product-show-mobile">
-                  <h2 className="product-name is-marginless">{product.name}</h2>
-                  {/* <p className="sku">{product.sku}</p> */}
-                  {product.sale_price === 0 ? (
-                    <h3 className="product-regular-price">
-                      ${product.getPrice()}
-                    </h3>
-                  ) : (
-                    <div>
-                      <s className="product-price">
-                        ${product.price.toFixed(2)}
-                      </s>
-                      <span className="product-price">
-                        {'  '}${product.sale_price.toFixed(2)}
-                      </span>
-                    </div>
-                  )}
-                  <div className="rating">
-                    <ProductStarRating product={product} showAll />
-                  </div>
-                </div>
-                <div className="content columns">
-                  <div className="product-feature-image column is-6">
-                    <div className="is-hidden-mobile">
-                      <ProductImageArray
-                        product={product}
-                        resetSlider={resetSlider}
-                      />
-                    </div>
-
-                    <div className="is-hidden-tablet">
-                      <MobileProductImageArray
-                        product={product}
-                        resetSlider={resetSlider}
-                      />
-                    </div>
-                  </div>
-                  <div className="column is-6 product-details">
-                    <div className="product-show-desktop">
-                      <h2 className="product-name has-text-weight-bold is-marginless">
-                        {product.name}
-                      </h2>
-                      {/* <p>{product.sku}</p> */}
-                      {product.sale_price === 0 ? (
-                        <h3 className="product-regular-price">
-                          ${product.getPrice()}
-                        </h3>
-                      ) : (
-                        <div>
-                          <s className="product-price">
-                            ${product.price.toFixed(2)}
-                          </s>
-                          <span className="product-price has-text-weight-bold">
-                            {'  '}${product.sale_price.toFixed(2)}
-                          </span>
-                        </div>
-                      )}
+            <div className="pink-background">
+              <section className="section">
+                <div className="container content has-text-left">
+                  <div className="product-show-mobile">
+                    <h2 className="product-name is-marginless">
+                      {product.name}
+                    </h2>
+                    {/* <p className="sku">{product.sku}</p> */}
+                    {product.sale_price === 0 ? (
+                      <h3 className="product-regular-price">
+                        ${product.getPrice()}
+                      </h3>
+                    ) : (
                       <div>
-                        <ProductStarRating product={product} showAll />
-                      </div>
-                      <div className="product-description">
-                        {/* <p> */}
-                        <span>
-                          <Markdown
-                            escapeHtml={false}
-                            source={product.description}
-                          />
-                          <Link
-                            className="event_view_more_details"
-                            smooth
-                            to={`/products-page/${product.id}#more-details`}
-                          >
-                            View Details
-                          </Link>
+                        <s className="product-price">
+                          ${product.price.toFixed(2)}
+                        </s>
+                        <span className="product-price">
+                          {'  '}${product.sale_price.toFixed(2)}
                         </span>
-                        {/* </p> */}
+                      </div>
+                    )}
+                    <div className="rating">
+                      <ProductStarRating product={product} showAll />
+                    </div>
+                  </div>
+                  <div className="content columns">
+                    <div className="product-feature-image column is-6">
+                      <div className="is-hidden-mobile">
+                        <ProductImageArray
+                          product={product}
+                          resetSlider={resetSlider}
+                        />
+                      </div>
+
+                      <div className="is-hidden-tablet">
+                        <MobileProductImageArray
+                          product={product}
+                          resetSlider={resetSlider}
+                        />
                       </div>
                     </div>
-                    <PurchaseForm
-                      product={product}
-                      resetSlider={() => this.resetSlider()}
-                    />
+                    <div className="column is-6 product-details">
+                      <div className="product-show-desktop">
+                        <h2 className="product-name has-text-weight-bold is-marginless">
+                          {product.name}
+                        </h2>
+                        {/* <p>{product.sku}</p> */}
+                        {product.sale_price === 0 ? (
+                          <h3 className="product-regular-price">
+                            ${product.getPrice()}
+                          </h3>
+                        ) : (
+                          <div>
+                            <s className="product-price">
+                              ${product.price.toFixed(2)}
+                            </s>
+                            <span className="product-price has-text-weight-bold">
+                              {'  '}${product.sale_price.toFixed(2)}
+                            </span>
+                          </div>
+                        )}
+                        <div>
+                          <ProductStarRating product={product} showAll />
+                        </div>
+                        <div className="product-description">
+                          {/* <p> */}
+                          <span>
+                            <Markdown
+                              escapeHtml={false}
+                              source={product.description}
+                            />
+                            <Link
+                              className="event_view_more_details"
+                              smooth
+                              to={`/products-page/${product.id}#more-details`}
+                            >
+                              View Details
+                            </Link>
+                          </span>
+                          {/* </p> */}
+                        </div>
+                      </div>
+                      <PurchaseForm
+                        product={product}
+                        resetSlider={() => this.resetSlider()}
+                      />
+                    </div>
                   </div>
                 </div>
-              </div>
-            </section>
+              </section>
+            </div>
             <div
               className="product-details-section"
               style={{ backgroundImage: `url(${contentful.emptyCartImg})` }}
             >
+              {/* <Image
+                publicId={spotlightStat.spotlightBackgroundLeft}
+                alt={spotlightStat.spotlightBackgroundLeft}
+                type="fetch"
+                className="background-left"
+              >
+                <Transformation
+                  quality="auto"
+                  fetchFormat="auto"
+                  dpr="auto"
+                  responsive
+                  crop="scale"
+                  width="325"
+                />
+              </Image>
+              <Image
+                publicId={spotlightStat.spotlightBackgroundRight}
+                alt={spotlightStat.spotlightBackgroundRight}
+                type="fetch"
+                className="background-right"
+              >
+                <Transformation
+                  quality="auto"
+                  fetchFormat="auto"
+                  dpr="auto"
+                  responsive
+                  crop="scale"
+                  width="325"
+                />
+              </Image> */}
               <section className="section">
                 <div className="container">
                   {this.getDetails(product) && (

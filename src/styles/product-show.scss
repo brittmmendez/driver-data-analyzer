@@ -53,9 +53,12 @@
   //   text-align: left;
   //   position: relative;
   // }
-
-  background: linear-gradient(90deg, $soft-pink, $soft-pink 500px, $white 500px, $white 100px);
   
+}
+
+.pink-background {
+  background: linear-gradient(90deg, $pale-pink, $pale-pink 700px, $white 700px, $white 100px);
+  padding-bottom: 75px;
 }
 
 .product-name {
@@ -64,7 +67,9 @@
 }
 
 .product-details-section{
+  background-color: $white;
   margin-top: 70px;
+
 }
 
 
@@ -78,10 +83,12 @@
 
   a:hover{
     color: $black;
+    background-color: $pale-pink;
   }
 
   a:active{
-    color: $hard-pink;
+    color: $black;
+    background-color: $pale-pink;
   }
   
   .product-price {
