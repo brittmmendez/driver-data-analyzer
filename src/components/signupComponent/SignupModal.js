@@ -15,7 +15,7 @@ class SignupModal extends Component {
 
   render() {
     const {
-      shop: { crmSignup },
+      shop: { crmSignup }
     } = this.props;
     return (
       <React.Fragment>
@@ -43,44 +43,14 @@ class SignupModal extends Component {
                   aria-label="close"
                 /> */}
                 <div>
-                  <h2 className="has-text-left has-text-white">
+                  <h3 className="has-text-center">
                     {crmSignup.signupHeadline}
-                  </h2>
-                  <p className="has-text-left has-text-white form-msg">
+                  </h3>
+                  {/* <p className="has-text-left has-text-white form-msg">
                     {crmSignup.signupDescription}
-                  </p>
+                  </p> */}
                 </div>
                 <FormikSignup viaModal />
-                <label className="has-text-left sub-text">
-                  <p className="sub-text">
-                    By registering, I agree to receive emails from Uplift and
-                    other trusted{' '}
-                    <a
-                      href="http://us.pg.com/our-brands"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      P&G brands and programs
-                    </a>
-                    . Click to read{' '}
-                    <a
-                      href="http://www.pg.com/en_US/terms_conditions/index.shtml"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      P&G Terms and Conditions
-                    </a>{' '}
-                    and{' '}
-                    <a
-                      href="http://www.pg.com/privacy/english/privacy_statement.shtml"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Privacy Policy
-                    </a>
-                    .{' '}
-                  </p>
-                </label>
               </section>
             </div>
           </div>

@@ -77,12 +77,15 @@ class ProductsCatalog extends Component {
     }
 
     if (loadingProductsError) {
-      return <ErrorPage 
-      errorTitle="Hmm, this page was just here a moment ago." 
-      errorMsg="Don’t worry, we simply got temporarily disconnected.
-      Please refresh the page to try again." 
-      errorType="load"
-      refreshBtn />
+      return (
+        <ErrorPage
+          errorTitle="Hmm, this page was just here a moment ago."
+          errorMsg="Don’t worry, we simply got temporarily disconnected.
+      Please refresh the page to try again."
+          errorType="load"
+          refreshBtn
+        />
+      );
     }
 
     if (shop.products.productCount > 0) {
@@ -90,7 +93,10 @@ class ProductsCatalog extends Component {
         return (
           <section className="product-catalog section content container">
             {/* <Sort /> */}
-            <h2 className="product-catalog-title"> All Products</h2>
+            <h2 className="product-catalog-title has-text-centered">
+              {' '}
+              All Products
+            </h2>
             <div className="has-text-centered">
               <Switch match={match}>
                 <div className="content">

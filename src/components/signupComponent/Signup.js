@@ -17,7 +17,7 @@ class Signup extends Component {
     } = this.props;
     return (
       <div>
-        {crmSignup.signupFormSuccess ? (
+        {crmSignup.signupFormSuccess || crmSignup.sessionCompleted ? (
           <SignupThankYou />
         ) : (
           <div className="signup">

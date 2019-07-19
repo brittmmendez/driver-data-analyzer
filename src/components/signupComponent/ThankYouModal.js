@@ -13,7 +13,9 @@ class ThankYouModal extends Component {
   };
 
   render() {
-    const { shop: { crmSignup } } = this.props;
+    const {
+      shop: { crmSignup }
+    } = this.props;
     return (
       <div className="thank-you-modal content">
         <div
@@ -46,10 +48,10 @@ class ThankYouModal extends Component {
                 aria-label="close"
               /> */}
               <div>
-                <h1 className="has-text-left has-text-white">
+                <h1 className="has-text-centered">
                   {crmSignup.signupThankYouHeadline}
                 </h1>
-                <p className="has-text-left has-text-white form-msg">
+                <p className="has-text-left form-msg">
                   {crmSignup.signupThankYouDescription}
                 </p>
               </div>
