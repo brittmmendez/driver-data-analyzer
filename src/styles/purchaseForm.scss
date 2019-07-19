@@ -134,12 +134,10 @@
             // top: 0;
             // left: 0;
             // right: 0;
-            padding-top: 40px;
-            padding-bottom: 15px;
             background-color: $pale-pink;
             border: 4px solid $pale-pink;
             max-width: 698px;
-            padding-right: 63px;
+            padding: 40px 106px 23px 77px;
 
             .icon{
                 height: 35px;
@@ -172,11 +170,21 @@
                 padding-right: 20%;
             }
 
+            .thank-you-modal-title {
+                padding: none;
+                max-width: 525px;
+            }
+
             p {
                 font-family: $lato-font;
                 font-size: 17px;
                 line-height: 23px;
                 color: $black;
+            }
+
+            h2 {
+                font-weight: normal;
+                line-height: 37px;
             }
 
             h4 {

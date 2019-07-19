@@ -633,9 +633,9 @@ export default class PurchaseForm extends Component {
               </span>
               <div className="content is-expanded has-background-light-grey">
                 {submitSuccess ? (
-                  <h4 className="success-modal-title">
+                  <h2 className="thank-you-modal-title">
                     Thanks! We’ll let you know when it’s back!
-                  </h4>
+                  </h2>
                 ) : (
                   <div>
                     <h3 className="modal-title">

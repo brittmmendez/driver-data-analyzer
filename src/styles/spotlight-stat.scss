@@ -1,6 +1,7 @@
 .landing-page {
     .spotlight-stat {
         min-height: 377px;
+        padding-bottom: none;
         text-align: left;
         background-position: center; /* Center the image */
         background-repeat: no-repeat; /* Do not repeat the image */
@@ -30,10 +31,20 @@
 
         }
 
-        .column:last-child{
-            padding-left: 6%;
-            padding-right: 13%;
+        .column {
+            vertical-align: center;
+            padding: auto;
+            margin: auto;
         }
+
+        .section {
+            padding-bottom: none;
+        }
+
+        // .column:last-child{
+        //     padding-left: 6%;
+        //     padding-right: 13%;
+        // }
 
         .img {
             // max-width: 353px;
@@ -42,8 +53,9 @@
 
         .spotlight-msg {
             max-width: 440px;
-            margin-top: 14%;
-            padding-top: 20px;
+            margin: auto;
+            // margin-top: 14%;
+            // padding-top: 20px;
 
             
             h3 {
