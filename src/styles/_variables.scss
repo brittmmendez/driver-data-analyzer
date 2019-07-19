@@ -60,7 +60,7 @@ strong{
     h2 {
         font-family: $montserrat-font;
         font-size: 30px;
-        font-weight: bold;
+        font-weight: normal;
         color: $navy;
         text-transform: uppercase;
         font-weight: normal;
@@ -194,6 +194,20 @@ strong{
     .disabled-btn{
         background-color: $pale-pink;
         color: $hard-pink;	
+        border: none;
+        font-family: $montserrat-font;
+        font-size: 16px;
+        line-height: 19px;	
+        text-align: center;
+        border-radius: 1px;
+        opacity: 1;
+        text-transform: uppercase;
+        font-weight: bold; 
+    }
+
+    .disabled-btn-oos-modal {
+        background-color: $hard-pink;
+        color: $pale-pink;	
         border: none;
         font-family: $montserrat-font;
         font-size: 16px;

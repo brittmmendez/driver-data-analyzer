@@ -129,7 +129,7 @@ class OOSnotifyMeSignup extends Component {
             <button
               className={
                 state.ErrorEmail || state.email === ''
-                  ? 'button disabled-btn notify-me-cta'
+                  ? 'button disabled-btn-oos-modal notify-me-cta'
                   : 'button primary-btn notify-me-cta'
               }
               type="submit"
