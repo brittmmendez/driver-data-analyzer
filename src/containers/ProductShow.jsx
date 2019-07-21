@@ -46,6 +46,43 @@ class ProductShow extends Component {
     shop.cart.addToCart(product);
   }
 
+  setKlaviyoTrigger(product) {
+    const { shop: { user } } = this.props;
+    const { email } = user
+
+    if (email && window._learnq) {
+
+      window._learnq.push(['identify', {
+        '$email': email,
+      }]);
+
+      const item = {
+        ProductName: product.name,
+        ProductID: product.id,
+        ImageURL: product.thumbnail_url,
+        URL: window.location.href,
+        Brand: 'Kalypso',
+        Price: product.price,
+      };
+
+      window._learnq.push(['track', 'Viewed Product', item]);
+
+      window._learnq.push(['trackViewedItem', {
+        Title: item.ProductName,
+        ItemId: item.ProductID,
+        ImageUrl: item.ImageURL,
+        Url: item.URL,
+        Metadata: {
+          Brand: 'Kalypso',
+          Price: product.price,
+        }
+      }]);
+    }
+  }
+
+
+
+
   getDetails(product) {
     const { shop } = this.props;
 
@@ -83,8 +120,8 @@ class ProductShow extends Component {
               </div>
             </div>
           ) : (
-            <Markdown source={detail.productDetailsCopy} />
-          )}
+              <Markdown source={detail.productDetailsCopy} />
+            )}
         </div>
       )
     }));
@@ -127,6 +164,7 @@ class ProductShow extends Component {
 
     if (shop.products.data.length > 0) {
       const product = shop.products.data.filter(p => p.id === params)[0];
+      this.setKlaviyoTrigger(product)
 
       return product ? (
         <div>
@@ -137,7 +175,7 @@ class ProductShow extends Component {
               property="og:url"
               content={`${process.env.REACT_APP_URL}/products-page/${
                 product.id
-              }`}
+                }`}
             />
             <meta property="og:title" content={product.page_title} />
             <meta
@@ -161,15 +199,15 @@ class ProductShow extends Component {
                         ${product.getPrice()}
                       </h3>
                     ) : (
-                      <div>
-                        <s className="product-price">
-                          ${product.price.toFixed(2)}
-                        </s>
-                        <span className="product-price">
-                          {'  '}${product.sale_price.toFixed(2)}
-                        </span>
-                      </div>
-                    )}
+                        <div>
+                          <s className="product-price">
+                            ${product.price.toFixed(2)}
+                          </s>
+                          <span className="product-price">
+                            {'  '}${product.sale_price.toFixed(2)}
+                          </span>
+                        </div>
+                      )}
                     <div className="rating">
                       <ProductStarRating product={product} showAll />
                     </div>
@@ -201,15 +239,15 @@ class ProductShow extends Component {
                             ${product.getPrice()}
                           </h3>
                         ) : (
-                          <div>
-                            <s className="product-price">
-                              ${product.price.toFixed(2)}
-                            </s>
-                            <span className="product-price has-text-weight-bold">
-                              {'  '}${product.sale_price.toFixed(2)}
-                            </span>
-                          </div>
-                        )}
+                            <div>
+                              <s className="product-price">
+                                ${product.price.toFixed(2)}
+                              </s>
+                              <span className="product-price has-text-weight-bold">
+                                {'  '}${product.sale_price.toFixed(2)}
+                              </span>
+                            </div>
+                          )}
                         <div>
                           <ProductStarRating product={product} showAll />
                         </div>
@@ -295,12 +333,12 @@ class ProductShow extends Component {
           </div>
         </div>
       ) : (
-        <ErrorPage
-          errorTitle="We're sorry, we couldn't find this product."
-          errorMsg="This product has either been removed, renamed or is unavailable. Feel free to take a look at our current products or to explore other parts of our site."
-          errorType="product"
-        />
-      );
+          <ErrorPage
+            errorTitle="We're sorry, we couldn't find this product."
+            errorMsg="This product has either been removed, renamed or is unavailable. Feel free to take a look at our current products or to explore other parts of our site."
+            errorType="product"
+          />
+        );
     }
     return (
       <div className="spinner-container">

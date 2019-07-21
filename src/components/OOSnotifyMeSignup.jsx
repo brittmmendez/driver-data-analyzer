@@ -7,7 +7,11 @@ import PropTypes from 'prop-types';
 class OOSnotifyMeSignup extends Component {
   static propTypes = {
     shop: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
-    handleSignupSuccess: PropTypes.func.isRequired // eslint-disable-line react/forbid-prop-types
+    handleSignupSuccess: PropTypes.func.isRequired, // eslint-disable-line react/forbid-prop-types
+    optionValueName1: PropTypes.string.isRequired, // eslint-disable-line react/forbid-prop-types
+    optionValueName2: PropTypes.string.isRequired, // eslint-disable-line react/forbid-prop-types
+    optionValueName3: PropTypes.string.isRequired, // eslint-disable-line react/forbid-prop-types
+    product: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
   };
 
   constructor(props) {
@@ -18,6 +22,38 @@ class OOSnotifyMeSignup extends Component {
       ErrorEmail: false
     };
   }
+
+  setKlaviyoTrigger() {
+    const { email } = this.state
+    const {
+      optionValueName1,
+      optionValueName2,
+      optionValueName3,
+      product } = this.props
+
+    if (window._learnq) {
+
+      window._learnq.push(['identify', {
+        '$email': email,
+      }]);
+      const info = {
+        ProductName: product.name,
+        ProductID: product.id,
+        ImageURL: product.thumbnail_url,
+        URL: window.location.href,
+        Brand: 'Kalypso',
+        Price: product.price,
+        Options: [
+          optionValueName1,
+          optionValueName2,
+          optionValueName3,
+        ]
+      };
+
+      window._learnq.push(['track', 'Notify Me When in Stock ', info]);
+    }
+  }
+
 
   handleChange = (event, confirmerFunction) => {
     if (event.target.id === 'phone') {
@@ -75,6 +111,9 @@ class OOSnotifyMeSignup extends Component {
     const { shop, handleSignupSuccess } = this.props;
     // submit notify me call to klaviyo
     // const res = await shop.checkout.addShippingInfo(this.state);
+
+    // set klaviyo id and push the product info
+    this.setKlaviyoTrigger()
 
     handleSignupSuccess();
     // if success, close toggle
