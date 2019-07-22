@@ -60,7 +60,7 @@ class SpotlightStat extends Component {
             <div className="content">
               <div className="">
                 <div className="columns">
-                  <div className="column is-5 img">
+                  <div className="column is-5 has-text-centered-mobile img">
                     <Image
                       publicId={spotlightStat.spotlightProductMediaFile}
                       //alt={benefit.productBenefitMediaTitle}

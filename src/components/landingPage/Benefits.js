@@ -21,10 +21,10 @@ class Benefits extends Component {
     return (
       <section className="section benefits">
         <div className="content has-text-centered">
-          <h1 className="has-text-centered title">
+          <h2 className="has-text-centered title">
             {' '}
             {productBenefitGroup.productBenefitGroupTitle}{' '}
-          </h1>
+          </h2>
           <LazyLoad height={200}>
             <div className="columns">
               {productBenefitGroup.benefits.map(benefit => (
