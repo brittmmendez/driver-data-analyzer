@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { observer, inject } from 'mobx-react';
 import PropTypes from 'prop-types';
+import { Cookies } from 'react-cookie';
+
+const cookies = new Cookies();
 
 @inject('shop')
 @observer
@@ -108,18 +111,49 @@ class OOSnotifyMeSignup extends Component {
   };
 
   async submitNotifyMeInfo() {
-    const { shop, handleSignupSuccess } = this.props;
-    // submit notify me call to klaviyo
-    // const res = await shop.checkout.addShippingInfo(this.state);
+    const { shop, shop: { crmSignup }, handleSignupSuccess } = this.props;
+    const { email } = this.state
 
-    // set klaviyo id and push the product info
+    // submit notify me call to klaviyo
+    const url = `${shop.apiUrl}/emailSignup`;
+    const data = { email };
+
+    try {
+      const response = await fetch(url, {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+          'Authorization': `Bearer ${shop.user.guestToken}`
+        }
+      });
+
+      const content = await response;
+      if (content.status === 200) {
+        // Go into mobx state tree and set form completed to true
+        crmSignup.setSignupFormSuccess(true);
+        cookies.set(
+          'CRMoptIn',
+          {
+            CRMoptIn: true,
+            email
+          },
+          { path: '/' }
+        );
+
+      } else {
+        console.log('error')
+      }
+
+    } catch (err) {
+      // Go into mobx state tree and set form error to true
+      console.log('error')
+    }
+
     this.setKlaviyoTrigger()
 
     handleSignupSuccess();
-    // if success, close toggle
-    // if (res) {
-    // handleSuccess
-    // }
   }
 
   formErrors() {

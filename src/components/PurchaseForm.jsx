@@ -299,6 +299,7 @@ export default class PurchaseForm extends Component {
           function () {
             this.findVairant();
             this.checkInStock();
+            this.setKlaviyoTrigger();
           }
         );
       }
@@ -306,6 +307,38 @@ export default class PurchaseForm extends Component {
 
     this.removeError(formErrorNumber);
   };
+
+  setKlaviyoTrigger() {
+    const { shop: { user }, product } = this.props;
+    const { email } = user
+    const {
+      optionValueName1,
+      optionValueName2,
+      optionValueName3
+    } = this.state
+
+    if (email && window._learnq) {
+
+      window._learnq.push(['identify', {
+        '$email': email,
+      }]);
+      const info = {
+        ProductName: product.name,
+        ProductID: product.id,
+        ImageURL: product.thumbnail_url,
+        URL: window.location.href,
+        Brand: 'WeAreBB',
+        Price: product.price,
+        Options: [
+          optionValueName1,
+          optionValueName2,
+          optionValueName3,
+        ]
+      };
+
+      window._learnq.push(['track', 'Product Variant View ', info]);
+    }
+  }
 
   findVairant = () => {
     const { product } = this.props;

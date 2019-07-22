@@ -50,7 +50,7 @@ class ProductShow extends Component {
     const { shop: { user } } = this.props;
     const { email } = user
 
-    if (email && window._learnq) {
+    if (email && window._learnq && product) {
 
       window._learnq.push(['identify', {
         '$email': email,
