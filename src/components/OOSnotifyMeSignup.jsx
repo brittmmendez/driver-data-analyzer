@@ -41,7 +41,7 @@ class OOSnotifyMeSignup extends Component {
         ProductID: product.id,
         ImageURL: product.thumbnail_url,
         URL: window.location.href,
-        Brand: 'Kalypso',
+        Brand: 'WeAreBB',
         Price: product.price,
         Options: [
           optionValueName1,

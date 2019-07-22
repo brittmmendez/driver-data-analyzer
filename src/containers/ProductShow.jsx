@@ -61,7 +61,7 @@ class ProductShow extends Component {
         ProductID: product.id,
         ImageURL: product.thumbnail_url,
         URL: window.location.href,
-        Brand: 'Kalypso',
+        Brand: 'WeAreBB',
         Price: product.price,
       };
 
@@ -73,7 +73,7 @@ class ProductShow extends Component {
         ImageUrl: item.ImageURL,
         Url: item.URL,
         Metadata: {
-          Brand: 'Kalypso',
+          Brand: 'WeAreBB',
           Price: product.price,
         }
       }]);
