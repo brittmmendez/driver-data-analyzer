@@ -32,13 +32,13 @@ class ProductShow extends Component {
   }
 
   componentWillMount() {
-    const { match } = this.props
-    match.params.productId
+    const { match } = this.props;
+    match.params.productId;
     window.PGdataLayer.page = {
       title: 'weAreBB Details Page',
       url: `products-page/${match.params.productId}`
-    }
-    window.dataLayer.push({ 'event': 'virtualPageview' })
+    };
+    window.dataLayer.push({ event: 'virtualPageview' });
   }
 
   onProductButtonClick(product) {
@@ -192,7 +192,7 @@ class ProductShow extends Component {
                     </div>
                     <div className="column is-6 product-details">
                       <div className="product-show-desktop">
-                        <h2 className="product-name has-text-weight-bold is-marginless">
+                        <h2 className="product-name is-marginless">
                           {product.name}
                         </h2>
                         {/* <p>{product.sku}</p> */}
@@ -274,7 +274,7 @@ class ProductShow extends Component {
                   width="325"
                 />
               </Image> */}
-              <section className="section">
+              <section className="section product-details-background">
                 <div className="container">
                   {this.getDetails(product) && (
                     <div id="more-details">

@@ -84,39 +84,54 @@
 }
 
 @include mobile {
-    .spotlight-stat {
-        .section{
-            // padding: 0rem 3rem 1rem
-        }
+    .landing-page {
+        .spotlight-stat {
+            .section{
+                // padding: 0rem 3rem 1rem
+            }
 
-        h1{
-            text-align: center;
-        }
-        .reverse-column-order {
-        display: flex;
-        flex-direction: column-reverse;
-        }
+            h1{
+                text-align: center;
+            }
 
-        .mobile-spotlight-img {
-            padding-top: 20px;
-            max-width: 500px;
-            width: 100%;
-        }
+            h3 {
+                margin: none;
+            }
+            .reverse-column-order {
+            display: flex;
+            flex-direction: column-reverse;
+            }
+
+            .mobile-spotlight-img {
+                padding-top: 20px;
+                max-width: 500px;
+                width: 100%;
+            }
+            
+            .content {
+                padding: 0px;
+                margin: 0%;
+            }
+
+            .column{
+                padding: 0.75rem;
+            }
+
+            .spotlight-msg{
+                text-align: center;
+
+                h3 {
+                    line-height: 27px;
+                }
+
+                p {
+                    padding-bottom: 50px;
+                }
         
-        .content {
-            margin: 0%;
-        }
-
-        .column{
-            padding: 0.75rem;
-        }
-
-        .spotlight-msg{
-            text-align: center;
-     
-            .button{
-                margin-top: 25px;
-                margin-bottom: 25px;
+                .button{
+                    margin-top: 25px;
+                    margin-bottom: 25px;
+                }
             }
         }
     }

@@ -73,27 +73,25 @@ class Footer extends Component {
                   </p> */}
                 </div>
                 <div className="column">
-                  <p className="footer-header topic is-hidden-mobile">Shop</p>
-                  <p className="footer-text is-hidden-mobile">
+                  <p className="footer-header topic">SHOP</p>
+                  <p className="footer-text">
                     <Link
-                      to="/products-page/119#top"
+                      to="/products-page#top"
                       className="event_view_product_detail_page"
                     >
                       {' '}
-                      Product Name{' '}
+                      All Products{' '}
                     </Link>
                   </p>
                 </div>
                 <div className="column">
-                  <p className="footer-header topic is-hidden-mobile">
-                    Customer Support
-                  </p>
-                  <p className="footer-text is-hidden-mobile">
+                  <p className="footer-header topic">Customer Support</p>
+                  <p className="footer-text">
                     <a href={customerSupport.customerSupportCtaCallButtonUrl}>
                       {customerSupport.customerSupportCtaCallButtonText}
                     </a>
                   </p>
-                  <p className="footer-text is-hidden-mobile">
+                  <p className="footer-text">
                     <a href={customerSupport.customerSupportCtaEmailButtonUrl}>
                       {customerSupport.customerSupportCtaEmailButtonText}
                     </a>

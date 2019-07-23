@@ -72,6 +72,22 @@
 
 
 @include mobile{
+    .modal-card {
+        width: initial;
+        
+        h3 {
+            padding: 0px 25px 30px;
+            line-height: 27px;
+        }
+        .sub-text {
+            padding-bottom: 30px;
+        }
+
+        .form-btn {
+            height: 49px;
+            width: 220px;
+        }
+    }
     .signup-modal{
         .modal .modal-card .modal-card-body {
             padding-left: 20px;
