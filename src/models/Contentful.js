@@ -19,7 +19,9 @@ const Contentful = types
     errorCantLoad: types.optional(types.string, ''),
     errorCantPlaceOrder: types.optional(types.string, ''),
     errorCantShowConf: types.optional(types.string, ''),
-    emptyCartImg: types.optional(types.string, '')
+    emptyCartImg: types.optional(types.string, ''),
+    pdpBackgroundLinesLeft: types.optional(types.string, ''),
+    pdpBackgroundLinesRight: types.optional(types.string, '')
   })
   .actions(self => ({
     getContent() {
@@ -54,27 +56,41 @@ const Contentful = types
       );
       const errorCantShowConf = yield client.getEntry('6w7CDyK5lx5GcZg2sagZo0');
       const emptyCartImg = yield client.getEntry('7Fq13EEpl1GHDswStlKi1u');
+      const pdpBackgroundLinesLeft = yield client.getEntry(
+        '4caCJzKtaX4e4PRx5VwpqA'
+      );
+      const pdpBackgroundLinesRight = yield client.getEntry(
+        '7M4FmAm0j6C7rPHbHR27ns'
+      );
 
       // eslint-disable-next-line
       self.error404 = `https:${error404.fields.image.fields.file.url}`;
       // eslint-disable-next-line
       self.errorCantFindProduct = `https:${
         errorCantFindProduct.fields.image.fields.file.url
-        }`;
+      }`;
       // eslint-disable-next-line
       self.errorCantLoad = `https:${
         errorCantLoad.fields.image.fields.file.url
-        }`;
+      }`;
       // eslint-disable-next-line
       self.errorCantPlaceOrder = `https:${
         errorCantPlaceOrder.fields.image.fields.file.url
-        }`;
+      }`;
       // eslint-disable-next-line
       self.errorCantShowConf = `https:${
         errorCantShowConf.fields.image.fields.file.url
-        }`;
+      }`;
       // eslint-disable-next-line
       self.emptyCartImg = `https:${emptyCartImg.fields.image.fields.file.url}`;
+      // eslint-disable-next-line
+      self.pdpBackgroundLinesLeft = `https:${
+        pdpBackgroundLinesLeft.fields.image.fields.file.url
+      }`;
+      // eslint-disable-next-line
+      self.pdpBackgroundLinesRight = `https:${
+        pdpBackgroundLinesRight.fields.image.fields.file.url
+      }`;
     }),
 
     getUpliftLogo: flow(function* getUpliftLogo() {

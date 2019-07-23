@@ -22,12 +22,8 @@ class CustomerSupportErrorPage extends Component {
             <div className="support-msg">
               <div className="columns">
                 <div className="column">
-                  <h2 className="has-text-white">
-                    {customerSupport.customerSupportTitle}
-                  </h2>
-                  <p className="has-text-white">
-                    {customerSupport.customerSupportMessaging}
-                  </p>
+                  <h3>{customerSupport.customerSupportTitle}</h3>
+                  <h4>{customerSupport.customerSupportMessaging}</h4>
                 </div>
 
                 <div className="column has-text-right ">

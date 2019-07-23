@@ -48,30 +48,26 @@ class ProductsCatalogItem extends Component {
                     <span className="is-hidden-tablet">More Options</span>
                   </span>
                 ) : (
-                    <br />
-                  )}
+                  <br />
+                )}
               </div>
 
-              <h4 className="product-name has-text-weight-bold is-marginless">
-                {product.name}
-              </h4>
+              <h4 className="product-name is-marginless">{product.name}</h4>
 
               <div className="columns product-details">
                 <div className="pricing column">
                   {product.sale_price === 0 ? (
-                    <p className="has-text-weight-bold">
-                      ${product.price.toFixed(2)}
-                    </p>
+                    <p className="">${product.price.toFixed(2)}</p>
                   ) : (
-                      <div>
-                        <s>${product.price.toFixed(2)}</s>
-                        <span className="has-text-weight-bold">
-                          {'  '}${product.sale_price.toFixed(2)}
-                        </span>
-                      </div>
-                    )}
+                    <div>
+                      <s>${product.price.toFixed(2)}</s>
+                      <span className="has-text-weight-bold">
+                        {'  '}${product.sale_price.toFixed(2)}
+                      </span>
+                    </div>
+                  )}
                 </div>
-                <div className="star-rating is-7 column">
+                {/* <div className="star-rating is-7 column">
                   <StarRatings
                     rating={product.average_rating || 0}
                     starDimension="14px"
@@ -80,7 +76,7 @@ class ProductsCatalogItem extends Component {
                     starEmptyColor="white"
                   />{' '}
                   ({product.reviews.length})
-                </div>
+                </div> */}
               </div>
               <div className="stock-indicator">
                 {product.inventory_level > 1 &&

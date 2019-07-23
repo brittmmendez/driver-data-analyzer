@@ -108,7 +108,8 @@ class NavBar extends Component {
       shop,
       shop: {
         landingPage: { spotlight },
-        contentful },
+        contentful
+      },
       location: { pathname }
     } = this.props;
     const { isActive, toggle } = this.state;
@@ -130,30 +131,12 @@ class NavBar extends Component {
         <nav className="navbar" role="navigation">
           <div className="container mobile">
             <div className="navbar-brand">
-              <div
-                role="button"
-                className="navbar-burger burger is-marginless"
-                data-target="navMenu"
-                onClick={this.toggleNav}
-                onKeyPress={this.toggleNav}
-                tabIndex="0"
+              <Link
+                className="mobile-burger is-hidden-desktop"
+                to="/products-page"
               >
-                <img
-                  src={Hamburger}
-                  alt="mobile-menu"
-                  className="mobile-burger"
-                />
-              </div>
-              <span
-                role="button"
-                data-target="navMenu"
-                onClick={this.toggleNav}
-                onKeyPress={this.toggleNav}
-                tabIndex="0"
-                className="mobile-menu is-hidden-desktop"
-              >
-                MENU
-                </span>
+                SHOP
+              </Link>
               <Link className="navbar-item mobile-main-logo" to="/#top">
                 <Image
                   className="navBar-logo-img"
@@ -161,10 +144,7 @@ class NavBar extends Component {
                   alt={contentful.upliftLogo}
                   type="fetch"
                 >
-                  <Transformation
-                    responsive
-                    crop="scale"
-                  />
+                  <Transformation responsive crop="scale" />
                 </Image>
               </Link>
             </div>
@@ -225,7 +205,6 @@ class NavBar extends Component {
                   </span>
                 </div>
 
-
                 <span
                   className="navbar-item is-hidden-touch"
                   onClick={this.closeNav}
@@ -236,7 +215,7 @@ class NavBar extends Component {
                     to="/products-page"
                   >
                     SHOP
-                    </Link>
+                  </Link>
                 </span>
 
                 <span

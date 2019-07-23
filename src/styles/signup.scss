@@ -7,11 +7,13 @@
     }
 
     a:hover{
-        color: $hard-pink;
+        color: $black;
+        background-color: $soft-pink;
     }
 
     a:active{
-        color: $hard-pink;
+        color: $black;
+        background-color: $soft-pink;
     }
 
     h3 {
@@ -28,7 +30,7 @@
     
 
     .column{
-        padding-left: 4%;
+        padding-left: 3%;
         padding-right: 4%;
     }
 
@@ -45,6 +47,12 @@
 }
 
 .thank-you{
+
+    h1 {
+        text-transform: uppercase;
+        font-weight: normal;
+    }
+
     .section-title{
         margin-top: 30px;
             padding-top: 20px;

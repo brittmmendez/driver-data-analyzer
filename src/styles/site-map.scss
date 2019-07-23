@@ -16,7 +16,13 @@
 
    ul{
         margin-top: 0px;
-        color: $dark-purple;
+        color: $black;
+        font-weight: normal;
+    }
+
+    li {
+        text-transform: uppercase;
+        font: $black;
     }
 
     p.sub-cat-title{
@@ -26,18 +32,20 @@
     }
 
     a{
-        color: $dark-purple;
+        color: $black;
         text-decoration: underline;
     }
 
     a:hover{
-        color: $pastel-purple;
+        color: $black;
         text-decoration: underline;
+        background-color: $pale-pink;
     }
 
     a:active{
-        color: $dark-purple;
+        color: $black;
         text-decoration: underline;
+        background-color: $pale-pink;
     }
 
     .customer-support-box{

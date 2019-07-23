@@ -362,6 +362,7 @@ nav.navbar.nav-checkout{
 
     
     .navbar{
+        background-color: $white;
 
         .mobile-menu:hover{
             color: $pastel-purple
@@ -405,7 +406,7 @@ nav.navbar.nav-checkout{
 @media (max-width: 375px) {
     .navbar{
         .navbar-brand {
-            width: 71%;   
+            width: 66%;   
         }
     }
   }
@@ -422,6 +423,7 @@ nav.navbar.nav-checkout{
     background: none;
 }
 .mobile-burger{
-    margin-top: 18px;
-    margin-left: 28px;
+    font-size: 14px;
+    margin-top: 15px;
+    margin-left: 20px;
 }
