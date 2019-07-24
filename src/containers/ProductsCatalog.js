@@ -51,6 +51,20 @@ class ProductsCatalog extends Component {
     }
   }
 
+  setKlaviyoTrigger() {
+    const { shop: { user } } = this.props;
+    const { email } = user
+
+    if (email && window._learnq) {
+
+      window._learnq.push(['identify', {
+        '$email': email,
+      }]);
+
+      window._learnq.push(['track', 'Viewed Product Catalog']);
+    }
+  }
+
   render() {
     let items;
     const { shop, match } = this.props;
@@ -90,6 +104,8 @@ class ProductsCatalog extends Component {
 
     if (shop.products.productCount > 0) {
       if (items.length > 0) {
+        this.setKlaviyoTrigger()
+
         return (
           <section className="product-catalog section content container">
             {/* <Sort /> */}
