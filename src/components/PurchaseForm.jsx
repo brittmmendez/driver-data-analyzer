@@ -18,6 +18,7 @@ import X from '../static/images/svg/X.svg';
 export default class PurchaseForm extends Component {
   static propTypes = {
     shop: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
+    location: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
     product: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
     resetSlider: PropTypes.func.isRequired // eslint-disable-line react/forbid-prop-types
   };
@@ -300,6 +301,7 @@ export default class PurchaseForm extends Component {
             this.findVairant();
             this.checkInStock();
             this.setKlaviyoTrigger();
+            this.trackViewedItemGA();
           }
         );
       }
@@ -376,12 +378,75 @@ export default class PurchaseForm extends Component {
     if (this.confirmOptionsSelected()) {
       this.handleModalToggle();
 
+      // send data off to GA whether they give email or not
+      this.trackAddToCartGA()
+
       this.setState({
         modalQuantity: state.quantity,
         quantity: 1
       });
     }
   };
+
+  // GA track
+  trackAddToCartGA() {
+    console.log('tracking ga');
+    const { shop: { user }, location, product } = this.props;
+    const { email } = user
+    const {
+      optionValueName1,
+      optionValueName2,
+      optionValueName3,
+    } = this.state
+
+    window.PGdataLayer.page = {
+      title: 'Intended to Add to Cart',
+      url: location.pathname
+    }
+    window.dataLayer.push({
+      event: 'customEvent',
+      GAeventCategory: 'event_bin_action',
+      GAeventAction: 'event_buy_now_add_to_cart',
+      GAeventNonInteraction: false,
+      GAeventLabel: `${product.id}`,
+      GAeventValue: {
+        optionValueName1,
+        optionValueName2,
+        optionValueName3,
+        email
+      },
+    })
+  }
+
+  // GA track
+  trackViewedItemGA() {
+    console.log('tracking ga');
+    const { shop: { user }, location, product } = this.props;
+    const { email } = user
+    const {
+      optionValueName1,
+      optionValueName2,
+      optionValueName3,
+    } = this.state
+
+    window.PGdataLayer.page = {
+      title: 'Viewed Variant Option',
+      url: location.pathname
+    }
+    window.dataLayer.push({
+      event: 'customEvent',
+      GAeventCategory: 'event_bin_action',
+      GAeventAction: 'event_product_view',
+      GAeventNonInteraction: false,
+      GAeventLabel: `${product.id}`,
+      GAeventValue: {
+        optionValueName1,
+        optionValueName2,
+        optionValueName3,
+        email
+      },
+    })
+  }
 
   // handleSubmit = event => {
   //   event.preventDefault();
@@ -494,7 +559,7 @@ export default class PurchaseForm extends Component {
   }
 
   render() {
-    const { product, shop } = this.props;
+    const { product, shop, location } = this.props;
     const {
       quantity,
       modalQuantity,
@@ -739,6 +804,7 @@ export default class PurchaseForm extends Component {
                             optionValueName1={optionValueName1}
                             optionValueName2={optionValueName2}
                             optionValueName3={optionValueName3}
+                            location={location}
                             product={product}
                           />
                         </div>

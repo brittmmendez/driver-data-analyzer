@@ -10,6 +10,7 @@ const cookies = new Cookies();
 class OOSnotifyMeSignup extends Component {
   static propTypes = {
     shop: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
+    location: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
     handleSignupSuccess: PropTypes.func.isRequired, // eslint-disable-line react/forbid-prop-types
     optionValueName1: PropTypes.string.isRequired, // eslint-disable-line react/forbid-prop-types
     optionValueName2: PropTypes.string.isRequired, // eslint-disable-line react/forbid-prop-types
@@ -152,8 +153,38 @@ class OOSnotifyMeSignup extends Component {
     }
 
     this.setKlaviyoTrigger()
+    this.trackOOSnotificationGA()
 
     handleSignupSuccess();
+  }
+
+  // GA track
+  trackOOSnotificationGA() {
+    console.log('tracking ga');
+    const { location,
+      product,
+      optionValueName1,
+      optionValueName2,
+      optionValueName3 } = this.props;
+    const { email } = this.state
+
+    window.PGdataLayer.page = {
+      title: 'Signed up for OOS notification',
+      url: location.pathname
+    }
+    window.dataLayer.push({
+      event: 'customEvent',
+      GAeventCategory: 'event_bin_action',
+      GAeventAction: 'event_out_of_stock',
+      GAeventNonInteraction: false,
+      GAeventLabel: `${product.id}`,
+      GAeventValue: {
+        optionValueName1,
+        optionValueName2,
+        optionValueName3,
+        email
+      },
+    })
   }
 
   formErrors() {

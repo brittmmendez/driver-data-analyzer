@@ -21,6 +21,7 @@ import ErrorBanner from '../components/ErrorBanner';
 class ProductShow extends Component {
   static propTypes = {
     shop: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
+    location: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
     match: PropTypes.object.isRequired // eslint-disable-line react/forbid-prop-types
   };
 
@@ -146,6 +147,7 @@ class ProductShow extends Component {
   render() {
     const {
       shop,
+      location,
       shop: { contentful },
       match
     } = this.props;
@@ -271,6 +273,7 @@ class ProductShow extends Component {
                       </div>
                       <PurchaseForm
                         product={product}
+                        location={location}
                         resetSlider={() => this.resetSlider()}
                       />
                     </div>
