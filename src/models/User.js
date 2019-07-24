@@ -9,9 +9,9 @@ const cookies = new Cookies();
 const User = types
   .model({
     id: types.optional(types.number, 0),
-    first_name: types.optional(types.string, 'Brittany'),
-    last_name: types.optional(types.string, 'Morris'),
-    email: types.optional(types.string, 'brittmmendez@gmail.com'),
+    first_name: types.optional(types.string, ''),
+    last_name: types.optional(types.string, ''),
+    email: types.optional(types.string, ''),
     newUser: types.optional(types.boolean, false),
     registerError: types.optional(types.boolean, false),
     logInError: types.optional(types.boolean, false),
@@ -23,6 +23,10 @@ const User = types
     token: types.optional(types.string, '')
   })
   .actions(self => ({
+    setEmail(email) {
+      self.email = email;
+    },
+
     getToken() {
       const token = self.loggedIn ? self.token : self.guestToken;
 
