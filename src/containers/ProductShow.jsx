@@ -48,14 +48,18 @@ class ProductShow extends Component {
   }
 
   setKlaviyoTrigger(product) {
-    const { shop: { user } } = this.props;
-    const { email } = user
+    const {
+      shop: { user }
+    } = this.props;
+    const { email } = user;
 
     if (email && window._learnq && product) {
-
-      window._learnq.push(['identify', {
-        '$email': email,
-      }]);
+      window._learnq.push([
+        'identify',
+        {
+          $email: email
+        }
+      ]);
 
       const item = {
         ProductName: product.name,
@@ -63,26 +67,26 @@ class ProductShow extends Component {
         ImageURL: product.thumbnail_url,
         URL: window.location.href,
         Brand: 'WeAreBB',
-        Price: product.price,
+        Price: product.price
       };
 
       window._learnq.push(['track', 'Viewed Product', item]);
 
-      window._learnq.push(['trackViewedItem', {
-        Title: item.ProductName,
-        ItemId: item.ProductID,
-        ImageUrl: item.ImageURL,
-        Url: item.URL,
-        Metadata: {
-          Brand: 'WeAreBB',
-          Price: product.price,
+      window._learnq.push([
+        'trackViewedItem',
+        {
+          Title: item.ProductName,
+          ItemId: item.ProductID,
+          ImageUrl: item.ImageURL,
+          Url: item.URL,
+          Metadata: {
+            Brand: 'WeAreBB',
+            Price: product.price
+          }
         }
-      }]);
+      ]);
     }
   }
-
-
-
 
   getDetails(product) {
     const { shop } = this.props;
@@ -121,8 +125,8 @@ class ProductShow extends Component {
               </div>
             </div>
           ) : (
-              <Markdown source={detail.productDetailsCopy} />
-            )}
+            <Markdown source={detail.productDetailsCopy} />
+          )}
         </div>
       )
     }));
@@ -166,7 +170,7 @@ class ProductShow extends Component {
 
     if (shop.products.data.length > 0) {
       const product = shop.products.data.filter(p => p.id === params)[0];
-      this.setKlaviyoTrigger(product)
+      this.setKlaviyoTrigger(product);
 
       return product ? (
         <div>
@@ -177,7 +181,7 @@ class ProductShow extends Component {
               property="og:url"
               content={`${process.env.REACT_APP_URL}/products-page/${
                 product.id
-                }`}
+              }`}
             />
             <meta property="og:title" content={product.page_title} />
             <meta
@@ -201,15 +205,15 @@ class ProductShow extends Component {
                         ${product.getPrice()}
                       </h3>
                     ) : (
-                        <div>
-                          <s className="product-price">
-                            ${product.price.toFixed(2)}
-                          </s>
-                          <span className="product-price">
-                            {'  '}${product.sale_price.toFixed(2)}
-                          </span>
-                        </div>
-                      )}
+                      <div>
+                        <s className="product-price">
+                          ${product.price.toFixed(2)}
+                        </s>
+                        <span className="product-price">
+                          {'  '}${product.sale_price.toFixed(2)}
+                        </span>
+                      </div>
+                    )}
                     <div className="rating">
                       <ProductStarRating product={product} showAll />
                     </div>
@@ -222,12 +226,13 @@ class ProductShow extends Component {
                           resetSlider={resetSlider}
                         />
                       </div>
-
-                      <div className="is-hidden-tablet">
-                        <MobileProductImageArray
-                          product={product}
-                          resetSlider={resetSlider}
-                        />
+                      <div className="mobile-pink-background">
+                        <div className="is-hidden-tablet">
+                          <MobileProductImageArray
+                            product={product}
+                            resetSlider={resetSlider}
+                          />
+                        </div>
                       </div>
                     </div>
                     <div className="column is-6 product-details">
@@ -241,15 +246,15 @@ class ProductShow extends Component {
                             ${product.getPrice()}
                           </h3>
                         ) : (
-                            <div>
-                              <s className="product-price">
-                                ${product.price.toFixed(2)}
-                              </s>
-                              <span className="product-price has-text-weight-bold">
-                                {'  '}${product.sale_price.toFixed(2)}
-                              </span>
-                            </div>
-                          )}
+                          <div>
+                            <s className="product-price">
+                              ${product.price.toFixed(2)}
+                            </s>
+                            <span className="product-price has-text-weight-bold">
+                              {'  '}${product.sale_price.toFixed(2)}
+                            </span>
+                          </div>
+                        )}
                         <div>
                           <ProductStarRating product={product} showAll />
                         </div>
@@ -336,12 +341,12 @@ class ProductShow extends Component {
           </div>
         </div>
       ) : (
-          <ErrorPage
-            errorTitle="We're sorry, we couldn't find this product."
-            errorMsg="This product has either been removed, renamed or is unavailable. Feel free to take a look at our current products or to explore other parts of our site."
-            errorType="product"
-          />
-        );
+        <ErrorPage
+          errorTitle="We're sorry, we couldn't find this product."
+          errorMsg="This product has either been removed, renamed or is unavailable. Feel free to take a look at our current products or to explore other parts of our site."
+          errorType="product"
+        />
+      );
     }
     return (
       <div className="spinner-container">
