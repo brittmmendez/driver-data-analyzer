@@ -4,34 +4,34 @@
             height: 32px;	
             width: 48px;	
             color: #000000;	
-            font-family: $mukta-font;
+            font-family: $montserrat-font;
             font-size: 16px;	
             line-height: 18px;	
             text-align: center;
             border-radius: 0;
             box-shadow: none;
-            border-color: $natural-light-gray;
+            border-color: $pale-pink;
         }
 
         .input[disabled]{
             background-color: white;
-            color: $natural-gray;
+            color: $black;
         }
 
     
         .button {
             height: 32px;
             width: 32px;
-            color: white;
-            border: 1px solid $dark-teal;
-            background-color: $dark-teal;
+            color: $black;
+            border: 1px solid $pale-pink;
+            background-color: $hard-pink;
             border-radius: 0;
         }
 
         .button[disabled]{
-            color: $dark-teal;
-            border: 1px solid $natural-gray;
-            background-color: $natural-gray;
+            color: $hard-pink;
+            border: 1px solid $pale-pink;
+            background-color: $pale-pink;
         }
     }
 }
@@ -444,11 +444,11 @@
         .slick-arrow{
             height: 35px;	
             width: 35px;	
-            border: 1px solid $black;	
+            border: 1.5px solid $black;	
             border-radius: 1px;	
             background-color: $pale-pink;
-            margin-right: 20px;
-            margin-left: 20px;
+            // margin-right: 20px;
+            // margin-left: 20px;
         }
     }
     .slick-prev:before, .slick-next:before{
@@ -477,7 +477,7 @@
     }
 
     .slick-prev:hover,.slick-next:hover{
-        border: 3px solid  $dark-purple;
+        border: 3px solid  $hard-pink;
     }
   }
 }

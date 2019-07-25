@@ -121,6 +121,7 @@
 @include mobile {
   .product-show {
     .section{
+      background: transparent;
       padding: 0px;
       padding-top: 20px;
 
@@ -311,6 +312,12 @@
   border: none;
   // margin-top: 51px;
   // margin: 51px auto;
+
+  .RRT__tab.tabs.RRT__tab {
+    .tabs-title { 
+      text-align: center;
+    }
+  }
 
   .RRT__panel.panel {
 	min-height: 255px;
