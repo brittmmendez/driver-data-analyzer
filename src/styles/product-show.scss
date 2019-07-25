@@ -353,6 +353,7 @@
       margin-right: 0px;
       margin-bottom: 0px;
       padding-bottom: 10px;
+      padding-top: 30px;
       
       li{
         margin-left: 10px;
@@ -438,6 +439,12 @@
 
     .RRT__tab.tabs.RRT__tab{
       border-bottom: 1px solid $black;    
+    }
+
+    .RRT__tabs {
+      span {
+        font-size: 18px;
+      }
     }
   }
 
@@ -704,6 +711,7 @@ table{
   .RRT__tab.tabs.RRT__tab--selected .tabs-title {
     // border: 3px solid $black;
     border-bottom: none;
+    padding-top: 15px;
     .tabs-title {
       border: none;
       border-image: none;
