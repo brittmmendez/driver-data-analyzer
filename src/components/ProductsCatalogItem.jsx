@@ -15,7 +15,7 @@ class ProductsCatalogItem extends Component {
   render() {
     const { product } = this.props;
     return (
-      <div className="product-catalog-item column is-one-third-desktop is-one-third-tablet is-half-mobile event_view_product_detail_page">
+      <div className="product-catalog-item column is-one-third-desktop is-one-third-tablet is-12-mobile event_view_product_detail_page">
         <div className="box">
           <Link
             data-cy="catalog-item"
@@ -45,7 +45,9 @@ class ProductsCatalogItem extends Component {
                     <span className="is-hidden-mobile">
                       More Options Available
                     </span>
-                    <span className="is-hidden-tablet">More Options</span>
+                    <span className="is-hidden-tablet">
+                      More Options Available
+                    </span>
                   </span>
                 ) : (
                   <br />
