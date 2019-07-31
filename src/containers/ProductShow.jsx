@@ -270,7 +270,7 @@ class ProductShow extends Component {
                               smooth
                               to={`/products-page/${product.id}#more-details`}
                             >
-                              View Details
+                              More Details
                             </Link>
                           </span>
                           {/* </p> */}

@@ -22,6 +22,8 @@ const Products = types
     setProductDetailsArray(productDetailsGroup) {
       self.productDetailsGrouping = productDetailsGroup.items.map(item => ({
         productId: item.fields.productId,
+        productModalDetailCopy:
+          item.fields.modalProductDetail.fields.productDetailsCopy,
         productDetails: item.fields.productsDetails.map(detail => ({
           productDetailsTitle: detail.fields.productDetailsTitle,
           productDetailsCopy: detail.fields.productDetailsCopy,
@@ -65,6 +67,17 @@ const Products = types
   .views(self => ({
     get productCount() {
       return self.data.length;
+    },
+
+    getModalCopy(productID) {
+      const modalDetails = self.productDetailsGrouping.filter(
+        grouping => parseInt(grouping.productId, 10) === productID
+      )[0];
+
+      if (modalDetails.productModalDetailCopy) {
+        return modalDetails.productModalDetailCopy;
+      }
+      return 'false';
     }
   }));
 

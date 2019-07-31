@@ -6,6 +6,7 @@ import ProductDetails from './ProductDetails';
 
 const ProductDetailsGroup = types.model({
   productId: types.optional(types.string, ''),
+  productModalDetailCopy: types.optional(types.string, ''),
   productDetails: types.maybe(types.array(ProductDetails), [])
 });
 
