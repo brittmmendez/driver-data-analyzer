@@ -105,6 +105,10 @@
   .product-description{
     margin-bottom: 15px;
 
+    span {
+      font-family: $montserrat-font;
+    }
+
     span:hover {
       background-color: $pale-pink;
     }
