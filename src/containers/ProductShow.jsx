@@ -5,7 +5,7 @@ import Tabs from 'react-responsive-tabs';
 import Markdown from 'react-markdown';
 import { HashLink as Link } from 'react-router-hash-link';
 import { Helmet } from 'react-helmet';
-// import { Image, Transformation } from 'cloudinary-react';
+import { Image, Transformation } from 'cloudinary-react';
 // import LazyLoad from 'react-lazyload';
 import PurchaseForm from '../components/PurchaseForm';
 import LoadingView from '../components/LoadingView';
@@ -288,7 +288,7 @@ class ProductShow extends Component {
             </div>
             <div
               className="product-details-section"
-              style={{ backgroundImage: `url(${contentful.emptyCartImg})` }}
+              // style={{ backgroundImage: `url(${contentful.emptyCartImg})` }}
             >
               {/* <Image
                 publicId={spotlightStat.spotlightBackgroundLeft}
@@ -321,6 +321,37 @@ class ProductShow extends Component {
                 />
               </Image> */}
               <section className="section product-details-background">
+                <Image
+                  publicId={contentful.pdpBackgroundLinesLeft}
+                  alt={contentful.pdpBackgroundLinesLeft}
+                  type="fetch"
+                  className="background-left"
+                >
+                  <Transformation
+                    quality="auto"
+                    fetchFormat="auto"
+                    dpr="auto"
+                    responsive
+                    crop="scale"
+                    // width="325"
+                  />
+                </Image>
+                <Image
+                  publicId={contentful.pdpBackgroundLinesRight}
+                  alt={contentful.pdpBackgroundLinesRight}
+                  type="fetch"
+                  className="background-right"
+                >
+                  <Transformation
+                    quality="auto"
+                    fetchFormat="auto"
+                    dpr="auto"
+                    responsive
+                    crop="scale"
+                    //  width="325"
+                  />
+                </Image>
+
                 <div className="container">
                   {this.getDetails(product) && (
                     <div id="more-details">

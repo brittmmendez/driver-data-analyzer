@@ -27,6 +27,22 @@
 
 .product-details-background {
   background-color: $white;
+  position: relative;
+  z-index: 0;
+
+  .background-left {
+    position: absolute;
+    z-index: -1;
+   // height: 141px;
+}
+
+.background-right {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+    // height: 70px;
+}
 }
 
 .product-name {
@@ -281,6 +297,7 @@
   // margin-top: 51px;
   // margin: 51px auto;
 
+
   .RRT__tab.tabs.RRT__tab {
     .tabs-title { 
       text-align: center;
@@ -445,7 +462,7 @@
   // border: 1px solid $dark-teal;
   font-family: $montserrat-font;
   border: none;
-  background-color: $white;
+  // background-color: $white;
   color: $black;
   cursor: pointer;
   text-align: left;
@@ -635,6 +652,7 @@ table{
   .product-show{
     .RRT__tab.tabs.RRT__tab {
       border: 1px solid $black;
+      background-color: $white;
     }
     // section.section{
     //   padding: 0px;
@@ -651,6 +669,10 @@ table{
     // border-image: linear-gradient(to right, #002C73 0%, #3F9EDF 100%) !important;
     // border-image-slice: 1 !important;
     //border-width: 1px;
+  }
+
+  .RRT__tab--collapsed {
+    background-color: $white;
   }
 
   .RRT__panel.panel{
