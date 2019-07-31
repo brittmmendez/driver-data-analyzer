@@ -77,6 +77,22 @@
 
 }
 
+.close{
+  max-width: 40%;
+  border: 1px solid black;
+  height: 25px;
+  width: 25px;
+  padding: 6px;
+  cursor: pointer;
+  position: absolute;
+  right: 15px;
+  top: 15px;
+}
+
+.modal-card-body {
+padding: 50px;
+}
+
 
 .product-show-desktop {
 
@@ -95,6 +111,8 @@
     color: $black;
     background-color: $pale-pink;
   }
+
+
   
   .product-price {
     font-size: 20px;
