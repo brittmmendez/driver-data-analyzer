@@ -50,6 +50,21 @@
     
         .option{
             margin-top: 20px;
+
+            a {
+                font-family: $montserrat-font;
+                text-transform: uppercase;
+                text-decoration: underline;
+                color: $black;
+            }
+
+            a:hover {
+                background-color: $pale-pink;
+            }
+
+            a:active {
+                background-color: $pale-pink;
+            }
         }
         .Color .button {
             margin-top: 5px;
