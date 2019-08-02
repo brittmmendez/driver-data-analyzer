@@ -1,58 +1,21 @@
 .product-show{
   margin-top: 30px;
 
-  // #tab-0{
-  //   border-left: none;
-  //   @include mobile{
-  //     // border-left: 3px solid $dark-teal;
-  //   }
-  // }
-  
-  // #tab-2{
-  //   border-right: none;
-  //   @include mobile{
-  //     // border-right: 3px solid $dark-teal;
-  //   }
-  // }
-
-  .section{
-    // margin-top: 95px;
+  .close {
+    max-width: 40%;
+    border: 1px solid black;
+    height: 25px;
+    width: 25px;
+    padding: 6px;
+    cursor: pointer;
+    position: absolute;
+    right: 15px;
+    top: 15px;
   }
-
-  // .product-regular-price {
-  //   color: $natural-dark-gray;
-  //     margin-bottom: 15px;
-  //     margin-top: 15px;
-  //   }
- 
-  // .product-details{
-  //   a:hover{
-  //     background-color: transparent;	
-  //     border-bottom: 3px solid  $neon-blue;   
-  //   }
-  //   a:active{
-  //     background-color: transparent;	
-  //     border-image: linear-gradient(
-  //     to left,
-  //     #3F9EDF 0%,
-  //     #02205F 100%
-  //     ) 0 0 100% 0/0 0 3px 0;
-  //   }
-  // }
-  // .engagement-group .col0 {
-  //   border: 4px solid #4FC5F2;
-  //   background-color: $natural-dark-gray;
-  //   text-align: left;
-  //   // margin-right: 0px;
-  //   position: relative;
-  // }
-
-  // .engagement-group .col1 {
-  //   border: 4px solid #A95AA3;
-  //   background-color: $natural-dark-gray;
-  //   text-align: left;
-  //   position: relative;
-  // }
+  
+  .modal-card-body {
+  padding: 50px;
+  }
   
 }
 
@@ -64,6 +27,22 @@
 
 .product-details-background {
   background-color: $white;
+  position: relative;
+  z-index: 0;
+
+  .background-left {
+    position: absolute;
+    z-index: -1;
+   // height: 141px;
+}
+
+.background-right {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+    // height: 70px;
+}
 }
 
 .product-name {
@@ -76,23 +55,6 @@
   margin-top: 70px;
 
 }
-
-.close{
-  max-width: 40%;
-  border: 1px solid black;
-  height: 25px;
-  width: 25px;
-  padding: 6px;
-  cursor: pointer;
-  position: absolute;
-  right: 15px;
-  top: 15px;
-}
-
-.modal-card-body {
-padding: 50px;
-}
-
 
 .product-show-desktop {
 
@@ -133,6 +95,40 @@ padding: 50px;
     span:active {
       background-color: $pale-pink;
     }
+  }
+}
+
+.form {
+  .product-options {
+    .button {
+      color: $black;
+    }
+
+      span {
+        font-family: $lato-font;
+        font-size: 17px;
+      }
+      .Color {
+        .button {
+          border: solid 1px $black;
+        }
+        .selected-border {
+          border: solid 3px $black;
+        }
+      }
+      .Size {
+        
+        .button {
+          font-family: $montserrat-font;
+          text-transform: uppercase;
+          border: solid 1px $black;
+        }
+        .selected-border {
+          font-weight: bold;
+          border: solid 3px $black;
+          background-color: $pale-pink;
+        }
+      }
   }
 }
 
@@ -332,14 +328,16 @@ padding: 50px;
 .RRT__container{
   background-color: transparent;
   border: none;
-  // margin-top: 51px;
-  // margin: 51px auto;
 
-  .RRT__tab.tabs.RRT__tab {
-    .tabs-title { 
-      text-align: center;
-    }
+  .RRT__tab.tabs.RRT__tab--selected .tabs-title {
+    border: solid 3px $black;
   }
+
+  .RRT__tab.tabs.RRT__tab .tabs-title {
+    text-align: center;
+
+  }
+
 
   .RRT__panel.panel {
     min-height: 255px;
@@ -448,6 +446,7 @@ padding: 50px;
     color: $black;
     font-weight: bold;
     text-transform: uppercase;
+    border: solid 3px $black;
   }
 
    
@@ -499,7 +498,7 @@ padding: 50px;
   // border: 1px solid $dark-teal;
   font-family: $montserrat-font;
   border: none;
-  background-color: $white;
+  // background-color: $white;
   color: $black;
   cursor: pointer;
   text-align: left;
@@ -689,6 +688,7 @@ table{
   .product-show{
     .RRT__tab.tabs.RRT__tab {
       border: 1px solid $black;
+      background-color: $white;
     }
     // section.section{
     //   padding: 0px;
@@ -705,6 +705,10 @@ table{
     // border-image: linear-gradient(to right, #002C73 0%, #3F9EDF 100%) !important;
     // border-image-slice: 1 !important;
     //border-width: 1px;
+  }
+
+  .RRT__tab--collapsed {
+    background-color: $white;
   }
 
   .RRT__panel.panel{
