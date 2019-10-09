@@ -26,8 +26,8 @@ class NavBar extends Component {
             <i className="fas fa-home" />
           </Link>
 
-          <a
-            role="button"
+          <button
+            type="button"
             className="navbar-burger burger"
             aria-label="menu"
             aria-expanded="false"
@@ -36,15 +36,15 @@ class NavBar extends Component {
             <span aria-hidden="true" />
             <span aria-hidden="true" />
             <span aria-hidden="true" />
-          </a>
+          </button>
         </div>
 
         <div id="navbarBasicExample" className={`navbar-menu ${isActive && "is-active"}`}>
           <div className="navbar-start">
-            <Link to="/analyze" className="navbar-item">
+            <Link to="/analyze" className="navbar-item" data-cy="analyze-page-link">
               Analyze Data
             </Link>
-            <Link to="/about" className="navbar-item">
+            <Link to="/about" className="navbar-item" data-cy="about-page-link">
               About Me
             </Link>
           </div>

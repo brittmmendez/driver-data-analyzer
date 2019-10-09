@@ -58,10 +58,14 @@ class DataFilter extends Component {
               <tr>
                 <th>{idx + 1}</th>
                 <td>
-                  <a
-                    onClick={() => this.handleClick(driver.name)}>
+                  <span
+                    role="button"
+                    tabIndex="0"
+                    className="driver-name"
+                    onClick={() => this.handleClick(driver.name)}
+                    onKeyPress={() => this.handleClick(driver.name)}>
                     {driver.name}
-                  </a>
+                  </span>
                 </td>
                 <td>{driver.totalTrips}</td>
                 <td>{driver.totalDistance}</td>
@@ -70,11 +74,23 @@ class DataFilter extends Component {
 
 
                 <div className={`modal ${isActive && driver.name === name && "is-active"}`}>
-                  <div className="modal-background" onClick={() => this.handleClick()} />
+                  <div
+                    className="modal-background"
+                    onClick={() => this.handleClick()}
+                    onKeyPress={() => this.handleClick()}
+                    role="button"
+                    tabIndex="0"
+                  />
                   <div className="modal-card">
                     <header className="modal-card-head">
-                      <p className="modal-card-title">{driver.name}</p>
-                      <button className="delete" aria-label="close" onClick={() => this.handleClick()} />
+                      <span className="modal-card-title">{driver.name}</span>
+                      <button
+                        className="delete"
+                        aria-label="close"
+                        onClick={() => this.handleClick()}
+                        onKeyPress={() => this.handleClick()}
+                        type="button"
+                      />
                     </header>
                     <section className="modal-card-body">
                       <table className="table">

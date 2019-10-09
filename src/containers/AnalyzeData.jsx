@@ -14,7 +14,7 @@ class AnalyzeData extends Component {
   render() {
     const { shop } = this.props
     return (
-      <section className="section  has-text-centered">
+      <section className="section" data-cy="analyze-page">
         <div className="container">
           <div className="content">
             {!shop.drivers.length ?

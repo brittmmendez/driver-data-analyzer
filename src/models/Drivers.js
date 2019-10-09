@@ -19,7 +19,7 @@ const Drivers = types
       self.trips.forEach(trip => {
         miles += trip.distance;
       })
-      return miles
+      return Math.round(miles)
     },
 
     get totalTime() {

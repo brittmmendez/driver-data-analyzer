@@ -1,3 +1,6 @@
+$orange: #ff5715;
+$burnt-orange: #fb4700;
+
 .navbar {
   position: absolute;
   left: 0;
@@ -5,9 +8,81 @@
   right: 0;
 }
 
-.footer {
+.main-content{
+  min-height: 78vh
+}
+
+.section{
+  padding-top: 5rem;
+}
+
+a, .driver-name{
+  color: $orange;
+  cursor: pointer;
+} 
+
+a.social-link{
+  color: black;
+  margin: 10px;
+}
+
+a:hover, a:focus, a:active, .driver-name:hover{
+  color: $burnt-orange;
+  cursor: pointer;
+  text-decoration: underline;
+} 
+
+a.navbar-item {
+  font-weight: bold;
+}
+
+a.navbar-item:hover {
+  color: $orange;
+  text-decoration: none;
+  background: none;
+}
+
+a.navbar-item:focus, a.navbar-item:active {
+  text-decoration: none;
+  color: $burnt-orange;
+  background: none;
+}
+
+.button{
+  font-size: 16px;
+  border: none;
+  font-weight: bold;
+  line-height: 44px;
+  padding: 0 50px;
+  color: white;
+  background-color: $orange;
+  border-radius: 3px;
+  height: 45px;
+}
+
+.button:hover, .button:active {
+  color: white;
+  background-color: $burnt-orange;
+  text-decoration: none;
+}
+
+.fileContainer {
+  position: relative;
+}
+
+.fileContainer [type=file] {
+  cursor: inherit;
+  filter: alpha(opacity=0);
+  opacity: 0;
   position: absolute;
-  left: 0;
-  bottom: 0;
   right: 0;
+  text-align: right;
+  top: 0;
+}
+
+
+@include mobile{
+  .main-content{
+    min-height: 45vh;
+  }
 }
